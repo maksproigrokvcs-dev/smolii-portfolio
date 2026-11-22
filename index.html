@@ -462,6 +462,20 @@ h1 .hl::after{content:"";position:absolute;left:0;right:0;bottom:.06em;height:.0
 .c-chips span{font-size:13px;color:#cfcfd6;border:1px solid var(--line);border-radius:100px;padding:6px 12px}
 .c-btns{display:flex;gap:10px;flex-wrap:wrap}
 .c-btns svg{width:15px;height:15px}
+.xp{margin-top:20px}
+.xp-btn{display:inline-flex;align-items:center;gap:10px;min-height:48px;padding:0 18px;border:1px solid #33333b;border-radius:999px;background:transparent;color:var(--text);font:inherit;font-weight:600;font-size:15px;cursor:pointer;transition:border-color .2s,background .2s}
+.xp-btn:hover{border-color:var(--acc)}
+.xp-btn i{font-style:normal;display:inline-grid;place-items:center;min-width:22px;height:22px;padding:0 6px;border-radius:999px;background:rgba(200,255,61,.12);color:var(--acc);font-size:12px}
+.xp-btn svg{width:18px;height:18px;transition:transform .25s}
+.xp-btn[aria-expanded="true"] svg{transform:rotate(180deg)}
+.xp-list{list-style:none;margin:12px 0 0;padding:0;display:grid;gap:10px}
+.xp-list[hidden]{display:none}
+.xp-list a{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 22px;border:1px solid #2a2a31;border-radius:18px;background:var(--bg2);text-decoration:none;color:var(--text);transition:border-color .2s,transform .2s}
+.xp-list a:hover{border-color:var(--acc);transform:translateY(-2px)}
+.xp-t b{display:block;font-size:17px}
+.xp-t small{display:block;margin-top:3px;color:var(--muted);font-size:14px;line-height:1.45}
+.xp-go{flex:none;color:var(--acc);font-weight:600;font-size:14.5px;white-space:nowrap}
+@media (max-width:560px){.xp-list a{flex-direction:column;align-items:flex-start;padding:16px 18px}}
 .wk-more{margin-top:20px;border:1px dashed #33333b;border-radius:20px;padding:30px;display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
 .wk-more h4{font-size:22px;font-weight:700;letter-spacing:-.02em}
 .wk-more p{color:var(--muted);font-size:15px;margin-top:4px}
@@ -905,6 +919,17 @@ footer{position:relative;z-index:1;border-top:1px solid var(--line);margin-top:4
       <p data-i="wLead">Конкурсні роботи й концепти. Це живі сайти, а не картинки: відкрийте, потисніть, пройдіть квіз. Саме так я працюю і над сайтами клієнтів.</p>
     </div>
     <div id="cases"></div>
+    <div class="xp">
+      <button type="button" class="xp-btn" id="xpBtn" aria-expanded="false" aria-controls="xpList">
+        <span data-i="xpBtn">Інші проєкти й експерименти</span><i>1</i>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+      </button>
+      <ul class="xp-list" id="xpList" hidden>
+        <li><a href="vice-city/" target="_blank" rel="noopener">
+          <span class="xp-t"><b>Vice City</b><small data-i="xpVc">Неофіційний фан-концепт: перемикання персонажів, відео-переходи й інтерактивна мапа</small></span>
+          <span class="xp-go"><span data-i="wOpen">Відкрити сайт</span> ↗</span></a></li>
+      </ul>
+    </div>
     <div class="wk-more">
       <div><h4 data-i="wMoreH">Наступним може бути ваш сайт</h4><p data-i="wMoreP">Розкажіть про свій бізнес — запропоную структуру, яка працюватиме саме у вашій ніші.</p></div>
       <a class="btn btn-acc" href="#contact" data-go><span data-i="wMoreB">Обговорити проєкт</span>
@@ -1157,6 +1182,7 @@ const T = {
     s7t:"Пошук і карта",s7d:"Налаштовуємо сайт під запити «послуга + місто» і додаємо Google Maps з контактами.",s7q:"прибирання квартир київ",s7r:"Прибирання квартир у Києві — CleanPro",s7p:"Чиста квартира за 2 години. Без передоплати, з гарантією результату.",s7m:"вул. Хрещатик, 1 · відкрито до 21:00",
     s8t:"Хостинг, домен і запуск",s8d:"Підключаємо домен, SSL і хостинг. Ви отримуєте посилання на готовий сайт, а не архів з файлами.",s8b:"Хочу сайт під ключ",s8s:"Все з цього списку входить у вартість.",
     wEy:"роботи",wH:"Проєкти, на яких видно підхід",wLead:"Конкурсні роботи й концепти. Це живі сайти, а не картинки: відкрийте, потисніть, пройдіть квіз. Саме так я працюю і над сайтами клієнтів.",wNote:'У відкритому доступі <b>2 проєкти</b>. Інші роботи покажемо на дзвінку.',
+    xpBtn:"Інші проєкти й експерименти",xpVc:"Неофіційний фан-концепт: перемикання персонажів, відео-переходи й інтерактивна мапа",
     wMoreH:"Наступним може бути ваш сайт",wMoreP:"Розкажіть про свій бізнес — запропоную структуру, яка працюватиме саме у вашій ніші.",wMoreB:"Обговорити проєкт",
     wTask:"Задача",wSol:"Рішення",wOpen:"Відкрити сайт",wSame:"Хочу так само",wDesk:"Десктоп",wMob:"Телефон",
     cases:[
@@ -1263,6 +1289,7 @@ const T = {
     s7t:"Search & maps",s7d:"We tune the site for “service + city” searches and add Google Maps with your contacts.",s7q:"flat cleaning kyiv",s7r:"Flat cleaning in Kyiv — CleanPro",s7p:"A spotless flat in 2 hours. No prepayment, results guaranteed.",s7m:"1 Khreshchatyk St · open until 9 pm",
     s8t:"Hosting, domain & launch",s8d:"We connect the domain, SSL and hosting. You get a link to a live site, not a folder of files.",s8b:"I want a turnkey site",s8s:"Everything on this list is included in the price.",
     wEy:"work",wH:"Projects that show the approach",wLead:"Competition entries and concepts. These are live sites, not screenshots: open them, click around, take the quiz. This is exactly how I work on client sites.",wNote:'<b>2 projects</b> are public. We’ll show the rest on a call.',
+    xpBtn:"Other projects & experiments",xpVc:"Unofficial fan concept: character switching, video transitions and an interactive map",
     wMoreH:"Your site could be next",wMoreP:"Tell me about your business — I’ll suggest a structure that works in your niche.",wMoreB:"Discuss a project",
     wTask:"Task",wSol:"Solution",wOpen:"Open the site",wSame:"I want the same",wDesk:"Desktop",wMob:"Mobile",
     cases:[
@@ -1837,6 +1864,16 @@ document.querySelectorAll(".lang button").forEach(b=>b.onclick=()=>{
   lang=b.dataset.l; try{localStorage.setItem("smolii-lang",lang)}catch(e){} applyLang();
 });
 applyLang();
+</script>
+<script>
+(() => {
+  const b = document.getElementById("xpBtn"), l = document.getElementById("xpList");
+  if (!b || !l) return;
+  b.addEventListener("click", () => {
+    const open = l.hidden;
+    l.hidden = !open; b.setAttribute("aria-expanded", open);
+  });
+})();
 </script>
 </body>
 </html>
