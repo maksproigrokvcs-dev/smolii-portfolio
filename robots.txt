@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://smolijmaksymweb.netlify.app/sitemap.xml
