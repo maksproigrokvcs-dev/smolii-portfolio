@@ -11,12 +11,12 @@
 <link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800&family=Lora:ital,wght@1,500;1,600&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#F5F6F8; --surface:#FFFFFF; --ink:#14213A; --muted:#55627A; --line:#E1E5EC;
-  --brand:#22406B; --brand-d:#172F52; --on-brand:#FFFFFF;
-  --mint:#E4ECF7; --mint-2:#C5D6EE; --coral:#D9512C; --coral-bg:#FDEBE5;
-  --tooth:#FFFDF8; --tooth-line:#C9D2DF;
+  --bg:#F3F5F4; --surface:#FFFFFF; --ink:#1F2627; --muted:#5B6767; --line:#DFE5E3;
+  --brand:#3D4A4C; --brand-d:#2C3638; --on-brand:#FFFFFF;
+  --mint:#E2EAE7; --mint-2:#C6D5D0; --coral:#D9512C; --coral-bg:#FDEBE5;
+  --tooth:#FFFDF8; --tooth-line:#C8D2CF;
   --r-s:12px; --r-m:18px; --r-l:28px;
-  --shadow:0 1px 2px rgba(20,33,58,.06),0 12px 40px -12px rgba(20,33,58,.18);
+  --shadow:0 1px 2px rgba(31,38,39,.06),0 12px 40px -12px rgba(31,38,39,.18);
   --ease:cubic-bezier(.2,.8,.2,1);
 }
 *{box-sizing:border-box}
@@ -649,20 +649,36 @@ section[id]{scroll-margin-top:72px}
   .dr.flip .back{visibility:visible}
   .dr.flip .front{visibility:hidden}
 }
-.demobar{background:#14213A;color:#E9EEF6;font-size:13.5px;text-align:center;padding:9px 16px;line-height:1.4}
+.demobar{background:#1F2627;color:#E8EEEC;font-size:13.5px;text-align:center;padding:9px 16px;line-height:1.4}
 .demobar b{color:#fff}
 .logo{white-space:nowrap}
-@media(max-width:420px){.logo{font-size:16px;gap:8px}.logo svg{width:30px;height:30px}.demobar{font-size:12px;padding:7px 12px}}
+.logo img{width:40px;height:40px;border-radius:50%;background:#fff;box-shadow:0 0 0 1px var(--line);flex:none}
+@media(max-width:420px){.logo{font-size:16px;gap:8px}.logo img{width:32px;height:32px}.demobar{font-size:12px;padding:7px 12px}}
+.ws-gal{list-style:none;margin:0;padding:4px 2px 16px;display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:thin}
+.ws-gal li{flex:0 0 236px;scroll-snap-align:start;background:var(--surface);border-radius:var(--r-m);box-shadow:var(--shadow);overflow:hidden}
+.ws-gal img{display:block;width:100%;aspect-ratio:9/16;object-fit:cover;background:var(--mint)}
+.ws-gal span{display:block;padding:11px 14px;font-weight:600;font-size:14.5px}
+.ws-hint{margin:6px 0 0;color:var(--muted);font-size:14px}
+.ws-drs{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.ws-drs figure{margin:0;background:var(--surface);border-radius:var(--r-l);box-shadow:var(--shadow);overflow:hidden}
+.ws-drs img{display:block;width:100%;aspect-ratio:1/1;object-fit:cover;object-position:center 30%}
+.ws-drs figcaption{padding:18px 22px}
+.ws-drs b{display:block;font-size:19px}.ws-drs span{color:var(--muted);font-size:15px}
+.ws-more{display:inline-flex;margin-top:14px}
+.map img.ws-fac{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.msg a.tg,.msg a.vb{background:var(--brand)!important;color:#fff!important}
+.msg a.vb{background:var(--mint)!important;color:var(--ink)!important}
+@media(max-width:700px){.ws-drs{grid-template-columns:1fr}.ws-gal li{flex-basis:200px}}
 </style>
 </head>
 <body>
 <a class="skip" href="#main">Перейти до змісту</a>
-<div class="demobar"><b>Демо-версія сайту для White Story.</b> Ціни, лікарі й відгуки — приклади, замінимо на ваші.</div>
+<div class="demobar"><b>Демо-версія сайту для White Story.</b> Ціни — приклади, замінимо на ваш прайс.</div>
 
 <header class="nav" id="nav">
   <div class="wrap">
     <a class="logo" href="#top" aria-label="White Story, на початок">
-      <svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="19" fill="#fff" stroke="#22406B" stroke-width="2"/><path d="M13.6 11.5c2.4-1 4.4.3 6.4.3s4-1.3 6.4-.3c3 1.3 3.6 5 2.6 9-.8 3.3-1.3 6.2-1.9 8.9-.4 1.8-2.6 2-3.1.2l-1.5-5.2c-.5-1.6-2.5-1.6-3 0l-1.5 5.2c-.5 1.8-2.7 1.6-3.1-.2-.6-2.7-1.1-5.6-1.9-8.9-1-4-.4-7.7 2.6-9z" fill="none" stroke="#22406B" stroke-width="1.8"/></svg>
+      <img src="img/logo.png" alt="" width="40" height="40">
       White Story
     </a>
     <nav class="links" aria-label="Основне меню">
@@ -742,21 +758,20 @@ section[id]{scroll-margin-top:72px}
 <section class="sec" id="results" aria-labelledby="baH" style="padding-top:0">
   <div class="wrap">
     <div class="sec-head">
-      <h2 class="h2" id="baH">До і після: <em>результат видно</em></h2>
-      <p>Потягніть повзунок, щоб порівняти. Демо: тут будуть роботи лікарів White Story «до і після».</p>
+      <h2 class="h2" id="baH">Наші роботи: <em>до і після</em></h2>
+      <p>Справжні результати лікарів White Story. Без фільтрів і ретуші.</p>
     </div>
-    <div class="ba-tabs" id="baTabs" role="tablist" aria-label="Приклади лікування"></div>
-    <div class="ba-grid">
-      <div class="cmp" id="cmp" style="--p:50%">
-        <div id="baBefore"></div>
-        <div class="after" id="baAfter"></div>
-        <span class="tag b">До</span><span class="tag a">Після</span>
-        <div class="line"></div>
-        <div class="knob" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6-6 6 6 6M15 6l6 6-6 6"/></svg></div>
-        <input type="range" id="baRange" min="0" max="100" value="50" step="1" aria-label="Порівняння до і після: перетягніть" aria-valuetext="50% після">
-      </div>
-      <div class="ba-info" id="baInfo" role="tabpanel" aria-live="polite"></div>
-    </div>
+    <ul class="ws-gal" aria-label="Роботи до і після">
+      <li><img src="img/work1.jpg" alt="До і після: Відбілювання BEYOND II Ultra" loading="lazy"><span>Відбілювання BEYOND II Ultra</span></li>
+      <li><img src="img/work2.webp" alt="До і після: Негайна імплантація" loading="lazy"><span>Негайна імплантація</span></li>
+      <li><img src="img/work3.jpg" alt="До і після: Естетична реставрація" loading="lazy"><span>Естетична реставрація</span></li>
+      <li><img src="img/work4.jpg" alt="До і після: Естетична реставрація" loading="lazy"><span>Естетична реставрація</span></li>
+      <li><img src="img/work5.webp" alt="До і після: До · дизайн · після" loading="lazy"><span>До · дизайн · після</span></li>
+      <li><img src="img/work6.webp" alt="До і після: Відновлення зубів" loading="lazy"><span>Відновлення зубів</span></li>
+      <li><img src="img/work7.jpg" alt="До і після: Естетична реставрація" loading="lazy"><span>Естетична реставрація</span></li>
+      <li><img src="img/work8.jpg" alt="До і після: Лікування й реставрація" loading="lazy"><span>Лікування й реставрація</span></li>
+    </ul>
+    <p class="ws-hint">Гортайте вбік, щоб побачити більше →</p>
   </div>
 </section>
 
@@ -764,11 +779,12 @@ section[id]{scroll-margin-top:72px}
   <div class="wrap">
     <div class="sec-head">
       <h2 class="h2" id="drH">Лікарі, до яких <em>не страшно</em></h2>
-      <p>Знайомтеся заздалегідь. Натисніть «Більше про лікаря», щоб дізнатися, чому кожен обрав цю професію.</p>
+      <p>Знайомтеся заздалегідь — ще до першого візиту.</p>
     </div>
-    <div class="dr-top" id="drF" role="group" aria-label="Фільтр за спеціалізацією"></div>
-    <ul class="drs" id="drs"></ul>
-    <p class="dr-note">Демо: тут будуть справжні фото та історії лікарів White Story.</p>
+    <div class="ws-drs">
+      <figure><img src="img/dr-andrii.jpg" alt="Андрій Ковалишин, лікар-стоматолог" loading="lazy"><figcaption><b>Андрій Ковалишин</b><span>Лікар-стоматолог</span></figcaption></figure>
+      <figure><img src="img/team.jpg" alt="Команда White Story" loading="lazy"><figcaption><b>Команда White Story</b><span>Лікарі, які створюють ваші посмішки</span></figcaption></figure>
+    </div>
   </div>
 </section>
 
@@ -834,14 +850,18 @@ section[id]{scroll-margin-top:72px}
   <div class="wrap">
     <div class="sec-head">
       <h2 class="h2" id="rvH">Що кажуть <em>пацієнти</em></h2>
-      <p>Оберіть послугу, яка вас цікавить, і почитайте відгуки саме про неї.</p>
+      <p>Пацієнти самі відмічають нас у своїх сторіз. А в Google у нас 4,9 ★.</p>
     </div>
-    <div class="rv-bar">
-      <div class="ba-tabs" id="rvF" role="group" aria-label="Фільтр відгуків"></div>
-      <div class="rv-nav"><button type="button" id="rvPrev" aria-label="Попередні відгуки"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></button><button type="button" id="rvNext" aria-label="Наступні відгуки"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button></div>
-    </div>
-    <ul class="rv-track" id="rvT" aria-label="Відгуки"></ul>
-    <p class="rv-note">Демо: тут будуть ваші справжні відгуки з Google — зараз у White Story 4,9 ★.</p>
+    <ul class="ws-gal" aria-label="Відгуки пацієнтів">
+      <li><img src="img/rev1.jpg" alt="Відгук пацієнта White Story 1" loading="lazy"></li>
+      <li><img src="img/rev2.jpg" alt="Відгук пацієнта White Story 2" loading="lazy"></li>
+      <li><img src="img/rev3.jpg" alt="Відгук пацієнта White Story 3" loading="lazy"></li>
+      <li><img src="img/rev4.webp" alt="Відгук пацієнта White Story 4" loading="lazy"></li>
+      <li><img src="img/rev5.jpg" alt="Відгук пацієнта White Story 5" loading="lazy"></li>
+      <li><img src="img/rev6.jpg" alt="Відгук пацієнта White Story 6" loading="lazy"></li>
+      <li><img src="img/rev7.jpg" alt="Відгук пацієнта White Story 7" loading="lazy"></li>
+    </ul>
+    <a class="btn ghost ws-more" href="https://www.google.com/maps/place/White+story/@48.9179695,24.7011405,17z/data=!4m8!3m7!1s0x4730c15756cd3777:0xa54e9286541961e4!8m2!3d48.9179695!4d24.7011405!9m1!1b1" target="_blank" rel="noopener">Читати відгуки в Google</a>
   </div>
 </section>
 
@@ -920,16 +940,8 @@ section[id]{scroll-margin-top:72px}
       </form>
 
       <div class="ct" id="contacts">
-        <div class="map" aria-label="Схема проїзду">
-          <svg viewBox="0 0 400 250" aria-hidden="true">
-            <rect width="400" height="250" fill="#EEF1EA"/>
-            <path d="M0 196 C80 176 140 214 220 196 C300 178 340 206 400 190 L400 250 L0 250Z" fill="#CFE4EE"/>
-            <rect x="24" y="22" width="92" height="64" rx="14" fill="#D7EBD6"/><rect x="292" y="34" width="84" height="52" rx="14" fill="#D7EBD6"/>
-            <g stroke="#fff" stroke-linecap="round"><path d="M0 120 H400" stroke-width="14"/><path d="M196 0 V180" stroke-width="12"/><path d="M60 0 L140 180" stroke-width="8"/><path d="M300 110 L360 0" stroke-width="8"/><path d="M0 60 H400" stroke-width="6"/></g>
-            <g fill="#E2E6DF"><rect x="214" y="70" width="40" height="34" rx="5"/><rect x="262" y="70" width="34" height="34" rx="5"/><rect x="214" y="132" width="70" height="34" rx="5"/><rect x="128" y="70" width="52" height="34" rx="5"/><rect x="40" y="132" width="60" height="34" rx="5"/><rect x="306" y="132" width="60" height="34" rx="5"/></g>
-            <g transform="translate(206 103)"><circle r="20" fill="#22406B" opacity=".16"/><path d="M0 -26 C-11 -26 -18 -18 -18 -9 C-18 3 0 16 0 16 C0 16 18 3 18 -9 C18 -18 11 -26 0 -26Z" fill="#22406B"/><circle cy="-9" r="6" fill="#fff"/></g>
-            <rect x="320" y="150" width="34" height="22" rx="5" fill="#fff"/><text x="337" y="166" text-anchor="middle" font-family="Onest,sans-serif" font-weight="700" font-size="13" fill="#2F6F8F">P</text>
-          </svg>
+        <div class="map" aria-label="Вхід у клініку">
+          <img class="ws-fac" src="img/facade.jpg" alt="Вхід у White Story, вул. Мазепи, 58" loading="lazy">
           <span class="pinlbl">White Story · Мазепи, 58</span>
           <a href="https://maps.app.goo.gl/UcrDSdRPDhxoH2PcA" target="_blank" rel="noopener">Прокласти маршрут</a>
         </div>
@@ -949,14 +961,14 @@ section[id]{scroll-margin-top:72px}
   <div class="wrap">
     <div class="cols">
       <div>
-        <a class="logo" href="#top" aria-label="White Story, на початок"><svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="19" fill="#C5D6EE" stroke="#22406B" stroke-width="2"/><path d="M13.6 11.5c2.4-1 4.4.3 6.4.3s4-1.3 6.4-.3c3 1.3 3.6 5 2.6 9-.8 3.3-1.3 6.2-1.9 8.9-.4 1.8-2.6 2-3.1.2l-1.5-5.2c-.5-1.6-2.5-1.6-3 0l-1.5 5.2c-.5 1.8-2.7 1.6-3.1-.2-.6-2.7-1.1-5.6-1.9-8.9-1-4-.4-7.7 2.6-9z" fill="none" stroke="#22406B" stroke-width="1.8"/></svg>White Story</a>
+        <a class="logo" href="#top" aria-label="White Story, на початок"><img src="img/logo.png" alt="" width="40" height="40">White Story</a>
         <p class="about">Стоматологія в центрі Івано-Франківська. Усі види стоматологічних послуг, онлайн-запис 24/7.</p>
       </div>
       <div><h4>Лікування</h4><ul><li><a href="#braces">Брекети й елайнери</a></li><li><a href="#services">Лікування зубів</a></li><li><a href="#services">Імплантація</a></li><li><a href="#services">Дитяча стоматологія</a></li></ul></div>
       <div><h4>Пацієнтам</h4><ul><li><a href="#prices">Ціни й кошторис</a></li><li><a href="#doctors">Лікарі</a></li><li><a href="#faq">Питання</a></li></ul></div>
       <div><h4>Контакти</h4><ul><li><a href="https://maps.app.goo.gl/UcrDSdRPDhxoH2PcA" target="_blank" rel="noopener">вул. Мазепи, 58</a></li><li><a href="tel:+380509809440">050 980 94 40</a></li><li><a href="#contacts">Пн–Сб 9:00–20:00</a></li><li><a href="#book">Записатися онлайн</a></li></ul></div>
     </div>
-    <div class="bot"><span>© 2026 White Story · демо-версія сайту</span><a class="credit" href="https://smolii.pages.dev" target="_blank" rel="noopener">Підготував <b>SMOLII</b> · ціни, лікарі й відгуки — приклади</a></div>
+    <div class="bot"><span>© 2026 White Story · демо-версія сайту</span><a class="credit" href="https://smolii.pages.dev" target="_blank" rel="noopener">Підготував <b>SMOLII</b> · ціни — приклади</a></div>
   </div>
 </footer>
 
@@ -1400,284 +1412,9 @@ section[id]{scroll-margin-top:72px}
 })();
 </script>
 
-<script>
-/* ---------- block: before / after (illustrations, no patient photos) ---------- */
-(() => {
-  const CX = 300;
-  // front teeth from the midline outwards: width, length
-  const UP = [[48,74],[37,64],[34,68],[30,56],[26,50]];
-  const LO = [[25,46],[26,46],[29,48],[29,44],[27,40]];
-  const edgeUp = x => 196 - Math.pow((x - CX) / 150, 2) * 18;   // upper incisal line follows the smile
 
-  function smile(o, uid){
-    const W = o.color === "yellow" ? ["#EADBA9","#D7C084"] : ["#FBFAF5","#E4DED0"];
-    const shade = i => (i * .055).toFixed(3);
-    const off = o.off || {};
-    const tooth = (side, i, top, w, h, lower) => {
-      const k = `${lower ? "L" : "U"}${side}${i}`;
-      if (o.missing === k) return "";
-      const t = off[k] || {};
-      const x = side < 0 ? top.x - w : top.x;
-      const y = top.y + (t.dy || 0);
-      const hh = h + (t.dh || 0);
-      const cx = x + w / 2 + (t.dx || 0), cy = y + hh / 2;
-      const r = Math.min(w * .42, 16);
-      const rot = t.r ? ` rotate(${t.r} ${cx.toFixed(1)} ${cy.toFixed(1)})` : "";
-      const chip = t.chip ? `<path d="M${x + (t.dx||0) + (side < 0 ? 4 : w - 16)} ${y + hh} l8 -10 l8 10z" fill="#5A2A30"/>` : "";
-      const bracket = o.brackets && i < 4 ? `<rect x="${(cx - 6).toFixed(1)}" y="${(y + hh * .55).toFixed(1)}" width="12" height="10" rx="2.5" fill="#B9C3C1" stroke="#7E8C89"/>` : "";
-      return `<g transform="translate(0 0)${rot}">
-        <rect x="${(x + (t.dx||0)).toFixed(1)}" y="${y.toFixed(1)}" width="${w}" height="${hh.toFixed(1)}" rx="${r}" fill="url(#g${uid})" stroke="${W[1]}" stroke-width="1.2"/>
-        <rect x="${(x + (t.dx||0)).toFixed(1)}" y="${y.toFixed(1)}" width="${w}" height="${hh.toFixed(1)}" rx="${r}" fill="#3B1A1F" opacity="${shade(i)}"/>
-        ${i === 0 ? `<ellipse cx="${(cx - w * .18).toFixed(1)}" cy="${(y + hh * .62).toFixed(1)}" rx="${(w * .12).toFixed(1)}" ry="${(hh * .14).toFixed(1)}" fill="#fff" opacity=".55"/>` : ""}
-        ${chip}${bracket}</g>`;
-    };
-    // positions
-    let upper = "", lower = "", wire = [];
-    [-1, 1].forEach(side => {
-      let x = CX + (o.gap ? side * o.gap / 2 : 0);
-      UP.forEach(([w, h], i) => {
-        const tx = side < 0 ? x : x;
-        const bottom = edgeUp(side < 0 ? tx - w / 2 : tx + w / 2);
-        upper += tooth(side, i, { x: tx, y: bottom - h }, w, h, false);
-        if (o.brackets && i < 4) wire.push([side < 0 ? tx - w / 2 : tx + w / 2, bottom - h * .45 + 5]);
-        x += side * (w + 1.5);
-      });
-      x = CX;
-      LO.forEach(([w, h], i) => {
-        const top = edgeUp(side < 0 ? x - w / 2 : x + w / 2) - 10;
-        lower += tooth(side, i, { x, y: top }, w, h, true);
-        x += side * (w + 1.2);
-      });
-    });
-    wire.sort((a, b) => a[0] - b[0]);
-    const wirePath = wire.length ? `<path d="${wire.map((p, i) => (i ? "L" : "M") + p[0].toFixed(1) + " " + p[1].toFixed(1)).join(" ")}" fill="none" stroke="#8D9A97" stroke-width="2"/>` : "";
-    const mouth = "M112 128 C200 102 400 102 488 128 C452 222 384 256 300 256 C216 256 148 222 112 128 Z";
-    return `<svg viewBox="62 50 476 258" aria-hidden="true" preserveAspectRatio="xMidYMid meet">
-      <defs>
-        <linearGradient id="g${uid}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${W[0]}"/><stop offset="1" stop-color="${W[1]}"/></linearGradient>
-        <clipPath id="m${uid}"><path d="${mouth}"/></clipPath>
-      </defs>
-      <path d="${mouth}" fill="#5A2A30"/>
-      <g clip-path="url(#m${uid})">
-        <path d="M100 248 C200 236 400 236 500 248 L500 280 L100 280Z" fill="#D9878F"/>
-        ${lower}
-        <path d="M100 96 L500 96 L500 132 C400 120 200 120 100 132Z" fill="#E59AA1"/>
-        ${upper}${wirePath}
-      </g>
-      <path d="M86 126 C150 72 240 62 300 80 C360 62 450 72 514 126 C430 100 170 100 86 126Z" fill="#CF7F82"/>
-      <path d="M86 126 C170 104 430 104 514 126" fill="none" stroke="#B4676B" stroke-width="3" stroke-linecap="round"/>
-      <path d="M90 130 C140 236 222 290 300 290 C378 290 460 236 510 130 C466 232 386 266 300 266 C214 266 134 232 90 130Z" fill="#D38A8C"/>
-      <ellipse cx="300" cy="280" rx="70" ry="5" fill="#fff" opacity=".25"/>
-    </svg>`;
-  }
 
-  /* cases: illustrations; prices approximate for Ivano-Frankivsk */
-  const CASES = [
-    { id:"braces", tab:"Брекети", title:"Скупчені зуби → рівна посмішка", who:"Олена, 27 років · приклад",
-      problem:"Скупченість зубів, верхні різці «наїжджали» один на одного", done:"Керамічні брекети на обидві щелепи, потім ретейнер",
-      term:"18 місяців", price:"від 28 000 ₴",
-      before:{ color:"white", off:{ "U-11":{dx:-7,dy:-6,r:11}, "U11":{dx:6,dy:4,r:-9}, "U-12":{dy:-12,dx:4,r:-7}, "U12":{dy:-7,r:6}, "U-10":{dx:5,r:-4}, "U10":{dx:-3,r:3},
-        "L-10":{r:9,dy:2}, "L10":{r:-7,dy:3}, "L-11":{dx:-4,r:-11,dy:4}, "L11":{dx:5,r:10} } },
-      after:{ color:"white" } },
-    { id:"white", tab:"Відбілювання", title:"Наліт і жовтизна → світла посмішка", who:"Андрій, 34 роки · приклад",
-      problem:"Пігментний наліт від кави, зуби на кілька тонів темніші", done:"Професійна гігієна й офісне відбілювання",
-      term:"2 візити", price:"від 3 000 ₴",
-      before:{ color:"yellow" }, after:{ color:"white" } },
-    { id:"implant", tab:"Імплант", title:"Відсутній зуб → імплант з коронкою", who:"Марія, 45 років · приклад",
-      problem:"Немає бічного різця, сусідні зуби почали зсуватися", done:"Імплант під ключ із цирконієвою коронкою",
-      term:"3 місяці", price:"від 43 000 ₴",
-      before:{ color:"white", missing:"U11", off:{ "U10":{dx:5,r:4}, "U12":{dx:-5,r:-5} } }, after:{ color:"white" } },
-    { id:"veneers", tab:"Вініри", title:"Сколи й щілина → рівні краї", who:"Ігор, 31 рік · приклад",
-      problem:"Скол на центральному різці, щілина між передніми зубами", done:"4 композитні вініри на передні зуби",
-      term:"2 візити", price:"від 22 000 ₴",
-      before:{ color:"white", gap:9, off:{ "U-10":{dh:-9,chip:true}, "U11":{dh:-7}, "U-11":{dh:-4} } }, after:{ color:"white" } }
-  ];
 
-  const tabsEl = document.getElementById("baTabs"), info = document.getElementById("baInfo");
-  const cmp = document.getElementById("cmp"), range = document.getElementById("baRange");
-  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
-  let cur = 0;
-
-  tabsEl.innerHTML = CASES.map((c, i) => `<button type="button" class="cat" role="tab" id="bat-${c.id}" aria-selected="${i === 0}" tabindex="${i === 0 ? 0 : -1}" data-i="${i}">${c.tab}</button>`).join("");
-  const tabs = [...tabsEl.children];
-
-  function setP(v){ cmp.style.setProperty("--p", v + "%"); range.value = v; range.setAttribute("aria-valuetext", `${Math.round(100 - v)}% після`); }
-
-  function show(i){
-    cur = i; const c = CASES[i];
-    tabs.forEach((t, j) => { t.setAttribute("aria-selected", j === i); t.tabIndex = j === i ? 0 : -1; });
-    document.getElementById("baBefore").innerHTML = smile(c.before, "b" + i);
-    document.getElementById("baAfter").innerHTML = smile(c.after, "a" + i);
-    info.setAttribute("aria-labelledby", "bat-" + c.id);
-    info.innerHTML = `<h3>${c.title}</h3><p class="who">${c.who}</p>
-      <dl class="ba-rows">
-        <div><dt>Проблема</dt><dd>${c.problem}</dd></div>
-        <div><dt>Що зробили</dt><dd>${c.done}</dd></div>
-        <div><dt>Термін</dt><dd>${c.term}</dd></div>
-        <div class="pr"><dt>Вартість</dt><dd>${c.price}</dd></div>
-      </dl>
-      <p class="ill">Це ілюстрація. На сайті клініки тут будуть фото реальних пацієнтів, зроблені з їхньої згоди.</p>
-      <a class="btn primary" href="#book">Хочу такий результат</a>`;
-  }
-
-  range.addEventListener("input", () => setP(+range.value));
-  tabsEl.addEventListener("click", e => { const t = e.target.closest(".cat"); if (t){ show(+t.dataset.i); hint(); } });
-  tabsEl.addEventListener("keydown", e => {
-    if (e.key !== "ArrowRight" && e.key !== "ArrowLeft") return;
-    e.preventDefault();
-    const n = (cur + (e.key === "ArrowRight" ? 1 : -1) + CASES.length) % CASES.length;
-    tabs[n].focus(); show(n);
-  });
-
-  // small "wiggle" so people see it can be dragged
-  let anim;
-  function hint(){
-    if (reduce) { setP(50); return; }
-    cancelAnimationFrame(anim);
-    const t0 = performance.now(), dur = 1400;
-    const step = now => {
-      const k = Math.min(1, (now - t0) / dur);
-      setP(50 + Math.sin(k * Math.PI * 2) * 22 * (1 - k));
-      if (k < 1) anim = requestAnimationFrame(step);
-    };
-    anim = requestAnimationFrame(step);
-  }
-  range.addEventListener("pointerdown", () => cancelAnimationFrame(anim));
-
-  show(0); setP(50);
-  if ("IntersectionObserver" in window){
-    const io = new IntersectionObserver(es => { if (es[0].isIntersecting){ hint(); io.disconnect(); } }, { threshold:.6 });
-    io.observe(cmp);
-  }
-})();
-</script>
-
-<script>
-/* ---------- block: doctors (fictional team, illustrated portraits) ---------- */
-(() => {
-  const SKIN = ["#F2C9A5","#E6B08A","#D59B74","#F6D6BC"];
-  const HAIR = ["#3A2A20","#6B4A2E","#1F1B18","#A87444","#C9A57C"];
-  const COAT = ["#22406B","#2F6F8F","#5466A8","#7A5C9E","#C26A7E","#3E7F5C"];
-  const BG = ["#DDF3EC","#E3EEF6","#ECE8F6","#F7E8EC","#F4EEDF","#E4F1E7"];
-
-  function portrait(a, i){
-    const sk = SKIN[a.skin || 0], hc = HAIR[a.hc || 0], co = COAT[a.coat || 0];
-    const backHair = {
-      long:`<path d="M138 168 C126 92 168 70 200 70 C240 70 276 96 262 172 L272 262 C244 252 228 240 224 214 L176 214 C172 240 156 252 128 262Z" fill="${hc}"/>`,
-      long2:`<path d="M142 160 C132 92 170 72 200 72 C236 72 270 94 258 160 L262 232 C242 230 230 222 226 204 L174 204 C170 222 158 230 138 232Z" fill="${hc}"/>`,
-      bun:`<circle cx="200" cy="70" r="26" fill="${hc}"/>`
-    }[a.hair] || "";
-    const frontHair = {
-      long:`<path d="M148 146 C156 100 186 90 214 94 C242 98 256 120 254 146 C234 124 208 118 184 124 C168 128 156 136 148 146Z" fill="${hc}"/>`,
-      long2:`<path d="M146 150 C150 104 178 88 206 90 C236 92 256 114 254 150 C240 128 222 112 200 112 C178 112 160 128 146 150Z" fill="${hc}"/>`,
-      bun:`<path d="M148 146 C150 104 176 88 202 88 C232 88 254 108 252 146 C240 120 222 108 200 108 C178 108 160 120 148 146Z" fill="${hc}"/>`,
-      short:`<path d="M148 146 C142 96 172 80 202 80 C234 80 260 98 252 146 C246 122 230 108 200 110 C170 108 154 122 148 146Z" fill="${hc}"/>`,
-      short2:`<path d="M150 136 C150 100 174 86 202 86 C230 86 252 100 250 136 C238 118 222 112 200 112 C178 112 162 118 150 136Z" fill="${hc}"/>`
-    }[a.hair] || "";
-    const beard = a.beard ? `<path d="M152 160 C154 200 176 214 200 214 C224 214 246 200 248 160 C240 186 222 192 200 192 C178 192 160 186 152 160Z" fill="${hc}"/>` : "";
-    const glasses = a.glasses ? `<g fill="none" stroke="#2B2B2B" stroke-width="3"><rect x="164" y="138" width="30" height="22" rx="8"/><rect x="206" y="138" width="30" height="22" rx="8"/><path d="M194 147h12"/></g>` : "";
-    return `<svg viewBox="0 0 400 330" aria-hidden="true">
-      <rect width="400" height="330" fill="${BG[i % BG.length]}"/>
-      <circle cx="${i % 2 ? 320 : 80}" cy="70" r="70" fill="#fff" opacity=".45"/>
-      <circle cx="${i % 2 ? 70 : 330}" cy="250" r="44" fill="#fff" opacity=".35"/>
-      ${backHair}
-      <rect x="178" y="190" width="44" height="50" rx="14" fill="${sk}"/>
-      <path d="M58 330 C66 256 126 230 200 230 C274 230 334 256 342 330Z" fill="${co}"/>
-      <path d="M176 230 L200 268 L224 230Z" fill="${sk}"/>
-      <path d="M176 230 L200 268 L224 230" fill="none" stroke="#000" stroke-opacity=".12" stroke-width="3"/>
-      <rect x="250" y="276" width="44" height="14" rx="4" fill="#fff" opacity=".85"/>
-      <ellipse cx="150" cy="156" rx="9" ry="13" fill="${sk}"/><ellipse cx="250" cy="156" rx="9" ry="13" fill="${sk}"/>
-      <ellipse cx="200" cy="150" rx="50" ry="60" fill="${sk}"/>
-      ${beard}${frontHair}
-      <circle cx="181" cy="150" r="4.5" fill="#2A1E1A"/><circle cx="219" cy="150" r="4.5" fill="#2A1E1A"/>
-      <circle cx="172" cy="170" r="9" fill="#E8867B" opacity=".22"/><circle cx="228" cy="170" r="9" fill="#E8867B" opacity=".22"/>
-      <path d="M186 178 Q200 190 214 178" fill="none" stroke="#7A3B33" stroke-width="3.2" stroke-linecap="round"/>
-      ${glasses}
-    </svg>`;
-  }
-
-  const FILTERS = [["all","Усі"],["orth","Ортодонти"],["surg","Хірурги"],["ther","Терапевти"],["kids","Дитячі"]];
-  const DOCS = [
-    { nm:"Олександра Мельник", role:"Ортодонт, головна лікарка", cat:["orth"], exp:14, lead:true,
-      tags:["Брекети","Елайнери","Складний прикус"],
-      why:"У 12 років я сама носила брекети і пам'ятаю, як соромилася посміхатися. Тепер роблю так, щоб пацієнти посміхалися вже під час лікування.",
-      edu:"ІФНМУ, ортодонтична резидентура", focus:"Дорослі пацієнти, елайнери, складний прикус",
-      av:{ hair:"long", hc:0, skin:0, coat:0, glasses:true } },
-    { nm:"Ірина Савчук", role:"Дитячий ортодонт", cat:["orth","kids"], exp:8,
-      tags:["Дитячий прикус","Пластинки","Брекети для підлітків"],
-      why:"Прикус найкраще виправляти, поки дитина росте. Люблю бачити, як за рік змінюється не лише посмішка, а й упевненість.",
-      edu:"ІФНМУ, курси з дитячої ортодонтії", focus:"Діти та підлітки 6–16 років",
-      av:{ hair:"bun", hc:3, skin:3, coat:4 } },
-    { nm:"Роман Ткачук", role:"Ортодонт", cat:["orth"], exp:6,
-      tags:["Елайнери","3D-планування","Брекети"],
-      why:"Найкращий момент у роботі — показати пацієнту на екрані його майбутню посмішку ще до старту лікування.",
-      edu:"НМУ ім. Богомольця, курси з цифрової ортодонтії", focus:"Елайнери та цифрові плани лікування",
-      av:{ hair:"short", hc:1, skin:1, coat:2, beard:true } },
-    { nm:"Тарас Гнатюк", role:"Хірург-імплантолог", cat:["surg"], exp:12,
-      tags:["Імплантація","Зуби мудрості","Кісткова пластика"],
-      why:"Хірургія — це про спокій. Я пояснюю кожен крок ще до початку, щоб пацієнт відчував: усе під контролем.",
-      edu:"ІФНМУ, стажування з імплантології", focus:"Імплантація, складні видалення",
-      av:{ hair:"short2", hc:2, skin:2, coat:1, glasses:true } },
-    { nm:"Назар Бойко", role:"Терапевт-ендодонт", cat:["ther"], exp:9,
-      tags:["Лікування каналів","Мікроскоп","Реставрації"],
-      why:"Мені подобається рятувати зуби, які інші пропонують видалити. Під мікроскопом видно те, чого не видно оком.",
-      edu:"ІФНМУ, курси з ендодонтії", focus:"Лікування й повторне лікування каналів",
-      av:{ hair:"short", hc:0, skin:0, coat:5 } },
-    { nm:"Христина Федорак", role:"Дитяча стоматологиня", cat:["kids","ther"], exp:7,
-      tags:["Діти від 2 років","Без страху","Гігієна"],
-      why:"Перший візит до стоматолога визначає, чи боятиметься людина все життя. Я роблю все, щоб дитина не боялася.",
-      edu:"ІФНМУ, курси з дитячої психології", focus:"Перший візит, лікування молочних зубів",
-      av:{ hair:"long2", hc:4, skin:3, coat:3 } }
-  ];
-  const yrs = n => n % 10 === 1 && n % 100 !== 11 ? "рік" : [2,3,4].includes(n % 10) && ![12,13,14].includes(n % 100) ? "роки" : "років";
-  const ARROW = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 4v5h-5"/></svg>';
-
-  const list = document.getElementById("drs"), fEl = document.getElementById("drF");
-  list.innerHTML = DOCS.map((d, i) => `<li class="dr" data-cat="${d.cat.join(" ")}">
-    <div class="dr-in">
-      <article class="face front" aria-label="${d.nm}">
-        <div class="pic">${portrait(d.av, i)}<span class="exp">${d.exp} ${yrs(d.exp)} досвіду</span>${d.lead ? '<span class="lead-b">Головна лікарка</span>' : ""}</div>
-        <div class="bd2"><h3>${d.nm}</h3><p class="role">${d.role}</p>
-          <ul class="tags">${d.tags.map(t => `<li>${t}</li>`).join("")}</ul>
-          <button type="button" class="more" aria-expanded="false" data-flip>Більше про лікаря ${ARROW}</button></div>
-      </article>
-      <article class="face back" aria-label="${d.nm}: про лікаря" inert>
-        <p class="q2">${d.why}</p>
-        <dl><div><dt>Освіта</dt><dd>${d.edu}</dd></div><div><dt>Найчастіше лікує</dt><dd>${d.focus}</dd></div></dl>
-        <div class="acts"><a class="btn primary sm" href="#book">Записатися</a><button type="button" class="btn ghost sm" data-unflip>Назад</button></div>
-      </article>
-    </div></li>`).join("");
-
-  const count = c => c === "all" ? DOCS.length : DOCS.filter(d => d.cat.includes(c)).length;
-  fEl.innerHTML = FILTERS.map(([id, l], i) => `<button type="button" class="cat" data-f="${id}" aria-pressed="${i === 0}">${l}<i>${count(id)}</i></button>`).join("");
-
-  fEl.addEventListener("click", e => {
-    const b = e.target.closest("[data-f]"); if (!b) return;
-    fEl.querySelectorAll("[data-f]").forEach(x => x.setAttribute("aria-pressed", x === b));
-    list.querySelectorAll(".dr").forEach(li => {
-      li.hidden = b.dataset.f !== "all" && !li.dataset.cat.split(" ").includes(b.dataset.f);
-      if (li.hidden) flip(li, false);
-    });
-    list.scrollLeft = 0;
-  });
-
-  function flip(li, on, focus){
-    li.classList.toggle("flip", on);
-    const front = li.querySelector(".front"), back = li.querySelector(".back");
-    front.inert = on; back.inert = !on;
-    li.querySelector("[data-flip]").setAttribute("aria-expanded", on);
-    if (focus) (on ? back.querySelector(".btn") : li.querySelector("[data-flip]")).focus({ preventScroll:true });
-  }
-  list.addEventListener("click", e => {
-    const li = e.target.closest(".dr"); if (!li) return;
-    if (e.target.closest("[data-flip]")) flip(li, true, true);
-    else if (e.target.closest("[data-unflip]")) flip(li, false, true);
-  });
-  list.addEventListener("keydown", e => {
-    if (e.key === "Escape"){ const li = e.target.closest(".dr.flip"); if (li) flip(li, false, true); }
-  });
-})();
-</script>
 
 <script>
 /* ---------- block: painless visit ---------- */
@@ -1757,75 +1494,7 @@ section[id]{scroll-margin-top:72px}
 })();
 </script>
 
-<script>
-/* ---------- block: reviews (examples for the concept) ---------- */
-(() => {
-  const F = [["all","Усі"],["orth","Брекети й елайнери"],["impl","Імплантація"],["ther","Лікування"],["kids","Діти"],["fear","Боявся(лась) лікування"]];
-  const R = [
-    { cat:["orth"], tag:"Брекети", nm:"Олена К.", doc:"Олександра Мельник", c:"#22406B",
-      t:"Носила керамічні брекети півтора року. Найбільше переживала, що буде помітно на роботі, але колеги навіть не одразу помітили. Олександра Василівна на кожному візиті показувала, як рухаються зуби, і відповідала на всі питання в Telegram. Тепер посміхаюся на всіх фото." },
-    { cat:["impl","fear"], tag:"Імплантація", nm:"Михайло Д.", doc:"Тарас Гнатюк", c:"#2F6F8F",
-      t:"Відкладав імплант три роки, бо дуже боявся хірургії. Тарас Ігорович перед операцією пояснив кожен крок, і сама процедура пройшла спокійніше, ніж звичайна пломба. Ціна в договорі була така сама, як на консультації." },
-    { cat:["kids"], tag:"Дитяча стоматологія", nm:"Наталія П.", doc:"Христина Федорак", c:"#C26A7E",
-      t:"Донька (5 років) після першого візиту попросилася ще раз! Христина спочатку просто показала кабінет і дала потримати дзеркальце, а лікувати почала тільки на другому прийомі." },
-    { cat:["ther","fear"], tag:"Лікування каналів", nm:"Андрій С.", doc:"Назар Бойко", c:"#5466A8",
-      t:"В іншій клініці сказали видаляти зуб. Тут пролікували канали під мікроскопом, і зуб досі мій. Анестезію не відчув узагалі, хоча завжди боявся уколів." },
-    { cat:["orth"], tag:"Елайнери", nm:"Ірина Б.", doc:"Роман Ткачук", c:"#7A5C9E",
-      t:"Спочатку побачила на екрані, як виглядатимуть мої зуби після лікування, і це остаточно переконало. Капи майже не відчуваються, знімаю тільки під час їжі. Залишилось 4 місяці." },
-    { cat:["kids","orth"], tag:"Дитяча ортодонтія", nm:"Віктор Л.", doc:"Ірина Савчук", c:"#3E7F5C",
-      t:"Синові 9 років, поставили пластинку, щоб виправити прикус, поки щелепа росте. Ірина Миколаївна все пояснює і йому, і нам. Син сам слідкує, щоб носити пластинку вчасно." },
-    { cat:["ther"], tag:"Гігієна", nm:"Оксана Т.", doc:"Назар Бойко", c:"#22406B",
-      t:"Прийшла на гігієну, а заразом отримала план лікування з цінами на кожен етап. Без тиску: сказали, що терміново, а що може почекати. Записалася на наступний місяць." },
-    { cat:["fear","ther"], tag:"Перший візит за 10 років", nm:"Сергій Р.", doc:"Назар Бойко", c:"#2F6F8F",
-      t:"Не був у стоматолога 10 років, бо боявся. Перший візит був просто розмовою й оглядом, без лікування, і мені ніхто не дорікав. Зараз пройшов уже половину плану." }
-  ];
-  const STAR = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z"/></svg>';
-  const fEl = document.getElementById("rvF"), track = document.getElementById("rvT");
-  const prev = document.getElementById("rvPrev"), next = document.getElementById("rvNext");
-  const cnt = id => id === "all" ? R.length : R.filter(r => r.cat.includes(id)).length;
 
-  fEl.innerHTML = F.map(([id, l], i) => `<button type="button" class="cat" data-f="${id}" aria-pressed="${i === 0}">${l}<i>${cnt(id)}</i></button>`).join("");
-  track.innerHTML = R.map((r, i) => `<li class="rv-card" data-cat="${r.cat.join(" ")}" style="animation-delay:${i * 40}ms">
-    <div class="rv-top"><span class="stars" role="img" aria-label="Оцінка 5 з 5">${STAR.repeat(5)}</span><span class="rv-tag">${r.tag}</span></div>
-    <p class="rv-txt" id="rvt${i}">${r.t}</p>
-    <button type="button" class="rv-more" aria-expanded="false" aria-controls="rvt${i}" hidden>Читати повністю</button>
-    <div class="rv-who"><span class="rv-av" style="background:${r.c}" aria-hidden="true">${r.nm[0]}</span><div><b>${r.nm}</b><small>Лікар: ${r.doc} · приклад відгуку</small></div></div>
-  </li>`).join("");
-
-  const cards = [...track.children];
-  // show "read more" only where the text is actually clamped
-  function checkClamp(){ cards.forEach(c => { const p = c.querySelector(".rv-txt"), b = c.querySelector(".rv-more"); if (!c.classList.contains("open")) b.hidden = p.scrollHeight <= p.clientHeight + 2; }); }
-  track.addEventListener("click", e => {
-    const b = e.target.closest(".rv-more"); if (!b) return;
-    const c = b.closest(".rv-card"), open = !c.classList.contains("open");
-    c.classList.toggle("open", open); b.setAttribute("aria-expanded", open); b.textContent = open ? "Згорнути" : "Читати повністю";
-  });
-
-  fEl.addEventListener("click", e => {
-    const b = e.target.closest("[data-f]"); if (!b) return;
-    fEl.querySelectorAll("[data-f]").forEach(x => x.setAttribute("aria-pressed", x === b));
-    cards.forEach((c, i) => {
-      const show = b.dataset.f === "all" || c.dataset.cat.split(" ").includes(b.dataset.f);
-      c.hidden = !show;
-      if (show){ c.style.animation = "none"; void c.offsetWidth; c.style.animation = ""; }
-    });
-    track.scrollTo({ left:0, behavior:"auto" });
-    checkClamp(); syncNav();
-  });
-
-  function step(){ const c = cards.find(x => !x.hidden); return c ? c.getBoundingClientRect().width + 16 : 300; }
-  prev.addEventListener("click", () => track.scrollBy({ left:-step() }));
-  next.addEventListener("click", () => track.scrollBy({ left:step() }));
-  function syncNav(){
-    prev.disabled = track.scrollLeft < 4;
-    next.disabled = track.scrollLeft + track.clientWidth >= track.scrollWidth - 4;
-  }
-  track.addEventListener("scroll", () => requestAnimationFrame(syncNav), { passive:true });
-  addEventListener("resize", () => { checkClamp(); syncNav(); });
-  if (matchMedia("(prefers-reduced-motion: reduce)").matches) track.style.scrollBehavior = "auto";
-  checkClamp(); syncNav();
-})();
-</script>
 
 <script>
 /* ---------- block: guarantees + FAQ ---------- */
