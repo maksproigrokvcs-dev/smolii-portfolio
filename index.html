@@ -70,6 +70,8 @@ nav{display:flex;align-items:center;justify-content:space-between;height:84px}
 .hero{display:grid;grid-template-columns:1.05fr 1fr;gap:56px;align-items:center;min-height:calc(100vh - 84px - 70px);padding:24px 0 40px}
 .badge{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:13px;color:var(--muted);border:1px solid var(--line);border-radius:100px;padding:8px 14px;background:rgba(255,255,255,.02)}
 .badge i{width:8px;height:8px;border-radius:50%;background:var(--acc);box-shadow:0 0 0 0 rgba(200,255,61,.6);animation:pulse 2s infinite}
+.badge.busy i{background:#ffb23d;animation-name:pulseB}
+@keyframes pulseB{0%{box-shadow:0 0 0 0 rgba(255,178,61,.6)}70%{box-shadow:0 0 0 10px rgba(255,178,61,0)}100%{box-shadow:0 0 0 0 rgba(255,178,61,0)}}
 @keyframes pulse{70%{box-shadow:0 0 0 10px rgba(200,255,61,0)}100%{box-shadow:0 0 0 0 rgba(200,255,61,0)}}
 h1{font-family:var(--display);font-weight:800;font-size:clamp(40px,5.4vw,78px);line-height:1.02;letter-spacing:-.035em;margin:26px 0 24px}
 h1 .hl{color:var(--acc);position:relative;white-space:nowrap}
@@ -1873,6 +1875,28 @@ applyLang();
     const open = l.hidden;
     l.hidden = !open; b.setAttribute("aria-expanded", open);
   });
+})();
+</script>
+<script>
+/* плашка «беру проєкти» — керується з /admin */
+(async () => {
+  try {
+    const s = await (await fetch('/api/status')).json();
+    const MN=['січень','лютий','березень','квітень','травень','червень','липень','серпень','вересень','жовтень','листопад','грудень'];
+    const MG=['січня','лютого','березня','квітня','травня','червня','липня','серпня','вересня','жовтня','листопада','грудня'];
+    const ME=['January','February','March','April','May','June','July','August','September','October','November','December'];
+    const busy = s.mode==='busy' && s.until && new Date(s.until+'T23:59:59') >= new Date();
+    const txt = uk => {
+      if (s.mode==='slots') { const n=+s.slots||1; return uk ? 'Лишилось '+n+' '+(n===1?'місце':n<5?'місця':'місць')+' на '+MN[s.month] : n+' spot'+(n>1?'s':'')+' left for '+ME[s.month]; }
+      if (busy) { const d=new Date(s.until+'T12:00'); return uk ? 'Зайнятий до '+d.getDate()+' '+MG[d.getMonth()]+' · бронюю наперед' : 'Booked until '+ME[d.getMonth()].slice(0,3)+' '+d.getDate()+' · pre-booking open'; }
+      if (s.mode==='custom' && (s.uk||s.en)) return uk ? (s.uk||s.en) : (s.en||s.uk);
+      return null;
+    };
+    const uk = txt(true), en = txt(false);
+    if (uk) { T.uk.badge = uk; T.en.badge = en; }
+    const el = document.querySelector('[data-i=badge]');
+    if (el) { el.textContent = T[lang].badge; el.parentElement.classList.toggle('busy', !!busy); }
+  } catch (e) {}
 })();
 </script>
 </body>

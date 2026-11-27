@@ -14,7 +14,7 @@ const json = (status, body) =>
 export async function onRequestPost({ request, env }) {
   const token = env.TELEGRAM_BOT_TOKEN;
   const chatId = env.TELEGRAM_CHAT_ID;
-  if (!token || !chatId) return json(500, { ok: false, error: "not_configured" });
+  if ((!token || !chatId) && !env.DB) return json(500, { ok: false, error: "not_configured" });
 
   let d;
   try { d = await request.json(); } catch { return json(400, { ok: false, error: "bad_json" }); }
@@ -39,13 +39,34 @@ export async function onRequestPost({ request, env }) {
     d.lang && `🌐 Мова сайту: ${esc(d.lang, 5)}`,
   ].filter(Boolean).join("\n");
 
-  const r = await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
-    method: "POST",
-    headers: { "content-type": "application/json" },
-    body: JSON.stringify({ chat_id: chatId, text: lines, parse_mode: "HTML", disable_web_page_preview: true }),
-  });
+  let r = { ok: false };
+  if (token && chatId) {
+    try {
+      r = await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({ chat_id: chatId, text: lines, parse_mode: "HTML", disable_web_page_preview: true }),
+      });
+    } catch {}
+  }
 
-  if (!r.ok) return json(502, { ok: false, error: "telegram" });
+  // копія заявки — в адмінку (/admin → Заявки)
+  let saved = false;
+  if (env.DB) {
+    try {
+      const now = Date.now();
+      const id = `l:${String(1e13 - now).padStart(13, "0")}:${crypto.randomUUID().slice(0, 8)}`;
+      const lead = {
+        at: now, status: "new", memo: "",
+        name: esc(d.name, 80), contact, type: esc(d.type, 60), niche: esc(d.niche, 120),
+        speed: esc(d.speed, 40), calc: esc(d.calc, 200), gift: !!d.gift, note: esc(d.note, 1500), lang: esc(d.lang, 5),
+      };
+      await env.DB.put(id, JSON.stringify(lead));
+      saved = true;
+    } catch {}
+  }
+
+  if (!r.ok && !saved) return json(502, { ok: false, error: "telegram" });
   return json(200, { ok: true });
 }
 
