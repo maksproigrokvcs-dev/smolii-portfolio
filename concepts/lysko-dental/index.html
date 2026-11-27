@@ -1,0 +1,1853 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lysko dental — стоматологія та ортодонтія в Івано-Франківську</title>
+<meta name="robots" content="noindex,nofollow">
+<meta name="description" content="Lysko dental — ортодонтія для дітей і дорослих, лікування та естетика зубів в Івано-Франківську, вул. Павла Тичини, 6а. Онлайн-запис 24/7. Демо-версія сайту від SMOLII.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800&family=Lora:ital,wght@1,500;1,600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F4F7F6; --surface:#FFFFFF; --ink:#16302D; --muted:#55706C; --line:#DDE8E5;
+  --brand:#3F7F79; --brand-d:#2F6560; --on-brand:#FFFFFF;
+  --mint:#E1EFEC; --mint-2:#BFDCD6; --coral:#D9512C; --coral-bg:#FDEBE5;
+  --tooth:#FFFDF8; --tooth-line:#C5D0CB;
+  --r-s:12px; --r-m:18px; --r-l:28px;
+  --shadow:0 1px 2px rgba(15,42,38,.06),0 12px 40px -12px rgba(15,42,38,.18);
+  --ease:cubic-bezier(.2,.8,.2,1);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.6 Onest,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+button{font:inherit;color:inherit}
+.wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+.skip{position:absolute;left:-9999px}.skip:focus{left:16px;top:16px;z-index:100;background:var(--ink);color:#fff;padding:10px 14px;border-radius:10px}
+:focus-visible{outline:3px solid var(--brand);outline-offset:3px;border-radius:6px}
+.visually-hidden{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+
+/* ---------- header ---------- */
+.nav{position:sticky;top:0;z-index:20;background:rgba(246,245,241,.86);backdrop-filter:saturate(1.4) blur(12px);-webkit-backdrop-filter:saturate(1.4) blur(12px);border-bottom:1px solid transparent;transition:border-color .2s}
+.nav.scrolled{border-bottom-color:var(--line)}
+.nav .wrap{display:flex;align-items:center;gap:28px;height:72px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:800;font-size:22px;letter-spacing:-.02em}
+.logo svg{width:34px;height:34px}
+.links{display:flex;gap:26px;margin-left:auto}
+.links a{text-decoration:none;font-weight:500;font-size:15px;color:var(--muted);padding:8px 0;transition:color .15s}
+.links a:hover{color:var(--ink)}
+.links a{position:relative}
+.links a.cur{color:var(--ink)}
+.links a.cur::after{content:"";position:absolute;left:0;right:0;bottom:2px;height:2px;border-radius:2px;background:var(--brand)}
+.burger{display:none;place-items:center;width:46px;height:46px;border:0;border-radius:14px;background:var(--surface);box-shadow:inset 0 0 0 1px var(--line);cursor:pointer;flex:none}
+.burger span,.burger span::before,.burger span::after{display:block;width:18px;height:2px;border-radius:2px;background:var(--ink);transition:transform .3s var(--ease),opacity .2s}
+.burger span{position:relative}
+.burger span::before,.burger span::after{content:"";position:absolute;left:0}
+.burger span::before{top:-6px}.burger span::after{top:6px}
+.burger[aria-expanded="true"] span{background:transparent}
+.burger[aria-expanded="true"] span::before{transform:translateY(6px) rotate(45deg)}
+.burger[aria-expanded="true"] span::after{transform:translateY(-6px) rotate(-45deg)}
+.mmenu{position:absolute;left:0;right:0;top:100%;background:var(--bg);border-bottom:1px solid var(--line);box-shadow:0 24px 40px -24px rgba(15,42,38,.35);padding:8px 0 20px;transform-origin:top;animation:mm .3s var(--ease)}
+.mmenu[hidden]{display:none}
+.nav .mmenu .wrap{display:block;height:auto}
+.mmenu{max-height:calc(100dvh - 64px);overflow-y:auto}
+@keyframes mm{from{opacity:0;transform:translateY(-8px)}}
+.mmenu nav{display:grid}
+.mmenu nav a{display:flex;align-items:center;justify-content:space-between;min-height:56px;padding:0 4px;border-bottom:1px solid var(--line);text-decoration:none;font-weight:600;font-size:19px}
+.mmenu nav a::after{content:"→";color:var(--muted);font-weight:400}
+.mmenu .mm-foot{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;margin-top:18px}
+.mmenu .mm-foot .btn{flex:1 1 100%}
+.mmenu .hours{display:flex}
+.hours{display:flex;align-items:center;gap:8px;font-size:14px;color:var(--muted);white-space:nowrap}
+.hours i{width:8px;height:8px;border-radius:50%;background:#22A06B;box-shadow:0 0 0 4px rgba(34,160,107,.16)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 24px;border-radius:999px;border:0;font-weight:600;font-size:16px;text-decoration:none;cursor:pointer;transition:background .18s,transform .12s,box-shadow .18s;touch-action:manipulation}
+.btn:active{transform:scale(.97)}
+.btn svg{width:18px;height:18px;flex:none}
+.btn.primary{background:var(--brand);color:var(--on-brand);box-shadow:0 8px 24px -10px rgba(14,124,107,.7)}
+.btn.primary:hover{background:var(--brand-d)}
+.btn.ghost{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--line)}
+.btn.ghost:hover{box-shadow:inset 0 0 0 1.5px var(--ink)}
+.btn.sm{min-height:44px;padding:0 18px;font-size:15px}
+
+/* ---------- hero ---------- */
+.hero{position:relative;padding:56px 0 40px;overflow:hidden}
+.hero::before{content:"";position:absolute;right:-12%;top:-10%;width:760px;height:760px;border-radius:50%;background:radial-gradient(closest-side,var(--mint),rgba(221,243,236,0));pointer-events:none}
+.grid{position:relative;display:grid;grid-template-columns:1.05fr 1fr;gap:56px;align-items:center}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;margin:0 0 22px;padding:8px 14px 8px 10px;border-radius:999px;background:var(--surface);box-shadow:inset 0 0 0 1px var(--line);font-size:14px;font-weight:500;color:var(--muted)}
+.eyebrow b{display:grid;place-items:center;width:22px;height:22px;border-radius:50%;background:var(--mint);color:var(--brand)}
+.eyebrow b svg{width:13px;height:13px}
+h1{margin:0;font-weight:700;font-size:clamp(38px,5.4vw,66px);line-height:1.04;letter-spacing:-.035em;text-wrap:balance}
+h1 em{font-family:Lora,Georgia,serif;font-style:italic;font-weight:500;color:var(--brand);letter-spacing:-.02em}
+.lead{margin:22px 0 0;max-width:520px;font-size:clamp(17px,1.5vw,19px);color:var(--muted)}
+.lead b{color:var(--ink);font-weight:600}
+.ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+.facts{display:flex;gap:36px;margin:40px 0 0;padding:28px 0 0;list-style:none;border-top:1px solid var(--line)}
+.facts b{display:block;font-size:32px;font-weight:700;letter-spacing:-.03em;line-height:1;font-variant-numeric:tabular-nums}
+.facts span{display:block;margin-top:6px;font-size:14px;color:var(--muted);line-height:1.35}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(14px);animation:rv .7s var(--ease) forwards;animation-delay:calc(var(--d,0) * 80ms)}
+@keyframes rv{to{opacity:1;transform:none}}
+
+/* ---------- tooth map card ---------- */
+.card{position:relative;background:var(--surface);border-radius:var(--r-l);box-shadow:var(--shadow);padding:22px}
+.card-top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:4px}
+.card-top h2{margin:0;font-size:15px;font-weight:600;letter-spacing:0}
+.card-top h2 small{display:block;font-weight:400;color:var(--muted);font-size:13px}
+.plan{display:flex;align-items:center;gap:8px;min-height:40px;text-decoration:none;padding:0 14px;border-radius:999px;background:var(--bg);font-size:13.5px;font-weight:600;white-space:nowrap;font-variant-numeric:tabular-nums;transition:background .25s}
+.plan .n{display:grid;place-items:center;min-width:22px;height:22px;padding:0 6px;border-radius:999px;background:var(--ink);color:#fff;font-size:12px}
+.plan.has{background:var(--mint)}
+.plan.bump{animation:bump .4s var(--ease)}
+@keyframes bump{40%{transform:scale(1.06)}}
+
+.modes{display:grid;grid-template-columns:1fr 1fr;gap:4px;padding:4px;margin:14px 0 6px;border-radius:999px;background:var(--bg)}
+.modes button{display:flex;align-items:center;justify-content:center;gap:8px;min-height:44px;border:0;border-radius:999px;background:transparent;font-weight:600;font-size:14.5px;color:var(--muted);cursor:pointer;transition:background .2s,color .2s,box-shadow .2s;touch-action:manipulation}
+.modes button:hover{color:var(--ink)}
+.modes button[aria-selected="true"]{background:var(--surface);color:var(--ink);box-shadow:0 1px 3px rgba(15,42,38,.14)}
+.modes svg{width:17px;height:17px;flex:none}
+.jaw{position:relative}
+.jaw .hint2{font:500 11.5px Onest,sans-serif;fill:#8AA09B;transition:opacity .3s}
+/* braces overlay */
+.brk{opacity:0;transition:opacity .35s;pointer-events:none}
+.ortho .brk{opacity:1}
+.brk .wire{fill:none;stroke:#7F8D8A;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;transition:stroke .3s,opacity .3s}
+.brk .br{fill:#A3AEAB;stroke:#6C7B78;stroke-width:.7;transition:fill .3s,stroke .3s,opacity .3s}
+.brk .tray{fill:none;stroke:rgba(14,124,107,.16);stroke-linecap:round;stroke-linejoin:round;opacity:0;transition:opacity .35s}
+.sys-ceramic .brk .br{fill:#F4EFE3;stroke:#CFC7B5}
+.sys-ceramic .brk .wire{stroke:#BDB6A6}
+.sys-sapphire .brk .br{fill:rgba(205,232,242,.6);stroke:#9DC1CC}
+.sys-sapphire .brk .wire{stroke:#AFBDBA}
+.sys-aligners .brk .br,.sys-aligners .brk .wire{opacity:0}
+.sys-aligners .brk .tray{opacity:1}
+svg.ortho .tooth{cursor:default}
+svg.ortho .tooth .bd,svg.ortho .tooth:hover .bd,svg.ortho .tooth.sel .bd,svg.ortho .tooth.inplan .bd{fill:var(--tooth);stroke:var(--tooth-line);stroke-width:1.4;transform:none;animation:none}
+svg.ortho .tooth .gr{stroke:#D9E0DC}
+svg.ortho .tooth .mk{opacity:0}
+.tooth.w .bd{stroke-dasharray:3 2.2}
+.ortho .tooth.w .bd{stroke-dasharray:none}
+.vis{display:inline-flex;gap:3px;vertical-align:middle}
+.vis i{width:7px;height:7px;border-radius:50%;background:#2E5650}
+.vis i.o{background:transparent;box-shadow:inset 0 0 0 1.4px #2E5650}
+.note{margin:12px 0 0;font-size:14px;color:var(--muted);display:flex;gap:8px;align-items:center}
+.note svg{width:16px;height:16px;color:var(--brand);flex:none}
+.redirect{margin-top:16px;padding:16px;border-radius:var(--r-m);background:var(--coral-bg);animation:rv .35s var(--ease)}
+.redirect b{display:block;font-size:16px;margin-bottom:4px}
+.redirect p{margin:0 0 12px;font-size:14.5px;color:#5B3A2E}
+.jaw svg{display:block;width:100%;height:auto;max-height:min(370px,46vh);margin:0 auto;touch-action:manipulation}
+.jaw .lbl{font:600 10.5px Onest,sans-serif;letter-spacing:.12em;text-transform:uppercase;fill:#8AA09B}
+.jaw .side{font:500 11px Onest,sans-serif;fill:#8AA09B}
+.jaw .hint{font:600 13px Onest,sans-serif;fill:var(--muted);transition:opacity .3s}
+.tooth{cursor:pointer;outline:none}
+.tooth .hit{fill:transparent}
+.tooth .bd{fill:var(--tooth);stroke:var(--tooth-line);stroke-width:1.4;transform-box:fill-box;transform-origin:center;transition:fill .2s,stroke .2s,transform .25s var(--ease)}
+.tooth .gr{fill:none;stroke:#D9E0DC;stroke-width:1.2;stroke-linecap:round;pointer-events:none;transition:stroke .2s}
+.tooth:hover .bd{fill:#F0FAF6;stroke:var(--brand);transform:scale(1.08)}
+.tooth:focus-visible .bd{stroke:var(--brand);stroke-width:2.6;transform:scale(1.08)}
+.tooth.sel .bd{fill:var(--brand);stroke:var(--brand-d);transform:scale(1.14)}
+.tooth.sel .gr{stroke:rgba(255,255,255,.55)}
+.tooth.inplan .bd{fill:var(--mint-2);stroke:var(--brand)}
+.tooth.inplan.sel .bd{fill:var(--brand)}
+.tooth .mk{fill:var(--coral);opacity:0;transition:opacity .2s;pointer-events:none}
+.tooth.inplan .mk{opacity:1}
+.tooth.pulse .bd{animation:pulse 1.6s ease-in-out infinite}
+@keyframes pulse{0%,100%{stroke:var(--tooth-line)}50%{stroke:var(--coral);stroke-width:2.4}}
+.tg{opacity:0;animation:tin .5s var(--ease) forwards}
+@keyframes tin{from{opacity:0}to{opacity:1}}
+
+/* panel */
+.panel{margin-top:6px;border-top:1px solid var(--line);padding-top:18px;min-height:200px}
+.empty{display:flex;gap:14px;align-items:flex-start;color:var(--muted);font-size:15px;margin:6px 0 0}
+.empty svg{flex:none;width:40px;height:40px;padding:9px;border-radius:12px;background:var(--mint);color:var(--brand)}
+.empty b{color:var(--ink);display:block;font-size:16px;margin-bottom:2px}
+.ph{display:flex;align-items:center;gap:12px}
+.ph .num{display:grid;place-items:center;width:46px;height:46px;border-radius:14px;background:var(--ink);color:#fff;font-weight:700;font-size:17px;font-variant-numeric:tabular-nums;flex:none}
+.ph b{display:block;font-size:17px;line-height:1.25}
+.ph small{color:var(--muted);font-size:14px}
+.ph .x{margin-left:auto;width:44px;height:44px;border:0;border-radius:12px;background:var(--bg);cursor:pointer;display:grid;place-items:center}
+.ph .x:hover{background:var(--line)}
+.ph .x svg{width:16px;height:16px}
+.q{margin:16px 0 10px;font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{min-height:44px;padding:0 16px;border-radius:999px;border:0;background:var(--bg);box-shadow:inset 0 0 0 1px var(--line);font-size:15px;font-weight:500;cursor:pointer;transition:background .15s,box-shadow .15s,color .15s;touch-action:manipulation}
+.chip:hover{box-shadow:inset 0 0 0 1.5px var(--ink)}
+.chip[aria-checked="true"]{background:var(--ink);color:#fff;box-shadow:none}
+.sol{margin-top:16px;padding:16px;border-radius:var(--r-m);background:var(--mint);display:grid;grid-template-columns:1fr auto;gap:6px 16px;align-items:center;animation:rv .35s var(--ease)}
+.sol .nm{font-weight:600;font-size:16px}
+.sol .meta{grid-column:1;display:flex;flex-wrap:wrap;gap:4px 14px;font-size:14px;color:#2E5650}
+.sol .meta span{display:inline-flex;align-items:center;gap:6px}
+.sol .meta svg{width:15px;height:15px}
+.sol .pr{grid-column:2;grid-row:1/3;text-align:right;font-weight:700;font-size:22px;letter-spacing:-.02em;font-variant-numeric:tabular-nums;white-space:nowrap}
+.sol .pr small{display:block;font-size:12px;font-weight:500;color:#2E5650;letter-spacing:0}
+.sol .add{grid-column:1/-1;margin-top:8px}
+.sol .add.on{background:var(--ink)}
+
+/* trust strip */
+.trust{position:relative;display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:56px 0 0;padding:0;list-style:none}
+.trust li{display:flex;align-items:center;gap:12px;padding:16px 18px;border-radius:var(--r-m);background:var(--surface);box-shadow:inset 0 0 0 1px var(--line);font-size:15px;line-height:1.35}
+.trust svg{flex:none;width:22px;height:22px;color:var(--brand)}
+.trust b{display:block;font-weight:600}
+.trust span{color:var(--muted);font-size:13.5px}
+.credit{position:relative;display:block;width:max-content;max-width:100%;margin:28px 0 0 auto;font-size:13px;line-height:1.4;color:var(--muted);text-decoration:none;padding:8px 14px;border-radius:16px;box-shadow:inset 0 0 0 1px var(--line)}
+.credit b{color:var(--ink)}
+.credit:hover{box-shadow:inset 0 0 0 1px var(--ink)}
+
+/* ---------- sections ---------- */
+.sec{padding:104px 0}
+.sec-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px 40px;flex-wrap:wrap;margin-bottom:40px}
+.h2{margin:0;font-size:clamp(32px,3.8vw,48px);line-height:1.06;letter-spacing:-.03em;font-weight:700;text-wrap:balance}
+.h2 em{font-family:Lora,Georgia,serif;font-style:italic;font-weight:500;color:var(--brand)}
+.sec-head p{margin:0;max-width:440px;color:var(--muted)}
+
+/* ---------- block 2: concerns ---------- */
+.cn{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:24px;align-items:start}
+.cn-list{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.cn-tab{display:flex;align-items:center;gap:12px;min-height:76px;padding:14px;border:0;border-radius:var(--r-m);background:var(--surface);box-shadow:inset 0 0 0 1px var(--line);text-align:left;cursor:pointer;transition:background .2s,box-shadow .2s,color .2s;touch-action:manipulation}
+.cn-tab:hover{box-shadow:inset 0 0 0 1.5px var(--ink)}
+.cn-tab .ic{display:grid;place-items:center;flex:none;width:42px;height:42px;border-radius:13px;background:var(--bg);color:var(--brand);transition:background .2s,color .2s}
+.cn-tab .ic svg{width:21px;height:21px}
+.cn-tab b{display:block;font-size:15.5px;font-weight:600;line-height:1.25}
+.cn-tab small{display:block;margin-top:2px;font-size:13px;line-height:1.3;color:var(--muted);transition:color .2s}
+.cn-tab[aria-selected="true"]{background:var(--ink);color:#fff;box-shadow:none}
+.cn-tab[aria-selected="true"] small{color:rgba(255,255,255,.72)}
+.cn-tab[aria-selected="true"] .ic{background:rgba(255,255,255,.1);color:var(--mint-2)}
+.cn-card{position:sticky;top:92px;background:var(--surface);border-radius:var(--r-l);box-shadow:var(--shadow);padding:34px}
+.cn-body{animation:rv .4s var(--ease)}
+.cn-card h3{margin:0;font-size:clamp(24px,2.3vw,30px);line-height:1.15;letter-spacing:-.025em;font-weight:700}
+.cn-card .tx{margin:12px 0 0;color:var(--muted);max-width:560px}
+.urgent{display:inline-flex;align-items:center;gap:8px;margin:0 0 16px;padding:7px 13px;border-radius:999px;background:var(--coral-bg);color:#8A3418;font-size:13.5px;font-weight:600}
+.urgent i{width:8px;height:8px;border-radius:50%;background:var(--coral);animation:blink 1.4s ease-in-out infinite}
+@keyframes blink{50%{opacity:.35}}
+.steps{list-style:none;margin:26px 0 0;padding:0;counter-reset:s}
+.steps li{position:relative;padding:3px 0 20px 46px;counter-increment:s;line-height:1.45}
+.steps li::before{content:counter(s);position:absolute;left:0;top:0;display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--mint);color:var(--brand);font-weight:700;font-size:14px}
+.steps li::after{content:"";position:absolute;left:14.5px;top:34px;bottom:4px;width:1.5px;background:var(--mint-2)}
+.steps li:last-child{padding-bottom:0}
+.steps li:last-child::after{display:none}
+.kv{display:grid;grid-template-columns:1fr 1fr 1.2fr;gap:10px;margin:26px 0 0}
+.kv div{padding:14px 16px;border-radius:var(--r-s);background:var(--bg)}
+.kv small{display:block;font-size:12.5px;color:var(--muted)}
+.kv b{display:block;margin-top:3px;font-size:16px;font-weight:600;line-height:1.3}
+.kv .pr{background:var(--mint)}
+.kv .pr b{font-size:21px;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.kv .pr span{display:block;font-size:12.5px;color:#2E5650;line-height:1.3}
+.cn-cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+
+/* ---------- block: before / after ---------- */
+.ba-tabs{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 18px}
+.ba-grid{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:24px;align-items:center}
+.ba-grid > .cmp{width:100%;align-self:center}
+.cmp{position:relative;border-radius:var(--r-l);overflow:hidden;background:linear-gradient(160deg,#EAF6F1,#F7EFE8);box-shadow:inset 0 0 0 1px var(--line);aspect-ratio:2/1.15;user-select:none;-webkit-user-select:none;touch-action:pan-y}
+.cmp svg{position:absolute;inset:0;width:100%;height:100%;display:block}
+.cmp .after{position:absolute;inset:0;clip-path:inset(0 0 0 var(--p,50%));background:linear-gradient(160deg,#E2F4EE,#F4F1EA)}
+.cmp .line{position:absolute;top:0;bottom:0;left:var(--p,50%);width:2px;margin-left:-1px;background:#fff;box-shadow:0 0 0 1px rgba(15,42,38,.08);pointer-events:none}
+.cmp .knob{position:absolute;top:50%;left:var(--p,50%);width:52px;height:52px;margin:-26px 0 0 -26px;border-radius:50%;background:#fff;box-shadow:0 6px 20px -4px rgba(15,42,38,.35);display:grid;place-items:center;color:var(--ink);pointer-events:none;transition:transform .15s}
+.cmp .knob svg{position:static;width:24px;height:24px}
+.cmp:has(input:focus-visible) .knob{outline:3px solid var(--brand);outline-offset:3px}
+.cmp:active .knob{transform:scale(.94)}
+.cmp input{position:absolute;inset:0;width:100%;height:100%;margin:0;opacity:0;cursor:ew-resize;touch-action:pan-y}
+.cmp .tag{position:absolute;top:16px;padding:6px 12px;border-radius:999px;background:rgba(255,255,255,.85);backdrop-filter:blur(6px);font-size:13px;font-weight:600;pointer-events:none}
+.cmp .tag.b{left:16px}.cmp .tag.a{right:16px;background:var(--ink);color:#fff}
+.ba-info{display:flex;flex-direction:column;background:var(--surface);border-radius:var(--r-l);box-shadow:var(--shadow);padding:30px}
+.ba-info h3{margin:0;font-size:clamp(22px,2.1vw,27px);line-height:1.2;letter-spacing:-.02em}
+.ba-info .who{margin:6px 0 0;color:var(--muted);font-size:14.5px}
+.ba-rows{margin:20px 0 0;display:grid;gap:12px}
+.ba-rows div{display:grid;grid-template-columns:112px 1fr;gap:12px;font-size:15px;line-height:1.45}
+.ba-rows dt{color:var(--muted)}
+.ba-rows dd{margin:0;font-weight:500}
+.ba-rows .pr dd{font-weight:700;font-size:18px;color:var(--brand)}
+.ba-info .btn{margin-top:auto}
+.ba-info .ill{margin:20px 0 18px;padding:12px 14px;border-radius:var(--r-s);background:var(--bg);font-size:13px;color:var(--muted);line-height:1.45}
+
+/* ---------- block: doctors ---------- */
+.dr-top{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 20px}
+.drs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;list-style:none;margin:0;padding:0}
+.dr{perspective:1400px}
+.dr[hidden]{display:none}
+.dr-in{display:grid;height:100%;transform-style:preserve-3d;transition:transform .7s var(--ease)}
+.dr.flip .dr-in{transform:rotateY(180deg)}
+.face{grid-area:1/1;display:flex;flex-direction:column;backface-visibility:hidden;-webkit-backface-visibility:hidden;background:var(--surface);border-radius:var(--r-l);box-shadow:inset 0 0 0 1px var(--line);overflow:hidden}
+.back{transform:rotateY(180deg);padding:26px;background:var(--ink);color:#fff;box-shadow:none}
+.pic{position:relative;aspect-ratio:4/3.3;background:var(--bg)}
+.pic svg{position:absolute;inset:0;width:100%;height:100%}
+.pic .exp{position:absolute;left:14px;bottom:14px;padding:6px 12px;border-radius:999px;background:rgba(255,255,255,.92);font-size:13px;font-weight:600}
+.pic .lead-b{position:absolute;right:14px;top:14px;padding:6px 12px;border-radius:999px;background:var(--brand);color:#fff;font-size:12.5px;font-weight:600}
+.front .bd2{display:flex;flex-direction:column;gap:10px;flex:1;padding:20px 22px 22px}
+.front h3{margin:0;font-size:19px;line-height:1.25;letter-spacing:-.01em}
+.front .role{margin:-6px 0 0;color:var(--brand);font-weight:600;font-size:14.5px}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin:2px 0 0;padding:0;list-style:none}
+.tags li{padding:5px 10px;border-radius:999px;background:var(--bg);font-size:13px;color:#33504B}
+.more{display:inline-flex;align-items:center;gap:8px;margin-top:auto;align-self:flex-start;min-height:44px;padding:0 4px;border:0;background:none;color:var(--ink);font-weight:600;font-size:15px;cursor:pointer}
+.more svg{width:18px;height:18px;transition:transform .2s}
+.more:hover svg{transform:rotate(-30deg)}
+.back .q2{margin:0;font-family:Lora,Georgia,serif;font-style:italic;font-size:19px;line-height:1.45}
+.back .q2::before{content:"“";display:block;font-size:46px;line-height:.6;color:var(--mint-2);margin-bottom:8px}
+.back dl{margin:20px 0 0;display:grid;gap:10px;font-size:14px}
+.back dt{color:rgba(255,255,255,.6);font-size:12.5px}
+.back dd{margin:2px 0 0}
+.back .acts{display:flex;flex-wrap:wrap;gap:8px;margin-top:auto;padding-top:20px}
+.back .btn.primary{background:var(--mint-2);color:var(--ink);box-shadow:none}
+.back .btn.primary:hover{background:#fff}
+.back .btn.ghost{color:#fff;box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.35)}
+.back .btn.ghost:hover{box-shadow:inset 0 0 0 1.5px #fff}
+.dr-note{margin:16px 2px 0;font-size:13.5px;color:var(--muted)}
+
+/* ---------- block: painless visit ---------- */
+.vt{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:40px;align-items:start}
+.vt-steps{list-style:none;margin:0;padding:0;position:relative}
+.vt-steps::before{content:"";position:absolute;left:31px;top:8px;bottom:8px;width:2px;background:var(--line)}
+.vt-step{position:relative;display:grid;grid-template-columns:64px 1fr;gap:18px;padding:6px 0 30px;cursor:pointer}
+.vt-step:last-child{padding-bottom:0}
+.vt-step .m{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1;width:64px;height:64px;border-radius:50%;background:var(--surface);box-shadow:inset 0 0 0 1.5px var(--line);font-weight:700;font-size:15px;font-variant-numeric:tabular-nums;transition:background .3s,color .3s,box-shadow .3s,transform .3s var(--ease)}
+.vt-step .m small{display:block;font-size:10.5px;font-weight:500;color:var(--muted);margin-top:3px}
+.vt-step h3{margin:8px 0 6px;font-size:19px;line-height:1.3;letter-spacing:-.01em;transition:color .3s}
+.vt-step p{margin:0;color:var(--muted);font-size:15.5px;max-width:520px}
+.vt-step .calm{display:inline-flex;align-items:center;gap:6px;margin-top:10px;padding:5px 11px;border-radius:999px;background:var(--mint);color:#1F5A50;font-size:13px;font-weight:600}
+.vt-step .calm svg{width:14px;height:14px}
+.vt-step.on .m{background:var(--brand);color:#fff;box-shadow:none;transform:scale(1.06)}
+.vt-step.on .m small{color:rgba(255,255,255,.75)}
+.vt-step:not(.on) h3{color:#5E7571}
+.vt-step:focus-visible{outline:3px solid var(--brand);outline-offset:4px;border-radius:14px}
+.vt-side{position:sticky;top:92px;background:var(--surface);border-radius:var(--r-l);box-shadow:var(--shadow);padding:28px}
+.clock{position:relative;width:150px;height:150px;margin:0 auto}
+.clock svg{width:100%;height:100%;transform:rotate(-90deg)}
+.clock .tr{fill:none;stroke:var(--bg);stroke-width:9}
+.clock .pg{fill:none;stroke:var(--brand);stroke-width:9;stroke-linecap:round;stroke-dasharray:326.7;stroke-dashoffset:326.7;transition:stroke-dashoffset .6s var(--ease)}
+.clk-t{position:absolute;inset:0;display:grid;place-content:center;text-align:center}
+.clk-t b{font-size:40px;font-weight:700;letter-spacing:-.03em;line-height:1;font-variant-numeric:tabular-nums}
+.clk-t span{font-size:12.5px;color:var(--muted);margin-top:4px}
+.vt-now{margin:14px 0 0;text-align:center;font-weight:600;min-height:24px}
+.fear{margin-top:22px;padding-top:22px;border-top:1px solid var(--line)}
+.fear-q{margin:0 0 12px;font-weight:600;font-size:15.5px}
+.fear-scale{display:grid;grid-template-columns:repeat(5,1fr);gap:6px}
+.fear-scale button{display:grid;place-items:center;gap:2px;min-height:62px;padding:6px 2px;border:0;border-radius:14px;background:var(--bg);cursor:pointer;font-size:11.5px;color:var(--muted);line-height:1.2;transition:background .2s,color .2s,transform .15s;touch-action:manipulation}
+.fear-scale button svg{width:26px;height:26px}
+.fear-scale button:hover{transform:translateY(-2px)}
+.fear-scale button[aria-checked="true"]{background:var(--ink);color:#fff}
+.fear-a{margin-top:14px;padding:16px;border-radius:var(--r-m);background:var(--mint);font-size:14.5px;line-height:1.5;min-height:96px}
+.fear-a b{display:block;margin-bottom:4px;font-size:15.5px}
+.fear-a.empty{background:var(--bg);color:var(--muted)}
+/* ---------- block: reviews ---------- */
+.rv-bar{display:flex;align-items:center;justify-content:space-between;gap:16px;margin:0 0 18px}
+.rv-bar .ba-tabs{margin:0;min-width:0;flex:1}
+.rv-nav{display:flex;gap:8px;flex:none}
+.rv-nav button{display:grid;place-items:center;width:48px;height:48px;border:0;border-radius:50%;background:var(--surface);box-shadow:inset 0 0 0 1px var(--line);cursor:pointer;transition:background .2s,box-shadow .2s,opacity .2s}
+.rv-nav button:hover:not(:disabled){box-shadow:inset 0 0 0 1.5px var(--ink)}
+.rv-nav button:disabled{opacity:.35;cursor:default}
+.rv-nav svg{width:20px;height:20px}
+.rv-track{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-inline:24px;scroll-behavior:smooth;list-style:none;margin:0 -24px;padding:4px 24px 12px;scrollbar-width:none}
+.rv-track::-webkit-scrollbar{display:none}
+.rv-card{flex:0 0 min(380px,82vw);scroll-snap-align:start;display:flex;flex-direction:column;gap:14px;padding:24px;border-radius:var(--r-l);background:var(--surface);box-shadow:inset 0 0 0 1px var(--line);animation:rv .4s var(--ease) both}
+.rv-card[hidden]{display:none}
+.rv-top{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.stars{display:flex;gap:2px;color:#E8A33D}
+.stars svg{width:18px;height:18px}
+.rv-tag{padding:5px 10px;border-radius:999px;background:var(--mint);color:#1F5A50;font-size:12.5px;font-weight:600;white-space:nowrap}
+.rv-txt{margin:0;font-size:15.5px;line-height:1.6;display:-webkit-box;-webkit-line-clamp:5;-webkit-box-orient:vertical;overflow:hidden}
+.rv-card.open .rv-txt{-webkit-line-clamp:unset;display:block}
+.rv-more{align-self:flex-start;min-height:36px;padding:0;border:0;background:none;color:var(--brand);font-weight:600;font-size:14px;cursor:pointer}
+.rv-who{display:flex;align-items:center;gap:12px;margin-top:auto;padding-top:14px;border-top:1px solid var(--line)}
+.rv-av{display:grid;place-items:center;flex:none;width:42px;height:42px;border-radius:50%;font-weight:700;color:#fff}
+.rv-who b{display:block;font-size:15px}
+.rv-who small{display:block;font-size:13px;color:var(--muted);line-height:1.35}
+.rv-note{margin:10px 2px 0;font-size:13.5px;color:var(--muted)}
+
+/* ---------- block: guarantees & payment ---------- */
+.gp{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,6fr);gap:24px;align-items:stretch}
+.gw{background:var(--ink);color:#fff;border-radius:var(--r-l);padding:30px;display:flex;flex-direction:column}
+.gw h3{margin:0;font-size:22px;letter-spacing:-.015em}
+.gw .sub{margin:6px 0 18px;color:rgba(255,255,255,.7);font-size:14.5px}
+.gw .ba-tabs{margin:0 0 22px}
+.gw .cat{background:rgba(255,255,255,.08);color:#fff;box-shadow:none}
+.gw .cat:hover{background:rgba(255,255,255,.16)}
+.gw .cat[aria-pressed="true"]{background:var(--mint-2);color:var(--ink)}
+.gw-yrs{display:flex;align-items:baseline;gap:10px}
+.gw-yrs b{font-size:56px;font-weight:700;letter-spacing:-.04em;line-height:1;font-variant-numeric:tabular-nums}
+.gw-yrs span{font-size:18px;color:rgba(255,255,255,.8)}
+.gw-bar{position:relative;height:12px;margin:18px 0 8px;border-radius:999px;background:rgba(255,255,255,.12);overflow:hidden}
+.gw-bar i{position:absolute;inset:0 auto 0 0;border-radius:999px;background:linear-gradient(90deg,var(--mint-2),#7FD6BF);transition:width .6s var(--ease)}
+.gw-scale{display:flex;justify-content:space-between;font-size:12px;color:rgba(255,255,255,.55)}
+.gw-cond{margin:20px 0 0;padding:16px;border-radius:var(--r-m);background:rgba(255,255,255,.07);font-size:14.5px;line-height:1.55}
+.gw-cond b{display:block;margin-bottom:4px;color:var(--mint-2)}
+.pays{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:0;padding:0;list-style:none}
+.pays li{padding:22px;border-radius:var(--r-l);background:var(--surface);box-shadow:inset 0 0 0 1px var(--line)}
+.pays .ic{display:grid;place-items:center;width:44px;height:44px;border-radius:13px;background:var(--mint);color:var(--brand);margin-bottom:14px}
+.pays .ic svg{width:22px;height:22px}
+.pays b{display:block;font-size:16.5px;line-height:1.3}
+.pays p{margin:6px 0 0;font-size:14.5px;color:var(--muted);line-height:1.5}
+.pays .hl{grid-column:1/-1;display:grid;grid-template-columns:auto 1fr auto;gap:16px;align-items:center;background:var(--mint);box-shadow:none}
+.pays .hl .ic{margin:0;background:var(--surface)}
+.pays .hl .calc{text-align:right;white-space:nowrap}
+.pays .hl .calc small{display:block;font-size:12.5px;color:#2E5650}
+.pays .hl .calc strong{font-size:22px;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+
+/* ---------- block: FAQ ---------- */
+.fq2{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:40px;align-items:start}
+.fq2-side{position:sticky;top:92px}
+.fq2-side p{color:var(--muted);margin:14px 0 0}
+.fq2-ask{margin-top:24px;padding:20px;border-radius:var(--r-m);background:var(--surface);box-shadow:inset 0 0 0 1px var(--line)}
+.fq2-ask b{display:block;margin-bottom:4px}
+.fq2-ask span{display:block;color:var(--muted);font-size:14.5px;margin-bottom:14px}
+.fq-search{display:flex;align-items:center;gap:10px;min-height:54px;padding:0 18px;margin-bottom:14px;border-radius:999px;background:var(--surface);box-shadow:inset 0 0 0 1px var(--line)}
+.fq-search:focus-within{box-shadow:inset 0 0 0 2px var(--brand)}
+.fq-search svg{width:20px;height:20px;color:var(--muted);flex:none}
+.fq-search input{flex:1;min-width:0;border:0;outline:0;background:transparent;font:inherit;font-size:16px;color:var(--ink)}
+.qa{border-bottom:1px solid var(--line)}
+.qa h3{margin:0}
+.qa button{display:flex;align-items:center;justify-content:space-between;gap:16px;width:100%;min-height:64px;padding:18px 4px;border:0;background:none;text-align:left;font-weight:600;font-size:17px;line-height:1.35;cursor:pointer}
+.qa button .pm{position:relative;flex:none;width:30px;height:30px;border-radius:50%;background:var(--bg);transition:background .2s,transform .3s var(--ease)}
+.qa button .pm::before,.qa button .pm::after{content:"";position:absolute;left:50%;top:50%;width:12px;height:2px;margin:-1px 0 0 -6px;border-radius:2px;background:var(--ink);transition:transform .3s var(--ease)}
+.qa button .pm::after{transform:rotate(90deg)}
+.qa button[aria-expanded="true"] .pm{background:var(--ink)}
+.qa button[aria-expanded="true"] .pm::before,.qa button[aria-expanded="true"] .pm::after{background:#fff}
+.qa button[aria-expanded="true"] .pm::after{transform:rotate(0)}
+.qa .ans{display:grid;grid-template-rows:0fr;transition:grid-template-rows .35s var(--ease)}
+.qa .ans>div{overflow:hidden}
+.qa .ans p{margin:0;padding:0 48px 20px 4px;color:var(--muted);line-height:1.6}
+.qa.open .ans{grid-template-rows:1fr}
+.qa mark{background:var(--mint-2);color:inherit;border-radius:3px;padding:0 2px}
+.fq-empty{display:none;padding:24px;border-radius:var(--r-m);background:var(--surface);color:var(--muted);text-align:center}
+
+section[id]{scroll-margin-top:72px}
+
+/* ---------- block: booking + contacts ---------- */
+.bk{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:24px;align-items:start}
+.bk-form{background:var(--surface);border-radius:var(--r-l);box-shadow:var(--shadow);padding:32px}
+.bk-form h3{margin:0;font-size:24px;letter-spacing:-.02em}
+.bk-form .sub{margin:6px 0 0;color:var(--muted);font-size:15px}
+.ctx{display:flex;align-items:center;gap:12px;margin:18px 0 0;padding:12px 14px;border-radius:var(--r-s);background:var(--mint);font-size:14.5px}
+.ctx[hidden]{display:none}
+.ctx svg{width:20px;height:20px;color:var(--brand);flex:none}
+.ctx span{flex:1}
+.ctx button{min-height:36px;padding:0 10px;border:0;border-radius:10px;background:transparent;color:#2E5650;font-size:13.5px;font-weight:600;cursor:pointer}
+.ctx button:hover{background:rgba(255,255,255,.6)}
+.fs{border:0;margin:22px 0 0;padding:0;min-width:0}
+.fs legend{padding:0;margin:0 0 10px;font-weight:600;font-size:15px}
+.days{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;margin:0 -4px;padding:2px 4px}
+.days::-webkit-scrollbar{display:none}
+.day{flex:none;display:grid;place-items:center;gap:1px;min-width:66px;min-height:62px;padding:6px 8px;border:0;border-radius:14px;background:var(--bg);box-shadow:inset 0 0 0 1px var(--line);cursor:pointer;font-size:12.5px;color:var(--muted);line-height:1.2;touch-action:manipulation}
+.day b{font-size:17px;color:var(--ink)}
+.day[aria-checked="true"]{background:var(--ink);color:rgba(255,255,255,.75);box-shadow:none}
+.day[aria-checked="true"] b{color:#fff}
+.slots{display:grid;grid-template-columns:repeat(6,1fr);gap:6px}
+.slot{min-height:44px;border:0;border-radius:12px;background:var(--bg);box-shadow:inset 0 0 0 1px var(--line);font-weight:600;font-size:14px;font-variant-numeric:tabular-nums;cursor:pointer;touch-action:manipulation}
+.slot:hover:not(:disabled){box-shadow:inset 0 0 0 1.5px var(--ink)}
+.slot:disabled{background:transparent;box-shadow:none;color:#A9B8B4;text-decoration:line-through;cursor:default}
+.slot[aria-checked="true"]{background:var(--brand);color:#fff;box-shadow:none}
+.slots-empty{grid-column:1/-1;margin:0;padding:14px;border-radius:12px;background:var(--bg);color:var(--muted);font-size:14.5px;text-align:center}
+.fields{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:22px}
+.fld{display:flex;flex-direction:column;gap:6px}
+.fld.wide{grid-column:1/-1}
+.fld label{font-weight:600;font-size:14.5px}
+.fld label i{font-style:normal;color:var(--coral)}
+.fld input,.fld textarea,.fld select{width:100%;min-height:52px;padding:12px 16px;border:0;border-radius:14px;background:var(--bg);box-shadow:inset 0 0 0 1px var(--line);font:inherit;font-size:16px;color:var(--ink);outline:0;transition:box-shadow .15s}
+.fld textarea{min-height:88px;resize:vertical}
+.fld input:focus,.fld textarea:focus,.fld select:focus{box-shadow:inset 0 0 0 2px var(--brand);background:var(--surface)}
+.fld.err input{box-shadow:inset 0 0 0 2px var(--coral)}
+.fld .em{display:none;font-size:13.5px;color:#B23E1D}
+.fld.err .em{display:block}
+.chk{display:flex;align-items:flex-start;gap:10px;margin-top:16px;font-size:14.5px;cursor:pointer}
+.chk input{width:22px;height:22px;margin:0;accent-color:var(--brand);flex:none}
+.bk-sum{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:22px;padding-top:20px;border-top:1px solid var(--line)}
+.bk-sum p{margin:0;font-size:14.5px;color:var(--muted)}
+.bk-sum p b{color:var(--ink)}
+.bk-ok{text-align:center;padding:20px 0 8px;animation:rv .4s var(--ease)}
+.bk-ok .ok{display:grid;place-items:center;width:72px;height:72px;margin:0 auto 16px;border-radius:50%;background:var(--mint);color:var(--brand)}
+.bk-ok .ok svg{width:34px;height:34px}
+.bk-ok h3{margin:0}
+.bk-ok p{margin:8px auto 0;max-width:420px;color:var(--muted)}
+.bk-ok .demo{display:inline-block;margin-top:16px;padding:8px 12px;border-radius:999px;background:var(--bg);font-size:13px;color:var(--muted)}
+.ct{display:flex;flex-direction:column;gap:12px}
+.ct-card{padding:24px;border-radius:var(--r-l);background:var(--surface);box-shadow:inset 0 0 0 1px var(--line)}
+.ct-row{display:flex;gap:14px;align-items:flex-start;padding:12px 0;border-top:1px solid var(--line)}
+.ct-row:first-child{border-top:0;padding-top:0}
+.ct-row:last-child{padding-bottom:0}
+.ct-row svg{width:22px;height:22px;color:var(--brand);flex:none;margin-top:2px}
+.ct-row b{display:block;font-size:15.5px}
+.ct-row span,.ct-row a{font-size:14.5px;color:var(--muted)}
+.ct-row a{color:var(--brand);font-weight:600;text-decoration:none}
+.msg{display:flex;gap:8px;margin-top:16px}
+.msg a{flex:1;display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;border-radius:14px;font-weight:600;font-size:15px;text-decoration:none;color:#fff}
+.msg svg{width:18px;height:18px}
+.msg .tg{background:#2AABEE}.msg .vb{background:#7360F2}
+.map{position:relative;border-radius:var(--r-l);overflow:hidden;aspect-ratio:16/10;background:#EEF1EA;box-shadow:inset 0 0 0 1px var(--line)}
+.map svg{display:block;width:100%;height:100%}
+.map .pinlbl{position:absolute;left:51.5%;top:41%;transform:translate(-50%,-210%);padding:8px 12px;border-radius:12px;background:var(--ink);color:#fff;font-size:13px;font-weight:600;white-space:nowrap;box-shadow:var(--shadow)}
+.map a{position:absolute;right:12px;bottom:12px;min-height:40px;display:inline-flex;align-items:center;padding:0 14px;border-radius:999px;background:var(--surface);font-size:13.5px;font-weight:600;text-decoration:none;box-shadow:var(--shadow)}
+
+/* ---------- footer ---------- */
+.sfoot{margin-top:40px;background:var(--ink);color:rgba(255,255,255,.78);padding:56px 0 28px}
+.sfoot .cols{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.2fr;gap:32px}
+.sfoot .logo{color:#fff}
+.sfoot .about{margin:14px 0 0;font-size:14.5px;max-width:280px}
+.sfoot h4{margin:4px 0 14px;color:#fff;font-size:15px}
+.sfoot ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.sfoot a{color:rgba(255,255,255,.78);text-decoration:none;font-size:14.5px}
+.sfoot a:hover{color:#fff}
+.sfoot .bot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;margin-top:40px;padding-top:22px;border-top:1px solid rgba(255,255,255,.12);font-size:13.5px;color:rgba(255,255,255,.55)}
+
+.sfoot .credit{margin:0;color:rgba(255,255,255,.7);box-shadow:inset 0 0 0 1px rgba(255,255,255,.18)}
+.sfoot .credit b{color:#fff}
+.sfoot .credit:hover{box-shadow:inset 0 0 0 1px rgba(255,255,255,.5)}
+
+/* ---------- block 3: prices + estimate ---------- */
+.pc{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:24px;align-items:start}
+.cats{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 16px;padding:2px}
+.cats::-webkit-scrollbar{display:none}
+.cat{flex:none;min-height:44px;padding:0 18px;border:0;border-radius:999px;background:var(--surface);box-shadow:inset 0 0 0 1px var(--line);font-weight:600;font-size:14.5px;cursor:pointer;transition:background .2s,color .2s;touch-action:manipulation}
+.cat:hover{box-shadow:inset 0 0 0 1.5px var(--ink)}
+.cat[aria-selected="true"],.cat[aria-pressed="true"]{background:var(--ink);color:#fff;box-shadow:none}
+.cat i{font-style:normal;margin-left:6px;display:inline-grid;place-items:center;min-width:20px;height:20px;padding:0 5px;border-radius:999px;background:var(--mint);color:var(--brand);font-size:11.5px}
+.rows{list-style:none;margin:0;padding:0;background:var(--surface);border-radius:var(--r-l);box-shadow:inset 0 0 0 1px var(--line);overflow:hidden}
+.row{display:grid;grid-template-columns:minmax(0,1fr) auto 112px;gap:16px;align-items:center;padding:16px 20px;border-top:1px solid var(--line);animation:rv .35s var(--ease) both;animation-delay:calc(var(--i) * 30ms)}
+.row:first-child{border-top:0}
+.row b{display:block;font-weight:600;line-height:1.35}
+.row small{display:block;margin-top:2px;font-size:13.5px;color:var(--muted);line-height:1.35}
+.row .p{font-weight:700;font-variant-numeric:tabular-nums;white-space:nowrap;text-align:right}
+.row .p.free{color:var(--brand)}
+.row .ctl{display:flex;justify-content:flex-end}
+.addb{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-width:44px;height:44px;padding:0 14px;border:0;border-radius:12px;background:var(--mint);color:var(--brand);font-weight:600;font-size:14px;cursor:pointer;transition:background .15s;touch-action:manipulation}
+.addb:hover{background:var(--mint-2)}
+.addb.on{background:var(--ink);color:#fff}
+.addb.on:hover{background:#24443F}
+.addb svg{width:16px;height:16px}
+.qty{display:inline-flex;align-items:center;height:44px;border-radius:12px;background:var(--ink);color:#fff}
+.qty button{display:grid;place-items:center;width:38px;height:44px;border:0;background:transparent;color:#fff;cursor:pointer;font-size:18px;font-weight:600;touch-action:manipulation}
+.qty span{min-width:24px;text-align:center;font-weight:700;font-variant-numeric:tabular-nums}
+.disc{margin:14px 4px 0;font-size:13.5px;color:var(--muted)}
+.sum{position:sticky;top:92px;background:var(--surface);border-radius:var(--r-l);box-shadow:var(--shadow);padding:26px;scroll-margin-top:84px}
+.sum h3{margin:0 0 4px;font-size:20px;letter-spacing:-.01em}
+.sum .sub{margin:0;font-size:14px;color:var(--muted)}
+.imp{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:16px 0 0;padding:12px 14px;border-radius:var(--r-s);background:var(--mint);font-size:14px}
+.imp button{min-height:40px;padding:0 14px;border:0;border-radius:999px;background:var(--brand);color:#fff;font-weight:600;font-size:13.5px;cursor:pointer;white-space:nowrap}
+.lines{list-style:none;margin:16px 0 0;padding:0;max-height:300px;overflow:auto}
+.lines li{display:grid;grid-template-columns:minmax(0,1fr) auto 36px;gap:10px;align-items:center;padding:10px 0;border-top:1px dashed var(--line);font-size:14.5px;animation:rv .3s var(--ease)}
+.lines li:first-child{border-top:0}
+.lines .q{color:var(--muted);font-weight:500}
+.lines .v{font-weight:600;font-variant-numeric:tabular-nums;white-space:nowrap}
+.lines .rm{width:36px;height:36px;border:0;border-radius:10px;background:transparent;color:var(--muted);cursor:pointer;display:grid;place-items:center}
+.lines .rm:hover{background:var(--bg);color:var(--ink)}
+.lines .rm svg{width:14px;height:14px}
+.sum-empty{margin:18px 0 0;padding:22px;border-radius:var(--r-m);background:var(--bg);color:var(--muted);font-size:14.5px;text-align:center}
+.total{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin:16px 0 0;padding:16px 0 0;border-top:1px solid var(--line)}
+.total span{color:var(--muted);font-size:14px}
+.total b{font-size:30px;font-weight:700;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.inst{margin:14px 0 0}
+.inst .seg{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;padding:4px;border-radius:999px;background:var(--bg)}
+.inst .seg button{min-height:40px;border:0;border-radius:999px;background:transparent;font-weight:600;font-size:13.5px;color:var(--muted);cursor:pointer}
+.inst .seg button[aria-pressed="true"]{background:var(--surface);color:var(--ink);box-shadow:0 1px 3px rgba(15,42,38,.14)}
+.inst p{margin:10px 2px 0;font-size:14px;color:var(--muted);min-height:21px}
+.inst p b{color:var(--ink);font-variant-numeric:tabular-nums}
+.sum .btn{width:100%;margin-top:16px}
+.mbar{position:fixed;left:12px;right:12px;bottom:12px;z-index:30;display:none;align-items:center;justify-content:space-between;gap:12px;padding:10px 10px 10px 18px;border-radius:999px;background:var(--ink);color:#fff;box-shadow:0 12px 30px -8px rgba(15,42,38,.5);transform:translateY(140%);transition:transform .3s var(--ease)}
+.mbar.on{transform:none}
+.mbar span{font-size:14px}
+.mbar b{font-variant-numeric:tabular-nums}
+.mbar a{min-height:44px;display:inline-flex;align-items:center;padding:0 16px;border-radius:999px;background:var(--mint-2);color:var(--ink);font-weight:600;font-size:14px;text-decoration:none}
+
+/* ---------- responsive ---------- */
+@media (max-width:1080px){.links{display:none}.nav .wrap>.hours{margin-left:auto}.burger{display:grid}}
+@media (max-width:980px){
+  .grid{grid-template-columns:1fr;gap:40px}
+  .cn{grid-template-columns:1fr}
+  .cn-card{position:static}
+  .pc{grid-template-columns:minmax(0,1fr)}
+  .ba-grid{grid-template-columns:minmax(0,1fr)}
+  .drs{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .gp{grid-template-columns:minmax(0,1fr)}
+  .bk{grid-template-columns:minmax(0,1fr)}
+  .sfoot .cols{grid-template-columns:1fr 1fr}
+  .fq2{grid-template-columns:minmax(0,1fr);gap:24px}
+  .fq2-side{position:static}
+  .fq2-ask{display:none}
+  .vt{grid-template-columns:minmax(0,1fr);gap:28px}
+  .vt-side{position:static;order:-1}
+  .vt-side .clock,.vt-side .vt-now{display:none}
+  .vt-side .fear{margin:0;padding:0;border:0}
+  .sum{position:static}
+  .mbar{display:flex}
+  .trust{grid-template-columns:1fr 1fr}
+  .hero::before{right:-40%;top:30%}
+}
+@media (max-width:600px){
+  .wrap{padding:0 16px}
+  .nav .wrap{height:64px;gap:12px}
+  .nav .wrap>.hours{display:none}
+  .nav .wrap>.btn.sm{margin-left:auto;padding:0 16px}
+  .hero{padding-top:32px}
+  .facts{gap:20px;justify-content:space-between}
+  .facts b{font-size:26px}
+  .ctas .btn{flex:1 1 100%}
+  .card{padding:16px;border-radius:22px}
+  .plan .t{display:none}
+  .sec{padding:72px 0}
+  .cn-list{gap:8px}
+  .cn-tab{flex-direction:column;align-items:flex-start;gap:10px;min-height:0;padding:14px}
+  .cn-tab .ic{width:36px;height:36px;border-radius:11px}
+  .cn-tab b{font-size:15px}
+  .cn-card{padding:22px;border-radius:22px;scroll-margin-top:80px}
+  .kv{grid-template-columns:1fr 1fr}
+  .kv .pr{grid-column:1/-1}
+  .cn-cta .btn{flex:1 1 100%}
+  .cats{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;margin:0 -16px 14px;padding:2px 16px}
+  .row{grid-template-columns:minmax(0,1fr) auto;gap:6px 12px;padding:14px 16px}
+  .row .p{grid-column:1;grid-row:2;text-align:left}
+  .row .ctl{grid-column:2;grid-row:1/3}
+  .sum{padding:20px;border-radius:22px}
+  .bk-form{padding:20px;border-radius:22px}
+  .slots{grid-template-columns:repeat(4,1fr)}
+  .fields{grid-template-columns:1fr}
+  .bk-sum .btn{flex:1 1 100%}
+  .ct-card{padding:20px;border-radius:22px}
+  .sfoot{padding:44px 0 24px}
+  .sfoot .cols{grid-template-columns:1fr;gap:26px}
+  .gw{padding:22px;border-radius:22px}
+  .gw .ba-tabs{margin:0 -22px 18px;padding:2px 22px}
+  .gw-yrs b{font-size:46px}
+  .pays{grid-template-columns:1fr}
+  .pays li{padding:18px;border-radius:20px}
+  .pays .hl{grid-template-columns:auto 1fr}
+  .pays .hl .calc{grid-column:1/-1;text-align:left}
+  .qa button{font-size:16px;min-height:58px;padding:16px 2px}
+  .qa .ans p{padding-right:8px}
+  .rv-nav{display:none}
+  .rv-bar .ba-tabs{margin:0 -16px}
+  .rv-track{margin:0 -16px;padding:4px 16px 12px;gap:12px;scroll-padding-inline:16px}
+  .rv-card{padding:20px;flex-basis:84%}
+  .vt-step{grid-template-columns:52px 1fr;gap:14px;padding-bottom:24px}
+  .vt-step .m{width:52px;height:52px;font-size:14px}
+  .vt-steps::before{left:25px}
+  .vt-step h3{font-size:17.5px;margin-top:4px}
+  .vt-step p{font-size:15px}
+  .vt-side{padding:20px;border-radius:22px}
+  .fear-scale button{min-height:58px;font-size:10.5px}
+  .dr-top{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;margin:0 -16px 14px;padding:2px 16px}
+  .drs{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;margin:0 -16px;padding:2px 16px 8px;scrollbar-width:none}
+  .drs::-webkit-scrollbar{display:none}
+  .dr{flex:0 0 84%;scroll-snap-align:center}
+  .back{padding:22px}
+  .ba-tabs{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;margin:0 -16px 14px;padding:2px 16px}
+  .cmp{aspect-ratio:1.35/1;border-radius:20px}
+  .cmp .knob{width:46px;height:46px;margin:-23px 0 0 -23px}
+  .ba-info{padding:22px;border-radius:22px}
+  .ba-rows div{grid-template-columns:96px 1fr;font-size:14.5px}
+  .total b{font-size:26px}
+  .modes button{font-size:13px;gap:6px;padding:0 6px}
+  .modes svg{width:15px;height:15px}
+  .trust{grid-template-columns:1fr}
+  .sol{grid-template-columns:1fr}
+  .sol .pr{grid-column:1;grid-row:auto;text-align:left}
+  .credit{margin-left:0}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .rv,.tg{opacity:1;transform:none}
+  .dr-in{transform:none!important}
+  .dr .back{transform:none;visibility:hidden}
+  .dr.flip .back{visibility:visible}
+  .dr.flip .front{visibility:hidden}
+}
+.demobar{background:#16302D;color:#E6F1EE;font-size:13.5px;text-align:center;padding:9px 16px;line-height:1.4}
+.demobar b{color:#fff}
+.logo{white-space:nowrap}
+.logo img{width:40px;height:40px;border-radius:50%;flex:none;box-shadow:0 0 0 2px #fff,0 0 0 3px #C9A24A}
+@media(max-width:420px){.logo{font-size:16px;gap:8px}.logo img{width:32px;height:32px}.demobar{font-size:12px;padding:7px 12px}}
+.ws-gal{list-style:none;margin:0;padding:4px 2px 16px;display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:thin}
+.ws-gal li{flex:0 0 236px;scroll-snap-align:start;background:var(--surface);border-radius:var(--r-m);box-shadow:var(--shadow);overflow:hidden}
+.ws-gal img{display:block;width:100%;aspect-ratio:9/16;object-fit:cover;background:var(--mint)}
+.ws-gal span{display:block;padding:11px 14px;font-weight:600;font-size:14.5px}
+.ws-hint{margin:6px 0 0;color:var(--muted);font-size:14px}
+.ws-drs{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.ws-drs figure{margin:0;background:var(--surface);border-radius:var(--r-l);box-shadow:var(--shadow);overflow:hidden}
+.ws-drs img{display:block;width:100%;aspect-ratio:1/1;object-fit:cover;object-position:center 30%}
+.ws-drs figcaption{padding:18px 22px}
+.ws-drs b{display:block;font-size:19px}.ws-drs span{color:var(--muted);font-size:15px}
+.ws-q{margin:0 0 26px;padding:26px 30px;background:var(--surface);border-radius:var(--r-l);box-shadow:var(--shadow);border-left:4px solid #C9A24A;font-size:17.5px;line-height:1.65}
+.ws-q cite{display:block;margin-top:12px;font-style:normal;color:var(--muted);font-size:14.5px}
+.ws-more{display:inline-flex;margin-top:14px}
+.msg a.tg{background:var(--brand)!important;color:#fff!important}
+.msg a.vb{background:var(--mint)!important;color:var(--ink)!important}
+@media(max-width:700px){.ws-drs{grid-template-columns:1fr}.ws-gal li{flex-basis:200px}.ws-q{padding:20px 20px;font-size:16px}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Перейти до змісту</a>
+<div class="demobar"><b>Демо-версія сайту для Lysko dental.</b> Ціни й перелік послуг — приклади, замінимо на ваші.</div>
+
+<header class="nav" id="nav">
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="Lysko dental, на початок">
+      <img src="img/logo.png" alt="" width="40" height="40">
+      Lysko dental
+    </a>
+    <nav class="links" aria-label="Основне меню">
+      <a href="#services">Послуги</a><a href="#braces">Брекети</a><a href="#prices">Ціни</a><a href="#doctors">Лікарі</a><a href="#reviews">Відгуки</a><a href="#book">Контакти</a>
+    </nav>
+    <div class="hours"><i aria-hidden="true"></i>Пн–Пт 8:30–19:00</div>
+    <a class="btn primary sm" href="#book">Записатися</a>
+    <button type="button" class="burger" id="burger" aria-expanded="false" aria-controls="mmenu" aria-label="Відкрити меню"><span></span></button>
+  </div>
+  <div class="mmenu" id="mmenu" hidden>
+    <div class="wrap">
+      <nav aria-label="Мобільне меню">
+        <a href="#services">Що вас турбує</a><a href="#braces">Брекети й елайнери</a><a href="#results">До і після</a><a href="#doctors">Лікарі</a><a href="#prices">Ціни й кошторис</a><a href="#reviews">Відгуки</a><a href="#faq">Питання</a><a href="#book">Контакти</a>
+      </nav>
+      <div class="mm-foot"><div class="hours"><i aria-hidden="true"></i>Пн–Пт 8:30–19:00</div><a class="btn primary" href="#book">Записатися на огляд</a></div>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+<section class="hero" id="top">
+  <div class="wrap">
+    <div class="grid">
+      <div class="copy">
+        <p class="eyebrow rv" style="--d:0"><b><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></b>Ортодонтія для дітей і дорослих · вул. Павла Тичини, 6а</p>
+        <h1 class="rv" style="--d:1">Лікуємо <em>без болю</em> і без сюрпризів у чеку</h1>
+        <p class="lead rv" style="--d:2">Ціну лікування ви дізнаєтесь ще до того, як сядете в крісло. <b>Натисніть на зуб, який турбує</b>, і покажемо, що з ним можна зробити та скільки це коштує. А головне — ми <b>спеціалізуємось на брекетах</b>: подивіться, як вони виглядатимуть саме на ваших зубах.</p>
+        <div class="ctas rv" style="--d:3">
+          <a class="btn primary" href="#book">Записатися на огляд
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a class="btn ghost" href="#prices">Порахувати лікування</a>
+        </div>
+        <ul class="facts rv" style="--d:4">
+          <li><b>з 2017</b><span>ставимо<br>брекети</span></li>
+          <li><b>60+</b><span>історій «до і після»<br>в Instagram</span></li>
+          <li><b>24/7</b><span>онлайн-запис<br>на сайті</span></li>
+        </ul>
+      </div>
+
+      <div class="card rv" style="--d:2" id="map">
+        <div class="card-top">
+          <h2>Інтерактивна карта зубів<small id="cardSub">Не знаєте точно, який зуб? Оберіть приблизно</small></h2>
+          <a class="plan" id="plan" href="#book" aria-live="polite"><span class="n" id="planN">0</span><span class="t" id="planT">у плані</span></a>
+        </div>
+        <div class="modes" role="tablist" aria-label="Що вас цікавить">
+          <button type="button" role="tab" id="mTreat" aria-selected="true" data-mode="treat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.5 3.5c1.8-.7 3.2.3 4.5.3s2.7-1 4.5-.3c2.2.9 2.6 3.6 1.9 6.6-.6 2.4-.9 4.6-1.4 6.6-.3 1.4-1.9 1.5-2.3.1l-1.1-3.8c-.4-1.2-1.8-1.2-2.2 0l-1.1 3.8c-.4 1.4-2 1.3-2.3-.1-.5-2-.8-4.2-1.4-6.6-.7-3-.3-5.7 1.9-6.6z"/></svg>Лікування зуба</button>
+          <button type="button" role="tab" id="mOrtho" aria-selected="false" data-mode="ortho"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="9" width="4.5" height="6" rx="1"/><rect x="9.75" y="9" width="4.5" height="6" rx="1"/><rect x="16.5" y="9" width="4.5" height="6" rx="1"/><path d="M1.5 12h21"/></svg>Брекети та прикус</button>
+        </div>
+        <div class="jaw"><svg id="jaw" viewBox="0 0 400 440" role="group" aria-label="Схема зубів: верхня і нижня щелепа"></svg></div>
+        <div class="panel" id="panel" aria-live="polite"></div>
+      </div>
+    </div>
+
+    <ul class="trust rv" style="--d:5">
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="9" width="4.5" height="6" rx="1"/><rect x="9.75" y="9" width="4.5" height="6" rx="1"/><rect x="16.5" y="9" width="4.5" height="6" rx="1"/><path d="M1.5 12h21"/></svg><div><b>Ортодонтія</b><span>для дітей і дорослих</span></div></li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 4 6v6c0 5 3.4 8.3 8 9 4.6-.7 8-4 8-9V6z"/><path d="m9 12 2 2 4-4"/></svg><div><b>Лікування</b><span>карієсу й кореневих каналів</span></div></li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.5c3 3.6 6 7 6 10.5a6 6 0 0 1-12 0c0-3.5 3-6.9 6-10.5z"/><path d="M9.5 14a2.5 2.5 0 0 0 2.5 2.5"/></svg><div><b>Естетика</b><span>відбілювання, коронки, вініри</span></div></li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><div><b>Запис 24/7</b><span>навіть коли ми на прийомі</span></div></li>
+    </ul>
+
+  </div>
+</section>
+
+<section class="sec" id="services" aria-labelledby="cnH">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 class="h2" id="cnH">Що вас <em>турбує?</em></h2>
+      <p>Оберіть свою ситуацію. Розповімо, що будемо робити, до якого лікаря записатися і скільки це коштує.</p>
+    </div>
+    <div class="cn">
+      <div class="cn-list" id="cnList" role="tablist" aria-label="Ситуації" aria-orientation="vertical"></div>
+      <div class="cn-card" id="cnCard" role="tabpanel" tabindex="0" aria-live="polite"></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="results" aria-labelledby="baH" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 class="h2" id="baH">Наші роботи: <em>до і після</em></h2>
+      <p>Справжні результати пацієнтів Lysko dental. Без фільтрів і ретуші.</p>
+    </div>
+    <ul class="ws-gal" aria-label="Роботи до і після">
+      <li><img src="img/work3.jpg" alt="Брекети: до і після" loading="lazy"><span>Брекети: до і після</span></li>
+      <li><img src="img/work4.jpg" alt="Брекети: до і після" loading="lazy"><span>Брекети: до і після</span></li>
+      <li><img src="img/work5.jpg" alt="Брекети: до і після" loading="lazy"><span>Брекети: до і після</span></li>
+      <li><img src="img/work7.jpg" alt="Брекети: до і після" loading="lazy"><span>Брекети: до і після</span></li>
+      <li><img src="img/work1.jpg" alt="Відбілювання" loading="lazy"><span>Відбілювання</span></li>
+      <li><img src="img/work2.jpg" alt="Лікування карієсу" loading="lazy"><span>Лікування карієсу</span></li>
+      <li><img src="img/work6.jpg" alt="Брекети: під час лікування" loading="lazy"><span>Брекети: під час лікування</span></li>
+      <li><img src="img/work8.jpg" alt="Брекети: до і після" loading="lazy"><span>Брекети: до і після</span></li>
+    </ul>
+    <p class="ws-hint">Гортайте вбік, щоб побачити більше →</p>
+  </div>
+</section>
+
+<section class="sec" id="doctors" aria-labelledby="drH" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 class="h2" id="drH">Лікар, до якого <em>не страшно</em></h2>
+      <p>Знайомтеся заздалегідь — ще до першого візиту.</p>
+    </div>
+    <div class="ws-drs">
+      <figure><img src="img/dr-ruslana.jpg" alt="Руслана Лиско, лікар-ортодонт" loading="lazy" style="object-position:60% 22%"><figcaption><b>Руслана Лиско</b><span>Лікар-ортодонт, засновниця Lysko dental</span></figcaption></figure>
+      <figure><img src="img/cabinet.jpg" alt="Кабінет Lysko dental" loading="lazy"><figcaption><b>Наш кабінет</b><span>Сучасне обладнання, зокрема для відбілювання</span></figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="prices" aria-labelledby="pcH" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 class="h2" id="pcH">Ціни й <em>кошторис</em> за хвилину</h2>
+      <p>Додайте потрібні процедури, і ви одразу побачите орієнтовну суму. Без дзвінків «просто спитати».</p>
+    </div>
+    <div class="pc">
+      <div>
+        <div class="cats" id="cats" role="tablist" aria-label="Категорії послуг"></div>
+        <ul class="rows" id="rows" role="tabpanel" aria-labelledby="cats"></ul>
+        <p class="disc">Демо-ціни на рівні клінік Івано-Франківська — тут буде ваш прайс.</p>
+      </div>
+      <aside class="sum" id="sum" aria-labelledby="sumH">
+        <h3 id="sumH">Ваш кошторис</h3>
+        <p class="sub">Збережемо його і надішлемо разом із записом</p>
+        <div id="imp"></div>
+        <div id="lines" aria-live="polite"></div>
+        <div class="total"><span>Разом, орієнтовно</span><b id="tot">0 ₴</b></div>
+        <div class="inst">
+          <div class="seg" role="group" aria-label="Спосіб оплати">
+            <button type="button" data-m="0" aria-pressed="true">Одразу</button>
+            <button type="button" data-m="6" aria-pressed="false">6 міс.</button>
+            <button type="button" data-m="12" aria-pressed="false">12 міс.</button>
+          </div>
+          <p id="instTxt"></p>
+        </div>
+        <a class="btn primary" href="#book" id="sumGo">Записатися з кошторисом
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </aside>
+    </div>
+  </div>
+  <div class="mbar" id="mbar" aria-hidden="true"><span>Кошторис: <b id="mbN">0</b> · <b id="mbT">0 ₴</b></span><a href="#sum" tabindex="-1">Переглянути</a></div>
+</section>
+
+<section class="sec" id="painless" aria-labelledby="plH" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 class="h2" id="plH">Як проходить візит, <em>хвилина за хвилиною</em></h2>
+      <p>Найбільше лякає невідомість. Тому розповідаємо заздалегідь, що відбуватиметься в кабінеті.</p>
+    </div>
+    <div class="vt">
+      <ol class="vt-steps" id="vtSteps"></ol>
+      <aside class="vt-side">
+        <div class="clock" aria-hidden="true">
+          <svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="52" class="tr"/><circle cx="60" cy="60" r="52" class="pg" id="vtRing"/></svg>
+          <div class="clk-t"><b id="vtMin">0</b><span>хвилина візиту</span></div>
+        </div>
+        <p class="vt-now" id="vtNow" aria-live="polite"></p>
+        <div class="fear">
+          <p class="fear-q" id="fearL">Наскільки ви боїтеся стоматолога?</p>
+          <div class="fear-scale" role="radiogroup" aria-labelledby="fearL" id="fear"></div>
+          <div class="fear-a" id="fearA" aria-live="polite"></div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="reviews" aria-labelledby="rvH" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 class="h2" id="rvH">Що кажуть <em>пацієнти</em></h2>
+      <p>Пацієнти самі пишуть про нас і відмічають у своїх сторіз.</p>
+    </div>
+    <blockquote class="ws-q">«Спочатку було незвично, трішки боляче, але результат того вартий. Через декілька днів я помітила, як зуби почали рівнятися. Встановлення брекетів безболісне. Брекети ставила чудовий ортодонт — Руслана Лиско. Ні, це не реклама, я просто висловлюю подяку за професійну роботу і хороше ставлення до пацієнта.»<cite>— пацієнтка, коментар в Instagram</cite></blockquote>
+    <ul class="ws-gal" aria-label="Відгуки пацієнтів">
+      <li><img src="img/rev1.jpg" alt="Відгук пацієнта Lysko dental 1" loading="lazy"></li>
+      <li><img src="img/rev2.jpg" alt="Відгук пацієнта Lysko dental 2" loading="lazy"></li>
+      <li><img src="img/rev3.jpg" alt="Відгук пацієнта Lysko dental 3" loading="lazy"></li>
+      <li><img src="img/rev4.jpg" alt="Відгук пацієнта Lysko dental 4" loading="lazy"></li>
+    </ul>
+    <a class="btn ghost ws-more" href="https://www.instagram.com/lysko_dental_if/" target="_blank" rel="noopener">Більше робіт і відгуків в Instagram</a>
+  </div>
+</section>
+
+<section class="sec" id="guarantee" aria-labelledby="gpH" style="padding-top:0;display:none" hidden>
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 class="h2" id="gpH">Гарантії та <em>зручна оплата</em></h2>
+      <p>Гарантію фіксуємо в договорі. Платити можна частинами, без переплат.</p>
+    </div>
+    <div class="gp">
+      <div class="gw">
+        <h3>Перевірте гарантію на лікування</h3>
+        <p class="sub">Оберіть процедуру</p>
+        <div class="ba-tabs" id="gwF" role="group" aria-label="Процедура"></div>
+        <div aria-live="polite">
+          <div class="gw-yrs"><b id="gwN">2</b><span id="gwU">роки гарантії</span></div>
+          <div class="gw-bar" aria-hidden="true"><i id="gwBar"></i></div>
+          <div class="gw-scale" aria-hidden="true"><span>0</span><span>1 рік</span><span>2</span><span>3</span><span>4</span><span>5 років</span></div>
+          <p class="gw-cond" id="gwC"></p>
+        </div>
+      </div>
+      <ul class="pays">
+        <li class="hl"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg></span>
+          <div><b>Розстрочка 0% до 12 місяців</b><p>Для лікування від 5 000 ₴. Без довідок про доходи, оформлення за 5 хвилин у клініці.</p></div>
+          <div class="calc"><small>Наприклад, брекети 28 000 ₴</small><strong>≈ 2 340 ₴/міс</strong></div></li>
+        <li><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16M4 12h10M4 17h7"/><path d="m15 16 2 2 4-4"/></svg></span><b>Оплата за етапами</b><p>Платите лише за те, що вже зроблено, а не всю суму наперед.</p></li>
+        <li><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg></span><b>Ціна в договорі</b><p>Після огляду фіксуємо вартість, і вона не змінюється в процесі.</p></li>
+        <li><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="5" width="19" height="14" rx="2.5"/><path d="M2.5 10h19M7 15h3"/></svg></span><b>Картка, готівка, Apple Pay</b><p>Будь-який зручний спосіб. Чек і акт виконаних робіт — завжди.</p></li>
+        <li><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 4 6v6c0 5 3.4 8.3 8 9 4.6-.7 8-4 8-9V6z"/><path d="m9 12 2 2 4-4"/></svg></span><b>Безкоштовні переробки</b><p>Якщо в гарантійний строк щось піде не так, виправимо за наш рахунок.</p></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="faq" aria-labelledby="fqH" style="padding-top:0">
+  <div class="wrap fq2">
+    <div class="fq2-side">
+      <h2 class="h2" id="fqH">Часті <em>питання</em></h2>
+      <p>Зібрали те, що пацієнти питають найчастіше перед першим візитом.</p>
+      <div class="fq2-ask"><b>Не знайшли відповідь?</b><span>Залиште заявку — ми передзвонимо і відповімо на всі питання.</span><a class="btn primary sm" href="#book">Поставити питання</a></div>
+    </div>
+    <div>
+      <label class="fq-search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>
+        <input id="fqIn" type="search" placeholder="Пошук: біль, брекети, ціна…" autocomplete="off" aria-label="Пошук по питаннях"></label>
+      <div id="fqList"></div>
+      <p class="fq-empty" id="fqEmpty">Нічого не знайшли. Залиште заявку — ми передзвонимо.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="book" aria-labelledby="bkH" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 class="h2" id="bkH">Запишіться <em>за хвилину</em></h2>
+      <p>Оберіть зручний день і час — навіть коли ми на прийомі й не можемо взяти трубку. Ми передзвонимо, щоб підтвердити запис.</p>
+    </div>
+    <div class="bk">
+      <form class="bk-form" id="bkForm" novalidate>
+        <div id="bkBody">
+          <h3>Запис на прийом</h3>
+          <p class="sub">Ми передзвонимо для підтвердження запису</p>
+          <div class="ctx" id="bkCtx" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg><span id="bkCtxT"></span><button type="button" id="bkCtxX">Прибрати</button></div>
+          <fieldset class="fs"><legend>День</legend><div class="days" id="bkDays" role="radiogroup" aria-label="День візиту"></div></fieldset>
+          <fieldset class="fs"><legend>Час</legend><div class="slots" id="bkSlots" role="radiogroup" aria-label="Час візиту"></div></fieldset>
+          <div class="fields">
+            <div class="fld" id="fName"><label for="bkName">Ім'я <i aria-hidden="true">*</i></label><input id="bkName" name="name" autocomplete="name" required aria-describedby="bkNameE"><span class="em" id="bkNameE">Напишіть, як до вас звертатися</span></div>
+            <div class="fld" id="fTel"><label for="bkTel">Телефон <i aria-hidden="true">*</i></label><input id="bkTel" name="tel" type="tel" inputmode="tel" autocomplete="tel" placeholder="+380" required aria-describedby="bkTelE"><span class="em" id="bkTelE">Вкажіть номер, щоб ми могли підтвердити запис</span></div>
+            <div class="fld wide"><label for="bkWhat">Що турбує</label><select id="bkWhat" name="what">
+              <option>Огляд і план лікування</option><option>Болить зуб</option><option>Брекети чи елайнери</option><option>Імплантація</option><option>Зуб мудрості</option><option>Гігієна</option><option>Естетика: вініри, відбілювання</option><option>Дитячий прийом</option></select></div>
+            <div class="fld wide"><label for="bkNote">Коментар</label><textarea id="bkNote" name="note" placeholder="Наприклад: консультація щодо брекетів для дитини"></textarea></div>
+          </div>
+          
+          <div class="bk-sum"><p id="bkPick">Оберіть день і час</p><button class="btn primary" type="submit">Записатися
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div>
+        </div>
+      </form>
+
+      <div class="ct" id="contacts">
+        <div class="map" aria-label="Схема проїзду">
+          <svg viewBox="0 0 400 250" aria-hidden="true">
+            <rect width="400" height="250" fill="#EEF1EA"/>
+            <path d="M0 196 C80 176 140 214 220 196 C300 178 340 206 400 190 L400 250 L0 250Z" fill="#CFE4EE"/>
+            <rect x="24" y="22" width="92" height="64" rx="14" fill="#D7EBD6"/><rect x="292" y="34" width="84" height="52" rx="14" fill="#D7EBD6"/>
+            <g stroke="#fff" stroke-linecap="round"><path d="M0 120 H400" stroke-width="14"/><path d="M196 0 V180" stroke-width="12"/><path d="M60 0 L140 180" stroke-width="8"/><path d="M300 110 L360 0" stroke-width="8"/><path d="M0 60 H400" stroke-width="6"/></g>
+            <g fill="#E2E6DF"><rect x="214" y="70" width="40" height="34" rx="5"/><rect x="262" y="70" width="34" height="34" rx="5"/><rect x="214" y="132" width="70" height="34" rx="5"/><rect x="128" y="70" width="52" height="34" rx="5"/><rect x="40" y="132" width="60" height="34" rx="5"/><rect x="306" y="132" width="60" height="34" rx="5"/></g>
+            <g transform="translate(206 103)"><circle r="20" fill="#3F7F79" opacity=".16"/><path d="M0 -26 C-11 -26 -18 -18 -18 -9 C-18 3 0 16 0 16 C0 16 18 3 18 -9 C18 -18 11 -26 0 -26Z" fill="#3F7F79"/><circle cy="-9" r="6" fill="#fff"/></g>
+            <rect x="320" y="150" width="34" height="22" rx="5" fill="#fff"/><text x="337" y="166" text-anchor="middle" font-family="Onest,sans-serif" font-weight="700" font-size="13" fill="#2F6F8F">P</text>
+          </svg>
+          <span class="pinlbl">Lysko dental · Тичини, 6а</span>
+          <a href="https://www.google.com/maps/place/%D0%A1%D1%82%D0%BE%D0%BC%D0%B0%D1%82%D0%BE%D0%BB%D0%BE%D0%B3%D1%96%D1%8F+Lysko+dental/@48.9256105,24.7064265,17z" target="_blank" rel="noopener">Прокласти маршрут</a>
+        </div>
+        <div class="ct-card">
+          <div class="ct-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg><div><b>м. Івано-Франківськ, вул. Павла Тичини, 6а</b><span>Стоматологія та ортодонтія</span></div></div>
+          <div class="ct-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><div><b>Пн–Пт 8:30–19:00</b><span>Сб 9:00–15:00 · Нд — вихідний</span></div></div>
+          <div class="ct-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg><div><b>098 983 53 29</b><a href="tel:+380989835329">Подзвонити</a></div></div>
+          <div class="msg"><a class="tg" href="https://www.instagram.com/lysko_dental_if/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>Instagram</a><a class="vb" href="https://www.google.com/maps/place/%D0%A1%D1%82%D0%BE%D0%BC%D0%B0%D1%82%D0%BE%D0%BB%D0%BE%D0%B3%D1%96%D1%8F+Lysko+dental/@48.9256105,24.7064265,17z" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg>Google Maps</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="sfoot">
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <a class="logo" href="#top" aria-label="Lysko dental, на початок"><img src="img/logo.png" alt="" width="40" height="40">Lysko dental</a>
+        <p class="about">Стоматологія та ортодонтія в Івано-Франківську. Брекети для дітей і дорослих, лікування й естетика зубів.</p>
+      </div>
+      <div><h4>Лікування</h4><ul><li><a href="#braces">Брекети й елайнери</a></li><li><a href="#services">Лікування зубів</a></li><li><a href="#services">Імплантація</a></li><li><a href="#services">Дитяча стоматологія</a></li></ul></div>
+      <div><h4>Пацієнтам</h4><ul><li><a href="#prices">Ціни й кошторис</a></li><li><a href="#doctors">Лікарі</a></li><li><a href="#faq">Питання</a></li></ul></div>
+      <div><h4>Контакти</h4><ul><li><a href="https://www.google.com/maps/place/%D0%A1%D1%82%D0%BE%D0%BC%D0%B0%D1%82%D0%BE%D0%BB%D0%BE%D0%B3%D1%96%D1%8F+Lysko+dental/@48.9256105,24.7064265,17z" target="_blank" rel="noopener">вул. Павла Тичини, 6а</a></li><li><a href="tel:+380989835329">098 983 53 29</a></li><li><a href="#contacts">Пн–Пт 8:30–19:00</a></li><li><a href="#book">Записатися онлайн</a></li></ul></div>
+    </div>
+    <div class="bot"><span>© 2026 Lysko dental · демо-версія сайту</span><a class="credit" href="https://smolii.pages.dev" target="_blank" rel="noopener">Підготував <b>SMOLII</b> · ціни й перелік послуг — приклади</a></div>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const NS = "http://www.w3.org/2000/svg";
+  const svg = document.getElementById("jaw");
+  const panel = document.getElementById("panel");
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* ---- tooth types, from the midline outwards ---- */
+  const SEQ = [
+    { k:"i", nm:"Центральний різець", w:1.0,  h:.86 },
+    { k:"i", nm:"Бічний різець",      w:.9,   h:.82 },
+    { k:"c", nm:"Ікло",               w:1.0,  h:.95 },
+    { k:"p", nm:"Перший премоляр",    w:1.08, h:1.0 },
+    { k:"p", nm:"Другий премоляр",    w:1.08, h:1.0 },
+    { k:"m", nm:"Перший моляр",       w:1.42, h:1.2 },
+    { k:"m", nm:"Другий моляр",       w:1.36, h:1.15 },
+    { k:"w", nm:"Зуб мудрості",       w:1.26, h:1.08 }
+  ];
+  const QN = { 1:"верхній правий", 2:"верхній лівий", 3:"нижній лівий", 4:"нижній правий" };
+  const front = k => k === "i" || k === "c";
+
+  /* ---- problems -> treatment (example prices, UAH) ---- */
+  const PROBLEMS = [
+    { id:"pain",  label:"Болить" },
+    { id:"spot",  label:"Темна пляма" },
+    { id:"chip",  label:"Скол або тріщина" },
+    { id:"none",  label:"Немає зуба" },
+    { id:"look",  label:"Хочу гарніше" },
+    { id:"crook", label:"Росте криво" }
+  ];
+  const W_PROBLEMS = [
+    { id:"pain",  label:"Болить або ниє" },
+    { id:"grow",  label:"Росте криво / ріже ясна" },
+    { id:"spot",  label:"Темна пляма" }
+  ];
+  const problemsFor = k => k === "w" ? W_PROBLEMS : PROBLEMS;
+
+  /* Prices: approximate, based on public price lists of Ivano-Frankivsk clinics (Nov 2026) */
+  /* braces & aligners (both jaws) */
+  const ORTHO = [
+    { id:"metal",    label:"Металеві",  nm:"Металеві брекети",  price:21000, term:"12–24 міс.", vis:3, note:"Найдоступніший і найшвидший варіант" },
+    { id:"ceramic",  label:"Керамічні", nm:"Керамічні брекети", price:28000, term:"14–24 міс.", vis:2, note:"Колір зубів, майже непомітні, не темніють" },
+    { id:"sapphire", label:"Сапфірові", nm:"Сапфірові брекети", price:36000, term:"14–24 міс.", vis:1, note:"Прозорі кристали, найестетичніші з брекетів" },
+    { id:"aligners", label:"Елайнери",  nm:"Елайнери",          price:70000, term:"8–18 міс.",  vis:0, note:"Прозорі капи, знімаєте під час їжі. Ціна залежить від кількості кап" }
+  ];
+  const VIS_TXT = ["невидимі","ледь помітні","майже непомітні","помітні"];
+
+  function treat(p, k){
+    if (k === "w"){
+      if (p === "spot") return { nm:"Лікування карієсу + пломба", price:1900, visits:"1 візит", time:"50 хв", note:"Якщо зуб рівний і не заважає, його краще зберегти" };
+      return { nm:"Видалення зуба мудрості", price:3100, visits:"1 візит", time:"30–60 хв",
+        note: p === "grow" ? "Видаляємо до того, як він зсуне сусідні зуби. Ретинований — від 5 800 ₴" : "Під анестезією. Складне (ретиноване) видалення — від 5 800 ₴" };
+    }
+    switch(p){
+      case "pain": return { nm:"Лікування каналів", price:{i:3400,c:3400,p:4400,m:5500}[k], visits:"2 візити", time:"по 60 хв", note:"Під анестезією, ви нічого не відчуєте. Ціна залежить від кількості каналів" };
+      case "spot": return { nm:"Лікування карієсу + пломба", price:1900, visits:"1 візит", time:"40 хв", note:"Пломба світлового затвердіння, гарантія 2 роки" };
+      case "chip": return front(k)
+        ? { nm:"Художня реставрація", price:4000, visits:"1 візит", time:"60 хв", note:"Підбираємо відтінок, скол стане непомітним" }
+        : { nm:"Цирконієва вкладка", price:8000, visits:"2 візити", time:"по 50 хв", note:"Міцніша за пломбу, служить 10+ років" };
+      case "none": return { nm:"Імплант під ключ", price:43000, visits:"3–4 візити", time:"2–4 місяці", note:"Імплант, абатмент і цирконієва коронка — в одній ціні" };
+      case "look": return front(k)
+        ? { nm:"Композитний вінір", price:5500, visits:"1–2 візити", time:"по 90 хв", note:"Вирівнює форму й колір. Керамічний — дорожче, але служить довше" }
+        : { nm:"Цирконієва коронка", price:16500, visits:"2 візити", time:"по 60 хв", note:"Повертає форму й колір зуба, не темніє" };
+    }
+  }
+  const uah = n => n.toLocaleString("uk-UA") + " ₴";
+
+  /* ---- arch geometry ---- */
+  function arch({ cx, cy, rx, ry, from, to, quads }){
+    // sample the elliptical arc and build cumulative length
+    const N = 500, pts = [], cum = [0];
+    for (let s = 0; s <= N; s++){
+      const t = (from + (to - from) * s / N) * Math.PI / 180;
+      pts.push([cx + rx * Math.cos(t), cy - ry * Math.sin(t)]);
+      if (s) cum.push(cum[s-1] + Math.hypot(pts[s][0]-pts[s-1][0], pts[s][1]-pts[s-1][1]));
+    }
+    const L = cum[N];
+    // order along the arc, viewer-left -> viewer-right
+    const left = SEQ.map((t,i) => ({ ...t, q:quads[0], n:i+1 })).reverse();
+    const right = SEQ.map((t,i) => ({ ...t, q:quads[1], n:i+1 }));
+    const teeth = left.concat(right);
+    const gap = .14, sum = teeth.reduce((a,t) => a + t.w + gap, 0) - gap;
+    const unit = L / sum;
+    let acc = 0;
+    return teeth.map(t => {
+      const mid = (acc + t.w / 2) * unit; acc += t.w + gap;
+      let s = cum.findIndex(c => c >= mid); if (s < 1) s = 1;
+      const f = (mid - cum[s-1]) / (cum[s] - cum[s-1]);
+      const x = pts[s-1][0] + (pts[s][0]-pts[s-1][0]) * f;
+      const y = pts[s-1][1] + (pts[s][1]-pts[s-1][1]) * f;
+      const ang = Math.atan2(pts[s][1]-pts[s-1][1], pts[s][0]-pts[s-1][0]) * 180 / Math.PI;
+      return { ...t, id: `${t.q}${t.n}`, x, y, ang, unit };
+    });
+  }
+
+  const upper = arch({ cx:200, cy:212, rx:158, ry:182, from:170, to:10, quads:[1,2] });
+  const lower = arch({ cx:200, cy:228, rx:150, ry:176, from:-170, to:-10, quads:[4,3] });
+  const ALL = upper.concat(lower);
+
+  const el = (tag, attrs, parent) => {
+    const n = document.createElementNS(NS, tag);
+    for (const a in attrs) n.setAttribute(a, attrs[a]);
+    if (parent) parent.appendChild(n);
+    return n;
+  };
+  const txt = (s, attrs) => { const t = el("text", attrs, svg); t.textContent = s; return t; };
+
+  txt("Верхня щелепа", { x:200, y:118, "text-anchor":"middle", class:"lbl" });
+  txt("Нижня щелепа",  { x:200, y:332, "text-anchor":"middle", class:"lbl" });
+  const hint = txt("Натисніть на зуб", { x:200, y:222, "text-anchor":"middle", class:"hint" });
+  const hint2 = txt("можна приблизно", { x:200, y:238, "text-anchor":"middle", class:"hint2" });
+  txt("права сторона", { x:30, y:226, "text-anchor":"start", class:"side" });
+  txt("ліва сторона",  { x:370, y:226, "text-anchor":"end", class:"side" });
+
+  const nodes = {};
+  ALL.forEach((t, i) => {
+    const tw = t.w * t.unit, th = t.h * t.unit * 1.05;
+    const g = el("g", {
+      class:"tooth" + (t.k === "w" ? " w" : ""), tabindex:"0", role:"button", "data-id":t.id,
+      "aria-label":`Зуб ${t.id}: ${t.nm.toLowerCase()}, ${QN[t.q]}`, "aria-pressed":"false",
+      transform:`translate(${t.x.toFixed(1)} ${t.y.toFixed(1)}) rotate(${t.ang.toFixed(1)})`
+    }, svg);
+    const inner = el("g", { class:"tg", style:`animation-delay:${reduce ? 0 : 200 + i * 22}ms` }, g);
+    el("circle", { class:"hit", r:(t.unit * .78).toFixed(1) }, inner);
+    el("rect", { class:"bd", x:(-tw/2).toFixed(1), y:(-th/2).toFixed(1), width:tw.toFixed(1), height:th.toFixed(1),
+      rx:(Math.min(tw, th) * (t.k === "m" ? .34 : .46)).toFixed(1) }, inner);
+    if (t.k === "m" || t.k === "p"){
+      const a = tw * .22, b = th * .22;
+      el("path", { class:"gr", d: t.k === "m"
+        ? `M${-a*1.1} ${-b*.3} Q0 ${b*.9} ${a*1.1} ${-b*.3}`
+        : `M${-a*.7} 0 Q0 ${b*.7} ${a*.7} 0` }, inner);
+    }
+    el("circle", { class:"mk", cx:0, cy:(t.q <= 2 ? th/2 + 7 : -th/2 - 7).toFixed(1), r:3.4 }, inner);
+    nodes[t.id] = { g, t, order:i };
+  });
+
+  /* braces overlay: wire + brackets on teeth 1–7, aligner tray on the same teeth */
+  const brk = el("g", { class:"brk", "aria-hidden":"true" }, svg);
+  [upper, lower].forEach(a => {
+    const row = a.filter(t => t.n <= 7);
+    const d = row.map((t, i) => `${i ? "L" : "M"}${t.x.toFixed(1)} ${t.y.toFixed(1)}`).join(" ");
+    el("path", { class:"tray", d, "stroke-width":(row[0].unit * 1.5).toFixed(1) }, brk);
+    el("path", { class:"wire", d }, brk);
+    row.forEach(t => {
+      const s = t.unit * (t.k === "m" ? .58 : .5);
+      el("rect", { class:"br", x:(-s/2).toFixed(1), y:(-s/2).toFixed(1), width:s.toFixed(1), height:s.toFixed(1), rx:(s*.22).toFixed(1),
+        transform:`translate(${t.x.toFixed(1)} ${t.y.toFixed(1)}) rotate(${t.ang.toFixed(1)})` }, brk);
+    });
+  });
+
+  /* ---- state ---- */
+  let cur = null, prob = null, mode = "treat", sys = "metal";
+  const plan = new Map();
+
+  function renderPlan(){
+    const n = plan.size, sum = [...plan.values()].reduce((a,v) => a + v.price, 0);
+    const box = document.getElementById("plan");
+    document.getElementById("planN").textContent = n;
+    document.getElementById("planT").textContent = n ? `у плані · від ${uah(sum)}` : "у плані";
+    box.classList.toggle("has", n > 0);
+    box.classList.remove("bump"); void box.offsetWidth; if (n) box.classList.add("bump");
+    box.setAttribute("aria-label", n ? `План лікування: ${n} процедур, від ${uah(sum)}. Записатися` : "План лікування порожній");
+    for (const id in nodes) nodes[id].g.classList.toggle("inplan", plan.has(id));
+    document.dispatchEvent(new CustomEvent("emal:plan", { detail: planItems() }));
+  }
+  function planItems(){
+    return [...plan.entries()].map(([id, v]) => id === "ortho"
+      ? { key:"map:ortho", nm:ORTHO.find(o => o.id === v.p).nm, price:v.price }
+      : { key:"map:" + id, nm:`${treat(v.p, nodes[id].t.k).nm} · зуб ${id}`, price:v.price });
+  }
+
+  const ICON = {
+    tooth:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.5 3.5c1.8-.7 3.2.3 4.5.3s2.7-1 4.5-.3c2.2.9 2.6 3.6 1.9 6.6-.6 2.4-.9 4.6-1.4 6.6-.3 1.4-1.9 1.5-2.3.1l-1.1-3.8c-.4-1.2-1.8-1.2-2.2 0l-1.1 3.8c-.4 1.4-2 1.3-2.3-.1-.5-2-.8-4.2-1.4-6.6-.7-3-.3-5.7 1.9-6.6z"/></svg>',
+    x:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>',
+    cal:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg>',
+    clk:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg>',
+    ok:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 5 6v5.5c0 4.4 3 7.4 7 8.5 4-1.1 7-4.1 7-8.5V6z"/></svg>'
+  };
+
+  function renderOrtho(){
+    const o = ORTHO.find(x => x.id === sys);
+    const has = plan.get("ortho"), same = has && has.p === sys;
+    const dots = [0,1,2].map(i => `<i class="${i < o.vis ? "" : "o"}"></i>`).join("");
+    panel.innerHTML = `<p class="q" id="olbl" style="margin-top:2px">Яку систему розглядаєте?</p>
+      <div class="chips" role="radiogroup" aria-labelledby="olbl">` +
+      ORTHO.map(x => `<button type="button" class="chip" role="radio" data-s="${x.id}" aria-checked="${x.id === sys}">${x.label}</button>`).join("") +
+      `</div>
+      <div class="sol"><div class="nm">${o.nm}</div>
+        <div class="pr">від ${uah(o.price)}<small>за обидві щелепи</small></div>
+        <div class="meta"><span>${ICON.clk}${o.term}</span><span><span class="vis" aria-hidden="true">${dots}</span>${VIS_TXT[o.vis]}</span><span>${ICON.ok}${o.note}</span></div>
+        <button type="button" class="btn primary sm add${same ? " on" : ""}" data-oadd>${same ? "У плані ✓ Прибрати" : "Додати в план лікування"}</button></div>
+      <p class="note">${ICON.ok}Консультація ортодонта та 3D-план вирівнювання — безкоштовно</p>`;
+  }
+
+  function renderPanel(){
+    if (mode === "ortho") return renderOrtho();
+    if (!cur){
+      panel.innerHTML = `<div class="empty">${ICON.tooth}<p style="margin:0"><b>Оберіть зуб на схемі</b>Не впевнені, який саме? Натисніть приблизно, а лікар уточнить на огляді. Покажемо лікування, ціну та кількість візитів. Можна зібрати план на кілька зубів.</p></div>`;
+      return;
+    }
+    const t = nodes[cur].t;
+    const inPlan = plan.get(cur);
+    let html = `<div class="ph"><span class="num">${t.id}</span><div><b>${t.nm}</b><small>${QN[t.q]}</small></div>
+      <button class="x" type="button" aria-label="Закрити">${ICON.x}</button></div>
+      <p class="q" id="qlbl">Що турбує?</p>
+      <div class="chips" role="radiogroup" aria-labelledby="qlbl">` +
+      problemsFor(t.k).map(p => `<button type="button" class="chip" role="radio" data-p="${p.id}" aria-checked="${prob === p.id}">${p.label}</button>`).join("") +
+      `</div>`;
+    if (prob === "crook"){
+      html += `<div class="redirect"><b>Це питання до ортодонта</b><p>Кривий зуб чи прикус вирівнюють брекетами або елайнерами. Ортодонтія — наша спеціалізація.</p>
+        <button type="button" class="btn primary sm" data-goortho>Підібрати брекети</button></div>`;
+    } else if (prob){
+      const s = treat(prob, t.k);
+      const same = inPlan && inPlan.p === prob;
+      html += `<div class="sol"><div class="nm">${s.nm}</div>
+        <div class="pr">від ${uah(s.price)}<small>фіксуємо після огляду</small></div>
+        <div class="meta"><span>${ICON.cal}${s.visits}</span><span>${ICON.clk}${s.time}</span><span>${ICON.ok}${s.note}</span></div>
+        <button type="button" class="btn primary sm add${same ? " on" : ""}" data-add>${same ? "У плані ✓ Прибрати" : "Додати в план лікування"}</button></div>`;
+    }
+    panel.innerHTML = html;
+  }
+
+  function select(id, focusPanel){
+    if (cur && nodes[cur]) { nodes[cur].g.classList.remove("sel"); nodes[cur].g.setAttribute("aria-pressed","false"); }
+    cur = id;
+    prob = id && plan.get(id) ? plan.get(id).p : null;
+    if (id){ nodes[id].g.classList.add("sel"); nodes[id].g.setAttribute("aria-pressed","true"); }
+    hint.style.opacity = hint2.style.opacity = id ? 0 : 1;
+    stopPulse();
+    renderPanel();
+    if (focusPanel){ const c = panel.querySelector(".chip"); if (c) c.focus(); }
+  }
+
+  /* ---- mode: treatment / braces ---- */
+  const tabs = [...document.querySelectorAll(".modes [role=tab]")];
+  const sub = document.getElementById("cardSub");
+  function setMode(m, focusPanel){
+    mode = m;
+    if (m === "ortho" && cur) select(null);
+    tabs.forEach(b => b.setAttribute("aria-selected", b.dataset.mode === m));
+    svg.classList.toggle("ortho", m === "ortho");
+    svg.setAttribute("class", (m === "ortho" ? "ortho sys-" + sys : ""));
+    for (const id in nodes) nodes[id].g.setAttribute("tabindex", m === "ortho" ? "-1" : "0");
+    hint.style.opacity = hint2.style.opacity = m === "ortho" ? 0 : 1;
+    sub.textContent = m === "ortho" ? "Оберіть систему, і побачите її на зубах" : "Не знаєте точно, який зуб? Оберіть приблизно";
+    stopPulse();
+    renderPanel();
+    if (focusPanel){ const c = panel.querySelector(".chip"); if (c) c.focus(); }
+  }
+  tabs.forEach(b => b.addEventListener("click", () => setMode(b.dataset.mode)));
+  document.querySelector(".modes").addEventListener("keydown", e => {
+    if (e.key !== "ArrowRight" && e.key !== "ArrowLeft") return;
+    const i = tabs.indexOf(document.activeElement); if (i < 0) return;
+    const n = tabs[(i + 1) % 2]; n.focus(); setMode(n.dataset.mode);
+  });
+
+  /* ---- events ---- */
+  svg.addEventListener("click", e => {
+    if (mode === "ortho") return;
+    const g = e.target.closest(".tooth"); if (!g) return;
+    select(g.dataset.id === cur ? null : g.dataset.id);
+  });
+  svg.addEventListener("keydown", e => {
+    const g = e.target.closest(".tooth"); if (!g) return;
+    const i = nodes[g.dataset.id].order;
+    if (e.key === "Enter" || e.key === " "){ e.preventDefault(); select(g.dataset.id, true); }
+    else if (e.key === "ArrowRight" || e.key === "ArrowLeft"){
+      e.preventDefault();
+      const n = ALL[(i + (e.key === "ArrowRight" ? 1 : -1) + ALL.length) % ALL.length];
+      nodes[n.id].g.focus();
+    }
+  });
+  panel.addEventListener("click", e => {
+    if (e.target.closest("[data-goortho]")){ setMode("ortho", true); return; }
+    const sc = e.target.closest(".chip[data-s]");
+    if (sc){ sys = sc.dataset.s; svg.setAttribute("class", "ortho sys-" + sys); renderPanel(); panel.querySelector(`.chip[data-s="${sys}"]`).focus(); return; }
+    if (e.target.closest("[data-oadd]")){
+      const has = plan.get("ortho");
+      if (has && has.p === sys) plan.delete("ortho");
+      else plan.set("ortho", { p:sys, price:ORTHO.find(x => x.id === sys).price });
+      renderPlan(); renderPanel(); panel.querySelector("[data-oadd]").focus(); return;
+    }
+    if (e.target.closest(".x")){ const id = cur; select(null); nodes[id].g.focus(); return; }
+    const chip = e.target.closest(".chip");
+    if (chip){ prob = chip.dataset.p; renderPanel(); panel.querySelector(`.chip[data-p="${prob}"]`).focus(); return; }
+    if (e.target.closest("[data-add]")){
+      const t = nodes[cur].t, has = plan.get(cur);
+      if (has && has.p === prob) plan.delete(cur);
+      else plan.set(cur, { p:prob, price:treat(prob, t.k).price });
+      renderPlan(); renderPanel();
+      panel.querySelector("[data-add]").focus();
+    }
+  });
+  panel.addEventListener("keydown", e => {
+    const chip = e.target.closest(".chip"); if (!chip) return;
+    if (e.key !== "ArrowRight" && e.key !== "ArrowLeft") return;
+    e.preventDefault();
+    const list = [...panel.querySelectorAll(".chip")], i = list.indexOf(chip);
+    list[(i + (e.key === "ArrowRight" ? 1 : -1) + list.length) % list.length].focus();
+  });
+
+  /* hint pulse on one molar until the first interaction */
+  const demo = nodes["36"].g; demo.classList.add("pulse");
+  function stopPulse(){ demo.classList.remove("pulse"); }
+
+  /* header border on scroll */
+  const nav = document.getElementById("nav");
+  const onScroll = () => nav.classList.toggle("scrolled", scrollY > 8);
+  addEventListener("scroll", onScroll, { passive:true }); onScroll();
+
+  renderPanel(); renderPlan();
+  window.emalMap = { setMode, select: id => { setMode("treat"); select(id); }, getPlan: planItems };
+})();
+</script>
+
+<script>
+/* ---------- block 2: "Що вас турбує?" ---------- */
+(() => {
+  const S = 'viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"';
+  const IC = {
+    zap:`<svg ${S}><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg>`,
+    drop:`<svg ${S}><path d="M12 2.7c3 3.6 6 7 6 10.4a6 6 0 0 1-12 0c0-3.4 3-6.8 6-10.4z"/></svg>`,
+    align:`<svg ${S}><rect x="3" y="9" width="4.5" height="6" rx="1"/><rect x="9.75" y="9" width="4.5" height="6" rx="1"/><rect x="16.5" y="9" width="4.5" height="6" rx="1"/><path d="M1.5 12h21"/></svg>`,
+    plus:`<svg ${S}><rect x="4" y="4" width="16" height="16" rx="4" stroke-dasharray="3 2.4"/><path d="M12 8.5v7M8.5 12h7"/></svg>`,
+    wisdom:`<svg ${S}><path d="M7.5 3.5c1.8-.7 3.2.3 4.5.3s2.7-1 4.5-.3c2.2.9 2.6 3.6 1.9 6.6-.6 2.4-.9 4.6-1.4 6.6-.3 1.4-1.9 1.5-2.3.1l-1.1-3.8c-.4-1.2-1.8-1.2-2.2 0l-1.1 3.8c-.4 1.4-2 1.3-2.3-.1-.5-2-.8-4.2-1.4-6.6-.7-3-.3-5.7 1.9-6.6z"/><path d="M19.5 2.5 21 4M21 2.5 19.5 4" /></svg>`,
+    spark:`<svg ${S}><path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.5M15.5 15.5 18 18M18 6l-2.5 2.5M8.5 15.5 6 18"/></svg>`,
+    kid:`<svg ${S}><circle cx="12" cy="12" r="9"/><path d="M8.5 14.5c1 1.3 2.2 2 3.5 2s2.5-.7 3.5-2"/><path d="M9 9.5h.01M15 9.5h.01"/></svg>`,
+    cal:`<svg ${S}><rect x="3.5" y="5" width="17" height="15" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4M9 15l2 2 4-4"/></svg>`,
+    arrow:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>`
+  };
+
+  /* prices: approximate, Ivano-Frankivsk clinics, Nov 2026 */
+  const CONCERNS = [
+    { id:"pain", ic:"zap", label:"Болить зуб", hint:"гострий або ниючий біль", urgent:true,
+      title:"Болить зараз? Приймемо сьогодні",
+      text:"Не терпіть і не пийте знеболювальні тижнями: біль сам не мине, а лікування з часом стане складнішим і дорожчим.",
+      steps:["Знімаємо біль уже на першому візиті","Робимо знімок і знаходимо причину","Лікуємо зуб під анестезією, без болю"],
+      doc:"Терапевт", time:"40–60 хв", price:"від 1 900 ₴", pnote:"пломба · канали від 3 400 ₴", cta:"Записатися на сьогодні" },
+    { id:"gums", ic:"drop", label:"Кровоточать ясна", hint:"під час чищення чи їжі",
+      title:"Ясна кровоточать? Це сигнал, а не дрібниця",
+      text:"Найчастіше причина — зубний камінь і наліт. Якщо їх не прибрати вчасно, з часом зуби почнуть розхитуватися.",
+      steps:["Огляд ясен і перевірка кишень","Професійна гігієна: ультразвук і Air Flow","План догляду вдома, щоб не повторилося"],
+      doc:"Гігієніст", time:"60–90 хв", price:"від 3 000 ₴", pnote:"професійна гігієна", cta:"Записатися на гігієну" },
+    { id:"bite", ic:"align", label:"Криві зуби", hint:"або неправильний прикус",
+      title:"Рівні зуби в будь-якому віці",
+      text:"Ортодонтія — наша спеціалізація. Підберемо брекети чи елайнери і покажемо результат ще до початку лікування.",
+      steps:["Консультація ортодонта і 3D-скан зубів","Цифровий план: бачите результат заздалегідь","Брекети або елайнери, контроль раз на місяць"],
+      doc:"Ортодонт", time:"8–24 міс.", price:"від 21 000 ₴", pnote:"брекети на обидві щелепи", cta:"Записатися до ортодонта",
+      alt:{ label:"Приміряти брекети", act:"ortho" } },
+    { id:"gap", ic:"plus", label:"Немає зуба", hint:"або його доведеться видалити",
+      title:"Повернемо зуб, який виглядає як свій",
+      text:"Порожнє місце — це не лише естетика: сусідні зуби поступово зсуваються, а кістка зменшується.",
+      steps:["Комп'ютерна томографія і план імплантації","Встановлення імпланта під анестезією","Цирконієва коронка через 2–4 місяці"],
+      doc:"Імплантолог", time:"2–4 міс.", price:"від 43 000 ₴", pnote:"імплант під ключ", cta:"Записатися на консультацію" },
+    { id:"wisdom", ic:"wisdom", label:"Зуб мудрості", hint:"болить або росте криво",
+      title:"Зуб мудрості заважає? Видалимо спокійно",
+      text:"Хірург за знімком оцінить, чи справді треба видаляти. Сама процедура проходить під анестезією і без болю.",
+      steps:["Знімок і оцінка складності","Видалення під анестезією, 30–60 хв","Контрольний огляд і пам'ятка на відновлення"],
+      doc:"Хірург", time:"30–60 хв", price:"від 3 100 ₴", pnote:"ретинований — від 5 800 ₴", cta:"Записатися до хірурга",
+      alt:{ label:"Показати на схемі", act:"38" } },
+    { id:"white", ic:"spark", label:"Хочу гарнішу посмішку", hint:"колір, форма, сколи",
+      title:"Посмішка, яку не хочеться ховати",
+      text:"Почнемо з професійної гігієни: часто вже вона робить зуби на тон світлішими. Далі — відбілювання або вініри.",
+      steps:["Гігієна і підбір відтінку","Відбілювання або композитні вініри","Рекомендації, щоб ефект тримався довше"],
+      doc:"Естетичний стоматолог", time:"1–2 візити", price:"від 5 500 ₴", pnote:"композитний вінір", cta:"Записатися на консультацію" },
+    { id:"kids", ic:"kid", label:"Зуби дитини", hint:"перший візит без страху",
+      title:"Перший візит, після якого дитина не боїться",
+      text:"Дитячий лікар знайомить з кабінетом у формі гри. Лікуємо лише тоді, коли дитина готова.",
+      steps:["Знайомство й огляд у формі гри","Чистка і захист зубів від карієсу","Лікування, якщо потрібно, без поспіху"],
+      doc:"Дитячий стоматолог", time:"30–40 хв", price:"від 750 ₴", pnote:"консультація", cta:"Записати дитину" },
+    { id:"check", ic:"cal", label:"Давно не був(ла)", hint:"хочу просто перевіритися",
+      title:"Давно не були? Почнемо з плану, без осуду",
+      text:"Оглянемо, зробимо знімок і складемо план лікування з цінами на кожен етап. Що і коли робити, вирішуєте ви.",
+      steps:["Огляд і панорамний знімок","План лікування з цінами на кожен етап","Ви обираєте, з чого почати"],
+      doc:"Терапевт", time:"30–40 хв", price:"0 ₴", pnote:"перша консультація і план", cta:"Записатися на огляд" }
+  ];
+
+  const list = document.getElementById("cnList");
+  const card = document.getElementById("cnCard");
+
+  // nearest free slot (demo): now + 90 min rounded up to :00/:30, within 9:00–21:00
+  function slot(){
+    const d = new Date(Date.now() + 90 * 60000);
+    d.setSeconds(0, 0);
+    const m = d.getMinutes(); d.setMinutes(m === 0 ? 0 : m <= 30 ? 30 : 60);
+    const h = d.getHours(), today = d.getDate() === new Date().getDate();
+    if (today && d.getDay() !== 0 && d.getDay() !== 6 && h >= 9 && h < 18)
+      return `сьогодні о ${String(h).padStart(2,"0")}:${String(d.getMinutes()).padStart(2,"0")}`;
+    return h < 9 && today ? "сьогодні о 09:00" : "завтра о 09:00";
+  }
+
+  list.innerHTML = CONCERNS.map((c, i) =>
+    `<button type="button" class="cn-tab" role="tab" id="cnt-${c.id}" aria-controls="cnCard" aria-selected="${i === 0}" tabindex="${i === 0 ? 0 : -1}" data-i="${i}">
+      <span class="ic">${IC[c.ic]}</span><span><b>${c.label}</b><small>${c.hint}</small></span></button>`).join("");
+  const tabs = [...list.querySelectorAll(".cn-tab")];
+
+  function show(i, fromUser){
+    const c = CONCERNS[i];
+    tabs.forEach((t, j) => { t.setAttribute("aria-selected", j === i); t.tabIndex = j === i ? 0 : -1; });
+    card.setAttribute("aria-labelledby", "cnt-" + c.id);
+    card.innerHTML = `<div class="cn-body">
+      ${c.urgent ? `<p class="urgent"><i aria-hidden="true"></i>Найближчий вільний час: ${slot()}</p>` : ""}
+      <h3>${c.title}</h3>
+      <p class="tx">${c.text}</p>
+      <ol class="steps">${c.steps.map(s => `<li>${s}</li>`).join("")}</ol>
+      <div class="kv">
+        <div><small>Лікар</small><b>${c.doc}</b></div>
+        <div><small>Тривалість</small><b>${c.time}</b></div>
+        <div class="pr"><small>Вартість</small><b>${c.price}</b><span>${c.pnote}</span></div>
+      </div>
+      <div class="cn-cta">
+        <a class="btn primary" href="#book">${c.cta}${IC.arrow}</a>
+        ${c.alt ? `<button type="button" class="btn ghost" data-alt="${c.alt.act}">${c.alt.label}</button>` : ""}
+      </div></div>`;
+    if (fromUser && matchMedia("(max-width:980px)").matches){
+      const r = card.getBoundingClientRect();
+      if (r.top > innerHeight * .6 || r.top < 0) card.scrollIntoView({ behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block:"start" });
+    }
+  }
+
+  list.addEventListener("click", e => { const t = e.target.closest(".cn-tab"); if (t) show(+t.dataset.i, true); });
+  list.addEventListener("keydown", e => {
+    const keys = { ArrowDown:1, ArrowRight:1, ArrowUp:-1, ArrowLeft:-1 };
+    if (!(e.key in keys) && e.key !== "Home" && e.key !== "End") return;
+    e.preventDefault();
+    const cur = tabs.indexOf(document.activeElement);
+    let n = e.key === "Home" ? 0 : e.key === "End" ? tabs.length - 1 : (cur + keys[e.key] + tabs.length) % tabs.length;
+    tabs[n].focus(); show(n);
+  });
+  card.addEventListener("click", e => {
+    const b = e.target.closest("[data-alt]"); if (!b || !window.emalMap) return;
+    const act = b.dataset.alt;
+    document.getElementById("map").scrollIntoView({ behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block:"center" });
+    if (act === "ortho") window.emalMap.setMode("ortho"); else window.emalMap.select(act);
+  });
+
+  show(0);
+})();
+</script>
+
+
+
+
+
+<script>
+/* ---------- block: painless visit ---------- */
+(() => {
+  const CALM = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>';
+  const STEPS = [
+    { m:0,  t:"Зустріч без черги", d:"Вас зустрічає адміністратор, пропонує воду чи чай. Прийом починається в той час, на який ви записані.", c:"Не чекаєте під кабінетом" },
+    { m:5,  t:"Огляд і знімок", d:"Лікар оглядає зуби й робить знімок. Усе, що бачить, показує вам на екрані та пояснює простими словами.", c:"Бачите те, що й лікар" },
+    { m:10, t:"План і ціна до початку", d:"Ви отримуєте план лікування з цінами. Нічого не робимо, доки ви не погодитеся.", c:"Ціна не зміниться в процесі" },
+    { m:15, t:"Анестезія, яку не відчуваєте", d:"Спершу знеболювальний гель, потім тонка голка. Чекаємо 5 хвилин, поки анестезія подіє повністю.", c:"Укол не відчувається" },
+    { m:20, t:"Лікування", d:"Домовляємося про сигнал «стоп»: піднімаєте руку, і лікар одразу зупиняється. Можна попросити навушники з музикою.", c:"Ви контролюєте процес" },
+    { m:50, t:"Перевірка й поради", d:"Перевіряємо прикус, щоб нічого не заважало. Розповідаємо, що можна і чого не варто робити найближчі години.", c:"Жодних «а що тепер?»" },
+    { m:55, t:"Поради після візиту", d:"Розповідаємо, як доглядати за зубами (і брекетами) після візиту, і домовляємося про наступний контроль.", c:"Знаєте, що робити далі" }
+  ];
+  const ol = document.getElementById("vtSteps");
+  ol.innerHTML = STEPS.map((s, i) => `<li class="vt-step" tabindex="0" data-i="${i}">
+    <span class="m" aria-hidden="true">${s.m}<small>хв</small></span>
+    <div><h3><span class="visually-hidden">${s.m}-та хвилина. </span>${s.t}</h3><p>${s.d}</p><span class="calm">${CALM}${s.c}</span></div></li>`).join("");
+  const items = [...ol.children];
+  const ring = document.getElementById("vtRing"), minEl = document.getElementById("vtMin"), nowEl = document.getElementById("vtNow");
+  const C = 2 * Math.PI * 52, TOTAL = 60;
+  let cur = -1;
+  function set(i){
+    if (i === cur) return; cur = i;
+    items.forEach((li, j) => li.classList.toggle("on", j <= i));
+    const s = STEPS[i];
+    ring.style.strokeDashoffset = (C * (1 - Math.max(.04, (s.m + 5) / TOTAL))).toFixed(1);
+    minEl.textContent = s.m;
+    nowEl.textContent = s.t;
+  }
+  ol.addEventListener("click", e => { const li = e.target.closest(".vt-step"); if (li) set(+li.dataset.i); });
+  ol.addEventListener("keydown", e => {
+    const li = e.target.closest(".vt-step"); if (!li) return;
+    if (e.key === "Enter" || e.key === " "){ e.preventDefault(); set(+li.dataset.i); }
+  });
+  if ("IntersectionObserver" in window){
+    const io = new IntersectionObserver(es => es.forEach(en => { if (en.isIntersecting) set(+en.target.dataset.i); }), { rootMargin:"-40% 0px -50% 0px" });
+    items.forEach(li => io.observe(li));
+  }
+  set(0);
+
+  /* fear meter */
+  const FACES = [
+    ["M8 14.5c1.1 1.6 2.4 2.4 4 2.4s2.9-.8 4-2.4", ""],
+    ["M8.5 15.5c1 .8 2.2 1.2 3.5 1.2s2.5-.4 3.5-1.2", ""],
+    ["M9 15.5h6", ""],
+    ["M8.5 16.5c1-.8 2.2-1.2 3.5-1.2s2.5.4 3.5 1.2", "M7.5 8.5l2.5 1M16.5 8.5 14 9.5"],
+    ["M9.5 16.5a2.5 2 0 0 1 5 0z", "M7 8l3 1.2M17 8l-3 1.2"]
+  ];
+  const LBL = ["Не боюся","Трохи","Нервую","Боюся","Дуже"];
+  const ANS = [
+    ["Чудово!", "Тоді просто нагадаємо: огляд і гігієна раз на пів року — і великого лікування можна уникнути."],
+    ["Це нормально", "Розповідаємо кожен крок перед тим, як його зробити. Анестезія спершу гелем, тож укол не відчуєте."],
+    ["Подбаємо про спокій", "Домовимося про сигнал «стоп», дамо навушники з музикою і робитимемо паузи, коли попросите."],
+    ["Почнімо зі знайомства", "Перший візит може бути лише розмовою й оглядом, без лікування. Познайомитеся з лікарем і кабінетом."],
+    ["Можна лікуватися уві сні", "Для тих, кому дуже страшно, є седація під контролем анестезіолога. Ви спите, а прокидаєтеся вже з вилікуваними зубами."]
+  ];
+  const box = document.getElementById("fear"), ans = document.getElementById("fearA");
+  box.innerHTML = FACES.map((f, i) => `<button type="button" role="radio" aria-checked="false" tabindex="${i ? -1 : 0}" data-f="${i}">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><circle cx="9" cy="10.5" r=".9" fill="currentColor"/><circle cx="15" cy="10.5" r=".9" fill="currentColor"/><path d="${f[0]}"/>${f[1] ? `<path d="${f[1]}"/>` : ""}</svg>${LBL[i]}</button>`).join("");
+  const btns = [...box.children];
+  function pick(i, focus){
+    btns.forEach((b, j) => { b.setAttribute("aria-checked", j === i); b.tabIndex = j === i ? 0 : -1; });
+    ans.classList.remove("empty");
+    ans.innerHTML = `<b>${ANS[i][0]}</b>${ANS[i][1]}`;
+    if (focus) btns[i].focus();
+  }
+  box.addEventListener("click", e => { const b = e.target.closest("[data-f]"); if (b) pick(+b.dataset.f); });
+  box.addEventListener("keydown", e => {
+    const d = { ArrowRight:1, ArrowDown:1, ArrowLeft:-1, ArrowUp:-1 }[e.key]; if (!d) return;
+    e.preventDefault();
+    const i = btns.indexOf(document.activeElement);
+    pick((i + d + btns.length) % btns.length, true);
+  });
+  ans.classList.add("empty");
+  ans.textContent = "Оберіть варіант, і підкажемо, як зробимо візит комфортним саме для вас.";
+})();
+</script>
+
+
+
+<script>
+/* ---------- block: guarantees + FAQ ---------- */
+(() => {
+  /* warranty terms of the concept clinic */
+  const G = [
+    { l:"Пломба", y:2, c:"Безкоштовно переробимо пломбу, якщо вона випаде або дасть тріщину." },
+    { l:"Канали", y:1, c:"Якщо зуб після лікування каналів почне турбувати, повторне лікування — за наш рахунок." },
+    { l:"Вініри", y:3, c:"Сколи й потемніння в гарантійний строк виправляємо безкоштовно." },
+    { l:"Коронка", y:5, c:"Коронку замінимо безкоштовно, якщо вона відколеться чи розхитається." },
+    { l:"Імплант", y:5, c:"Якщо імплант не приживеться, встановимо новий безкоштовно. На сам імплант діє ще й гарантія виробника." },
+    { l:"Брекети", y:1, c:"Після зняття брекетів рік безкоштовно контролюємо результат і за потреби коригуємо ретейнер." }
+  ];
+  const yrs = n => n === 1 ? "рік гарантії" : n < 5 ? "роки гарантії" : "років гарантії";
+  const fEl = document.getElementById("gwF");
+  fEl.innerHTML = G.map((g, i) => `<button type="button" class="cat" data-g="${i}" aria-pressed="${i === 0}">${g.l}</button>`).join("");
+  function show(i){
+    const g = G[i];
+    fEl.querySelectorAll("[data-g]").forEach(b => b.setAttribute("aria-pressed", +b.dataset.g === i));
+    document.getElementById("gwN").textContent = g.y;
+    document.getElementById("gwU").textContent = yrs(g.y);
+    document.getElementById("gwBar").style.width = (g.y / 5 * 100) + "%";
+    document.getElementById("gwC").innerHTML = `<b>Умова гарантії</b>${g.c} Головне — приходити на профогляд раз на 6 місяців.`;
+  }
+  fEl.addEventListener("click", e => { const b = e.target.closest("[data-g]"); if (b) show(+b.dataset.g); });
+  show(0);
+
+  /* FAQ */
+  const Q = [
+    ["Чи буде боляче?", "Ні. Спершу наносимо знеболювальний гель, потім робимо анестезію тонкою голкою і чекаємо, поки вона подіє. Домовляємося про сигнал «стоп»: піднімаєте руку, і лікар зупиняється."],
+    ["Чи може ціна змінитися під час лікування?", "Перед початком лікування лікар озвучує план і вартість. Якщо з'явиться потреба в додатковій процедурі, спершу погоджуємо її з вами."],
+    ["Скільки часу носити брекети?", "Зазвичай від 12 до 24 місяців, залежно від складності. Точний термін ортодонт назве після 3D-скану, і ви побачите результат ще до початку лікування."],
+    ["Брекети чи елайнери: що обрати?", "Елайнери майже невидимі й знімаються під час їжі, але потребують дисципліни: носити 20–22 години на добу. Брекети працюють «самі» і підходять для складніших випадків. Ортодонт порадить чесно, що краще саме вам."],
+    ["З якого віку можна вирівнювати зуби?", "Дітям із 6–7 років ставимо пластинки, поки щелепа росте. Брекети — приблизно з 11–12 років. Дорослим вирівнювати зуби можна в будь-якому віці."],
+    ["Чи можна поставити імплант, якщо мало кістки?", "Так. У такому випадку спочатку робимо кісткову пластику. Хірург оцінить це за КТ на консультації."],
+    ["Коли ви працюєте?", "З понеділка по п'ятницю — 8:30–19:00, у суботу — 9:00–15:00, неділя — вихідний. Записатися онлайн можна будь-коли — ми передзвонимо для підтвердження."],
+    ["Чи треба видаляти зуби мудрості?", "Не завжди. Якщо зуб росте рівно і не заважає, його краще залишити. Видаляти варто, якщо він болить, росте криво чи зсуває сусідні зуби."]
+  ];
+  const list = document.getElementById("fqList"), inp = document.getElementById("fqIn"), empty = document.getElementById("fqEmpty");
+  const esc = s => s.replace(/[&<>]/g, c => ({ "&":"&amp;", "<":"&lt;", ">":"&gt;" }[c]));
+  const mark = (s, q) => q ? esc(s).replace(new RegExp("(" + q.replace(/[.*+?^${}()|[\]\\]/g, "\\$&") + ")", "gi"), "<mark>$1</mark>") : esc(s);
+  function render(q){
+    q = q.trim();
+    const lq = q.toLowerCase();
+    const hits = Q.map((x, i) => ({ x, i })).filter(({ x }) => !lq || (x[0] + " " + x[1]).toLowerCase().includes(lq));
+    list.innerHTML = hits.map(({ x, i }) => `<div class="qa${q ? " open" : ""}">
+      <h3><button type="button" id="fq${i}" aria-expanded="${!!q}" aria-controls="fa${i}">${mark(x[0], q)}<span class="pm" aria-hidden="true"></span></button></h3>
+      <div class="ans" id="fa${i}" role="region" aria-labelledby="fq${i}"><div><p>${mark(x[1], q)}</p></div></div></div>`).join("");
+    empty.style.display = hits.length ? "none" : "block";
+  }
+  list.addEventListener("click", e => {
+    const b = e.target.closest("button"); if (!b) return;
+    const qa = b.closest(".qa"), open = !qa.classList.contains("open");
+    qa.classList.toggle("open", open); b.setAttribute("aria-expanded", open);
+  });
+  let t; inp.addEventListener("input", () => { clearTimeout(t); t = setTimeout(() => render(inp.value), 120); });
+  render("");
+  const first = list.querySelector(".qa"); if (first){ first.classList.add("open"); first.querySelector("button").setAttribute("aria-expanded", "true"); }
+})();
+</script>
+
+<script>
+/* ---------- block 3: prices + estimate ---------- */
+(() => {
+  /* approximate prices, Ivano-Frankivsk clinics (Nov 2026) */
+  const CATS = [
+    { id:"diag", label:"Діагностика", items:[
+      { id:"cons",  nm:"Консультація і план лікування", note:"огляд, план з цінами на кожен етап", price:0, max:1 },
+      { id:"ct",    nm:"КТ обох щелеп", note:"3D-знімок з описом рентгенолога", price:2000, max:1 } ]},
+    { id:"ther", label:"Лікування", items:[
+      { id:"fill",  nm:"Пломба", note:"лікування карієсу, світлова пломба", price:1900, max:16 },
+      { id:"c1",    nm:"Лікування каналів: 1 канал", note:"передні зуби", price:3400, max:8 },
+      { id:"c2",    nm:"Лікування каналів: 2 канали", note:"премоляри", price:4400, max:8 },
+      { id:"c3",    nm:"Лікування каналів: 3 канали", note:"моляри", price:5500, max:8 },
+      { id:"rest",  nm:"Реставрація зуба", note:"відновлення сколу чи форми", price:4000, max:8 } ]},
+    { id:"surg", label:"Видалення", items:[
+      { id:"ext1",  nm:"Видалення зуба", note:"просте", price:2100, max:8 },
+      { id:"ext2",  nm:"Складне видалення", note:"зруйнований зуб, кілька коренів", price:3500, max:8 },
+      { id:"wis",   nm:"Видалення зуба мудрості", note:"під анестезією, 30–60 хв", price:3100, max:4 },
+      { id:"wis2",  nm:"Видалення ретинованого зуба", note:"зуб, що не прорізався", price:5800, max:4 } ]},
+    { id:"impl", label:"Імплантація", items:[
+      { id:"imp",   nm:"Імплант під ключ", note:"імплант, абатмент і цирконієва коронка", price:43000, max:8 },
+      { id:"imp1",  nm:"Імплант (лише встановлення)", note:"без коронки", price:21600, max:8 } ]},
+    { id:"orth", label:"Брекети", items:[
+      { id:"ocon",  nm:"Консультація ортодонта і 3D-план", note:"бачите результат до початку лікування", price:0, max:1 },
+      { id:"om",    nm:"Металеві брекети", note:"обидві щелепи", price:21000, max:1 },
+      { id:"oc",    nm:"Керамічні брекети", note:"обидві щелепи, колір зубів", price:28000, max:1 },
+      { id:"os",    nm:"Сапфірові брекети", note:"обидві щелепи, прозорі", price:36000, max:1 },
+      { id:"oa",    nm:"Елайнери", note:"курс прозорих кап", price:70000, max:1 } ]},
+    { id:"aest", label:"Естетика", items:[
+      { id:"ven",   nm:"Композитний вінір", note:"форма й колір переднього зуба", price:5500, max:10 },
+      { id:"zr",    nm:"Цирконієва коронка", note:"не темніє, служить 10+ років", price:16500, max:8 },
+      { id:"mk",    nm:"Металокерамічна коронка", note:"доступніший варіант", price:11800, max:8 },
+      { id:"inl",   nm:"Цирконієва вкладка", note:"замість великої пломби", price:8000, max:8 } ]},
+    { id:"hyg", label:"Гігієна", items:[
+      { id:"hy",    nm:"Професійна гігієна", note:"ультразвук, Air Flow, полірування", price:3000, max:1 },
+      { id:"hyk",   nm:"Дитяча гігієна", note:"чистка й захист від карієсу", price:2300, max:3 } ]},
+    { id:"kids", label:"Дитяча", items:[
+      { id:"kc",    nm:"Консультація дитячого стоматолога", note:"знайомство в ігровій формі", price:750, max:3 },
+      { id:"kf",    nm:"Пломба для дитини", note:"молочні та постійні зуби", price:1600, max:10 } ]}
+  ];
+  const ITEMS = {}; CATS.forEach(c => c.items.forEach(i => ITEMS[i.id] = { ...i, cat:c.id }));
+  const uah = n => n.toLocaleString("uk-UA") + " ₴";
+  const PLUS = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>';
+  const X = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>';
+
+  const cart = new Map();       // id -> { nm, price, qty, max }
+  let cat = "ther", months = 0, mapPlan = [];
+
+  const catsEl = document.getElementById("cats"), rowsEl = document.getElementById("rows");
+  const linesEl = document.getElementById("lines"), impEl = document.getElementById("imp");
+
+  function renderCats(){
+    catsEl.innerHTML = CATS.map(c => {
+      const n = c.items.reduce((a, i) => a + (cart.get(i.id)?.qty || 0), 0);
+      return `<button type="button" class="cat" role="tab" data-c="${c.id}" aria-selected="${c.id === cat}" tabindex="${c.id === cat ? 0 : -1}">${c.label}${n ? `<i aria-label="додано ${n}">${n}</i>` : ""}</button>`;
+    }).join("");
+  }
+  function ctl(i){
+    const q = cart.get(i.id)?.qty || 0;
+    if (!q) return `<button type="button" class="addb" data-add="${i.id}" aria-label="Додати: ${i.nm}">${PLUS}<span>Додати</span></button>`;
+    if (i.max === 1) return `<button type="button" class="addb on" data-dec="${i.id}" aria-label="Прибрати: ${i.nm}" aria-pressed="true">✓ <span>Додано</span></button>`;
+    return `<div class="qty"><button type="button" data-dec="${i.id}" aria-label="Менше: ${i.nm}">−</button><span aria-live="polite">${q}</span><button type="button" data-inc="${i.id}" aria-label="Більше: ${i.nm}" ${q >= i.max ? "disabled style=\"opacity:.3\"" : ""}>+</button></div>`;
+  }
+  function renderRows(animate){
+    const c = CATS.find(x => x.id === cat);
+    rowsEl.innerHTML = c.items.map((i, n) => `<li class="row" style="--i:${animate ? n : 0};${animate ? "" : "animation:none"}">
+      <div><b>${i.nm}</b><small>${i.note}${i.max > 1 ? " · за 1 зуб" : ""}</small></div>
+      <div class="p${i.price ? "" : " free"}">${i.price ? uah(i.price) : "безкоштовно"}</div>
+      <div class="ctl">${ctl(i)}</div></li>`).join("");
+  }
+  function total(){ return [...cart.values()].reduce((a, v) => a + v.price * v.qty, 0); }
+  function renderSum(){
+    const t = total(), n = [...cart.values()].reduce((a, v) => a + v.qty, 0);
+    const fresh = mapPlan.filter(p => !cart.has(p.key));
+    impEl.innerHTML = fresh.length
+      ? `<div class="imp"><span>У карті зубів: <b>${fresh.length}</b> ${fresh.length === 1 ? "процедура" : "процедури"}</span><button type="button" data-imp>Додати сюди</button></div>` : "";
+    linesEl.innerHTML = cart.size
+      ? `<ul class="lines">${[...cart.entries()].map(([id, v]) => `<li><span>${v.nm}${v.qty > 1 ? ` <span class="q">× ${v.qty}</span>` : ""}</span><span class="v">${v.price ? uah(v.price * v.qty) : "0 ₴"}</span><button type="button" class="rm" data-rm="${id}" aria-label="Видалити: ${v.nm}">${X}</button></li>`).join("")}</ul>`
+      : `<p class="sum-empty">Поки порожньо. Додайте процедури зі списку або перенесіть план з карти зубів.</p>`;
+    document.getElementById("tot").textContent = uah(t);
+    const it = document.getElementById("instTxt");
+    if (!months) it.innerHTML = t ? "Оплата за кожен етап окремо, після виконання." : "";
+    else if (t < 5000) it.innerHTML = "Розстрочка 0% доступна від 5 000 ₴.";
+    else it.innerHTML = `≈ <b>${uah(Math.ceil(t / months / 10) * 10)}</b> на місяць, ${months} платежів, без переплат.`;
+    document.getElementById("mbN").textContent = n;
+    document.getElementById("mbT").textContent = uah(t);
+    mbarHas = n > 0; syncBar();
+  }
+  const all = animate => { renderCats(); renderRows(animate); renderSum(); };
+
+  function change(id, d){
+    const i = ITEMS[id], cur = cart.get(id);
+    const q = Math.max(0, Math.min(i ? i.max : 1, (cur?.qty || 0) + d));
+    if (!q) cart.delete(id); else cart.set(id, { nm:i.nm, price:i.price, qty:q, max:i.max });
+    all(false);
+    const f = rowsEl.querySelector(`[data-${d > 0 ? "inc" : "dec"}="${id}"]`) || rowsEl.querySelector(`[data-add="${id}"],[data-dec="${id}"]`);
+    if (f && !f.disabled) f.focus();
+  }
+
+  catsEl.addEventListener("click", e => { const b = e.target.closest(".cat"); if (b){ cat = b.dataset.c; renderCats(); renderRows(true); catsEl.querySelector(`[data-c="${cat}"]`).focus(); } });
+  catsEl.addEventListener("keydown", e => {
+    if (e.key !== "ArrowRight" && e.key !== "ArrowLeft") return;
+    e.preventDefault();
+    const i = CATS.findIndex(c => c.id === cat);
+    cat = CATS[(i + (e.key === "ArrowRight" ? 1 : -1) + CATS.length) % CATS.length].id;
+    renderCats(); renderRows(true);
+    const b = catsEl.querySelector(`[data-c="${cat}"]`); b.focus(); b.scrollIntoView({ block:"nearest", inline:"nearest" });
+  });
+  rowsEl.addEventListener("click", e => {
+    const b = e.target.closest("button"); if (!b) return;
+    if (b.dataset.add) change(b.dataset.add, 1);
+    else if (b.dataset.inc) change(b.dataset.inc, 1);
+    else if (b.dataset.dec) change(b.dataset.dec, -1);
+  });
+  document.getElementById("sum").addEventListener("click", e => {
+    const rm = e.target.closest("[data-rm]");
+    if (rm){ cart.delete(rm.dataset.rm); all(false); document.getElementById("sumH").focus?.(); return; }
+    if (e.target.closest("[data-imp]")){
+      mapPlan.forEach(p => { if (!cart.has(p.key)) cart.set(p.key, { nm:p.nm, price:p.price, qty:1, max:1 }); });
+      all(false); return;
+    }
+    const m = e.target.closest("[data-m]");
+    if (m){ months = +m.dataset.m; document.querySelectorAll(".inst [data-m]").forEach(b => b.setAttribute("aria-pressed", b === m)); renderSum(); }
+  });
+
+  /* tooth map plan -> import offer */
+  document.addEventListener("emal:plan", e => { mapPlan = e.detail; renderSum(); });
+  if (window.emalMap) mapPlan = window.emalMap.getPlan();
+
+  /* nav "Брекети" opens the braces category */
+  document.querySelectorAll('a[href="#braces"]').forEach(a => a.addEventListener("click", ev => {
+    ev.preventDefault(); cat = "orth"; renderCats(); renderRows(true);
+    document.getElementById("prices").scrollIntoView({ behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
+  }));
+
+  /* mobile bar: visible while the price list is on screen but the estimate isn't */
+  const bar = document.getElementById("mbar");
+  let mbarHas = false, inList = false, sumVis = false;
+  function syncBar(){ bar.classList.toggle("on", mbarHas && inList && !sumVis); }
+  if ("IntersectionObserver" in window){
+    new IntersectionObserver(es => { inList = es[0].isIntersecting; syncBar(); }).observe(rowsEl);
+    new IntersectionObserver(es => { sumVis = es[0].isIntersecting; syncBar(); }, { threshold:.25 }).observe(document.getElementById("sum"));
+  }
+
+  cart.set("cons", { nm:ITEMS.cons.nm, price:0, qty:1, max:1 });
+  all(true);
+  window.emalCart = { get: () => ({ items:[...cart.values()], total: total() }) };
+})();
+</script>
+
+<script>
+/* ---------- header menu, active links, booking ---------- */
+(() => {
+  /* mobile menu */
+  const burger = document.getElementById("burger"), menu = document.getElementById("mmenu");
+  function setMenu(open){
+    menu.hidden = !open; burger.setAttribute("aria-expanded", open);
+    burger.setAttribute("aria-label", open ? "Закрити меню" : "Відкрити меню");
+  }
+  burger.addEventListener("click", () => setMenu(menu.hidden));
+  menu.addEventListener("click", e => { if (e.target.closest("a")) setMenu(false); });
+  document.addEventListener("keydown", e => { if (e.key === "Escape" && !menu.hidden){ setMenu(false); burger.focus(); } });
+  document.addEventListener("click", e => { if (!menu.hidden && !e.target.closest("#nav")) setMenu(false); });
+  addEventListener("resize", () => { if (innerWidth > 1080 && !menu.hidden) setMenu(false); });
+
+  /* highlight the current section in the header */
+  const links = [...document.querySelectorAll(".links a")];
+  const map = { services:"#services", results:"#services", doctors:"#doctors", prices:"#prices", painless:"#prices", reviews:"#reviews", guarantee:"#reviews", faq:"#reviews", book:"#book" };
+  if ("IntersectionObserver" in window){
+    const io = new IntersectionObserver(es => es.forEach(en => {
+      if (!en.isIntersecting) return;
+      const href = map[en.target.id];
+      links.forEach(a => a.classList.toggle("cur", !!href && a.getAttribute("href") === href));
+    }), { rootMargin:"-45% 0px -50% 0px" });
+    document.querySelectorAll("main section[id]").forEach(s => io.observe(s));
+  }
+
+  /* booking: days & slots (demo availability) */
+  const daysEl = document.getElementById("bkDays"), slotsEl = document.getElementById("bkSlots");
+  const pickEl = document.getElementById("bkPick");
+  const WD = ["Нд","Пн","Вт","Ср","Чт","Пт","Сб"];
+  const MON = ["січня","лютого","березня","квітня","травня","червня","липня","серпня","вересня","жовтня","листопада","грудня"];
+  const today = new Date(); today.setHours(0,0,0,0);
+  const DAYS = Array.from({ length:8 }, (_, i) => { const d = new Date(today); d.setDate(d.getDate() + i); return d; });
+  const SLOTS = []; for (let h = 8; h < 19; h++) SLOTS.push(`${String(h).padStart(2,"0")}:00`, `${String(h).padStart(2,"0")}:30`); SLOTS.shift();
+  const hash = s => { let x = 0; for (const c of s) x = (x * 31 + c.charCodeAt(0)) >>> 0; return x; };
+  const busy = (d, s) => { const [hh, mm] = s.split(":").map(Number), t = hh * 60 + mm; if (d.getDay() === 0) return true; if (d.getDay() === 6 && (t < 540 || t >= 900)) return true; return hash(d.toDateString() + s) % 4 === 0; };
+  const dayLabel = (d, i) => i === 0 ? "Сьогодні" : i === 1 ? "Завтра" : WD[d.getDay()];
+  let di = null, si = null;
+
+  daysEl.innerHTML = DAYS.map((d, i) => `<button type="button" class="day" role="radio" aria-checked="false" tabindex="${i ? -1 : 0}" data-d="${i}" aria-label="${dayLabel(d, i)}, ${d.getDate()} ${MON[d.getMonth()]}">${dayLabel(d, i)}<b>${d.getDate()}</b></button>`).join("");
+  function renderSlots(){
+    if (di === null){ slotsEl.innerHTML = `<p class="slots-empty">Спершу оберіть день</p>`; return; }
+    const d = DAYS[di], now = new Date(), cut = di === 0 ? now.getHours() * 60 + now.getMinutes() + 60 : -1;
+    const html = SLOTS.map((s, i) => {
+      const [h, m] = s.split(":").map(Number);
+      const off = h * 60 + m <= cut || busy(d, s);
+      return `<button type="button" class="slot" role="radio" aria-checked="${i === si}" data-s="${i}" ${off ? "disabled" : ""} aria-label="${s}${off ? ", зайнято" : ""}">${s}</button>`;
+    });
+    slotsEl.innerHTML = html.some(h => !h.includes("disabled")) ? html.join("") : (DAYS[di].getDay() === 0 ? `<p class="slots-empty">Неділя — вихідний. Оберіть інший день.</p>` : `<p class="slots-empty">На сьогодні вільних місць уже немає. Оберіть інший день.</p>`);
+  }
+  function renderPick(){
+    pickEl.innerHTML = di !== null && si !== null
+      ? `Ваш візит: <b>${dayLabel(DAYS[di], di).toLowerCase()}, ${DAYS[di].getDate()} ${MON[DAYS[di].getMonth()]}, о ${SLOTS[si]}</b>`
+      : "Оберіть день і час";
+  }
+  daysEl.addEventListener("click", e => {
+    const b = e.target.closest(".day"); if (!b) return;
+    di = +b.dataset.d; si = null;
+    daysEl.querySelectorAll(".day").forEach(x => { x.setAttribute("aria-checked", x === b); x.tabIndex = x === b ? 0 : -1; });
+    renderSlots(); renderPick();
+  });
+  daysEl.addEventListener("keydown", e => {
+    const d = { ArrowRight:1, ArrowLeft:-1 }[e.key]; if (!d) return;
+    e.preventDefault();
+    const all = [...daysEl.children], i = all.indexOf(document.activeElement);
+    const n = all[(i + d + all.length) % all.length]; n.focus(); n.click();
+  });
+  slotsEl.addEventListener("click", e => {
+    const b = e.target.closest(".slot"); if (!b || b.disabled) return;
+    si = +b.dataset.s;
+    slotsEl.querySelectorAll(".slot").forEach(x => x.setAttribute("aria-checked", x === b));
+    renderPick();
+  });
+  // first day that still has free slots
+  (function preselect(){
+    for (let i = 0; i < DAYS.length; i++){
+      di = i; renderSlots();
+      if (slotsEl.querySelector(".slot:not(:disabled)")){ daysEl.children[i].click(); return; }
+    }
+  })();
+
+  /* context from the button that led here */
+  const ctx = document.getElementById("bkCtx"), ctxT = document.getElementById("bkCtxT"), what = document.getElementById("bkWhat");
+  const uah = n => n.toLocaleString("uk-UA") + " ₴";
+  const CN = { pain:"Болить зуб", gums:"Гігієна", bite:"Брекети чи елайнери", gap:"Імплантація", wisdom:"Зуб мудрості", white:"Естетика: вініри, відбілювання", kids:"Дитячий прийом", check:"Огляд і план лікування" };
+  let ctxData = "";
+  function setCtx(text, sel){
+    ctxData = text || "";
+    ctx.hidden = !text; ctxT.textContent = text || "";
+    if (sel) [...what.options].forEach(o => { if (o.text === sel) what.value = o.value; });
+  }
+  document.getElementById("bkCtxX").addEventListener("click", () => setCtx(""));
+  document.addEventListener("click", e => {
+    const a = e.target.closest('a[href="#book"]'); if (!a) return;
+    if (a.id === "sumGo" && window.emalCart){
+      const c = window.emalCart.get(), n = c.items.reduce((s, v) => s + v.qty, 0);
+      setCtx(`Кошторис: ${n} поз. · ≈ ${uah(c.total)}`, "Огляд і план лікування");
+    } else if (a.id === "plan" && window.emalMap){
+      const p = window.emalMap.getPlan();
+      if (p.length) setCtx(`План з карти зубів: ${p.length} поз. · від ${uah(p.reduce((s, v) => s + v.price, 0))}`, p.some(x => /брекет|елайнер/i.test(x.nm)) ? "Брекети чи елайнери" : "Огляд і план лікування");
+    } else if (a.closest(".cn-card")){
+      const id = (a.closest(".cn-card").getAttribute("aria-labelledby") || "").replace("cnt-", "");
+      setCtx(a.closest(".cn-card").querySelector("h3").textContent, CN[id]);
+    } else if (a.closest(".dr")){
+      setCtx("Лікар: " + a.closest(".dr").querySelector("h3").textContent);
+    } else if (a.closest(".ba-info")){
+      setCtx("Хочу такий результат: " + a.closest(".ba-info").querySelector("h3").textContent);
+    }
+  });
+
+  /* validation + demo submit */
+  const form = document.getElementById("bkForm"), body = document.getElementById("bkBody");
+  const nm = document.getElementById("bkName"), tel = document.getElementById("bkTel");
+  const fail = (fld, inp, bad) => { fld.classList.toggle("err", bad); inp.setAttribute("aria-invalid", bad); return bad; };
+  const okName = () => nm.value.trim().length >= 2;
+  const okTel = () => tel.value.replace(/\D/g, "").length >= 10;
+  nm.addEventListener("blur", () => { if (nm.value) fail(document.getElementById("fName"), nm, !okName()); });
+  tel.addEventListener("blur", () => { if (tel.value) fail(document.getElementById("fTel"), tel, !okTel()); });
+  tel.addEventListener("focus", () => { if (!tel.value) tel.value = "+380 "; });
+  form.addEventListener("submit", e => {
+    e.preventDefault();
+    const b1 = fail(document.getElementById("fName"), nm, !okName());
+    const b2 = fail(document.getElementById("fTel"), tel, !okTel());
+    if (di === null || si === null){ pickEl.innerHTML = '<b style="color:#B23E1D">Оберіть день і час візиту</b>'; slotsEl.scrollIntoView({ block:"center" }); return; }
+    if (b1){ nm.focus(); return; } if (b2){ tel.focus(); return; }
+    const when = `${dayLabel(DAYS[di], di).toLowerCase()}, ${DAYS[di].getDate()} ${MON[DAYS[di].getMonth()]}, о ${SLOTS[si]}`;
+        body.innerHTML = `<div class="bk-ok" tabindex="-1">
+      <div class="ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></div>
+      <h3>Запис прийнято, ${nm.value.trim().split(" ")[0].replace(/[&<>"']/g, c => "&#" + c.charCodeAt(0) + ";")}!</h3>
+      <p>Ви обрали: <b>${when}</b>.<br>Ми передзвонимо вам найближчим часом, щоб підтвердити запис.${ctxData ? `<br><br>${ctxData}` : ""}</p>
+      <span class="demo">Демо: на робочому сайті заявка одразу приходить адміністратору в Telegram або на пошту</span></div>`;
+    body.querySelector(".bk-ok").focus();
+  });
+})();
+</script>
+</body>
+</html>
