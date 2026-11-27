@@ -1937,6 +1937,18 @@ applyLang();
     });
   } catch (e) {}
 
+  /* ---- інші проєкти й експерименти (розкривний список) ---- */
+  try {
+    const hidden = (site.works || {}).hidden || [];
+    const items = [...document.querySelectorAll('#xpList > li')];
+    items.forEach(li => { const m = (li.querySelector('a') || {}).getAttribute?.('href')?.match(/^([\w-]+)\//);
+      if (m && hidden.includes('xp-' + m[1])) li.remove(); });
+    const left = document.querySelectorAll('#xpList > li').length, cnt = $q('#xpBtn i');
+    if (cnt) cnt.textContent = left;
+    const box = $q('#xpBtn') && $q('#xpBtn').closest('.xp');
+    if (!left && box) box.remove();
+  } catch (e) {}
+
   /* ---- акція ---- */
   const renderPromo = () => {
     const P = site.promo; let bar = $q('.promo-bar');

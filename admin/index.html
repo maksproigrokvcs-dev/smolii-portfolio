@@ -388,7 +388,10 @@ async function loadWorks(){ // список робіт беремо прямо �
   try {
     const h = await (await fetch("/?w="+Date.now())).text();
     const uk = h.slice(h.indexOf("cases:["), h.indexOf("en:{"));
-    return [...uk.matchAll(/\{key:"([\w-]+)",url:"([^"]+)",tag:"([^"]*)",name:"([^"]+)"/g)].map(m=>({key:m[1],url:m[2],tag:m[3],name:m[4]}));
+    const main = [...uk.matchAll(/\{key:"([\w-]+)",url:"([^"]+)",tag:"([^"]*)",name:"([^"]+)"/g)].map(m=>({key:m[1],url:m[2],tag:m[3],name:m[4]}));
+    const xp = [...h.matchAll(/<li><a href="([\w-]+)\/"[^>]*>\s*<span class="xp-t"><b>([^<]+)<\/b><small[^>]*>([^<]*)</g)]
+      .map(m=>({key:"xp-"+m[1],url:"smolii.pages.dev/"+m[1]+"/",tag:m[3],name:m[2],xp:true}));
+    return [...main, ...xp];
   } catch(e){ return []; }
 }
 async function loadSite(){
@@ -402,16 +405,20 @@ async function loadSite(){
 function promoPrev(){ const p=$("#pmPrev"); p.textContent=$("#pmUk").value.trim(); p.classList.toggle("off", !$("#pmOn").checked); }
 ["#pmOn","#pmUk"].forEach(s=>$(s).addEventListener("input", promoPrev));
 
-function workOrder(){ const o=site.works.order.filter(k=>works.some(w=>w.key===k));
-  works.forEach(w=>{ if(!o.includes(w.key)) o.push(w.key); }); return o; }
+function workOrder(){ const M=works.filter(w=>!w.xp), o=site.works.order.filter(k=>M.some(w=>w.key===k));
+  M.forEach(w=>{ if(!o.includes(w.key)) o.push(w.key); }); return o; }
 function renderWorkList(){
   if (!works.length) { $("#wList").innerHTML = `<p class="muted">Не вдалось прочитати роботи з головної.</p>`; return; }
-  const o = workOrder();
-  $("#wList").innerHTML = o.map((k,i)=>{ const w=works.find(x=>x.key===k), off=site.works.hidden.includes(k);
-    return `<div class="ri ${off?"off":""}" data-k="${esc(k)}">
-      <span class="mv"><button type="button" data-mv="-1" ${i?"":"disabled"} aria-label="Вище">▲</button><button type="button" data-mv="1" ${i<o.length-1?"":"disabled"} aria-label="Нижче">▼</button></span>
-      <span><b>${esc(w.name)}</b><small>${esc(w.tag)} · ${esc(w.url)}</small></span>
-      <label class="sw" title="Показувати на сайті"><input type="checkbox" data-vis ${off?"":"checked"}><i></i></label></div>`; }).join("");
+  const o = workOrder(), X = works.filter(w=>w.xp);
+  $("#wList").innerHTML = o.map((k,i)=>workRow(k,i,o.length)).join("") +
+    (X.length ? `<p class="muted small" style="margin:10px 0 0">Інші проєкти й експерименти (розкривний список під роботами)</p>` + X.map(w=>workRow(w.key,-1,0)).join("") : "");
+}
+function workRow(k, i, n){ // i<0 — експеримент: тільки показати/сховати
+  const w=works.find(x=>x.key===k), off=site.works.hidden.includes(k);
+  const mv = i<0 ? `<span></span>` : `<span class="mv"><button type="button" data-mv="-1" ${i?"":"disabled"} aria-label="Вище">▲</button><button type="button" data-mv="1" ${i<n-1?"":"disabled"} aria-label="Нижче">▼</button></span>`;
+  return `<div class="ri ${off?"off":""}" data-k="${esc(k)}">${mv}
+    <span><b>${esc(w.name)}</b><small>${esc(w.tag)}${i<0?"":" · "+esc(w.url)}</small></span>
+    <label class="sw" title="Показувати на сайті"><input type="checkbox" data-vis ${off?"":"checked"}><i></i></label></div>`;
 }
 $("#wList").addEventListener("click", e => { const b=e.target.closest("[data-mv]"); if(!b) return;
   const o=workOrder(), k=b.closest(".ri").dataset.k, i=o.indexOf(k), j=i+ +b.dataset.mv; [o[i],o[j]]=[o[j],o[i]]; site.works.order=o; renderWorkList(); });
