@@ -1,7 +1,22 @@
 // POST /api/track — «маячок» із сайтів-концептів (/concepts/*).
 // Клієнт щоразу шле повний накопичений стан візиту — сервер просто перезаписує запис.
 // Перегляди самого адміна (cookie sa) не записуються.
-import { json, clip, inv, esc, isAdmin, tg } from "../_lib.js";
+import { json, clip, inv, esc, isAdmin, tg, ipKey, memLimit, kvLimit, readBody } from "../_lib.js";
+
+// Приймаємо дані тільки для справжніх сторінок-концептів, де стоїть наш скрипт (кеш на 10 хв).
+const SITES = new Map();
+async function realSite(env, request, site) {
+  if (!env.ASSETS) return true; // локальний тест
+  const c = SITES.get(site);
+  if (c && c.exp > Date.now()) return c.ok;
+  let ok = false;
+  try {
+    const r = await env.ASSETS.fetch(new URL(`/concepts/${site}/`, request.url));
+    ok = r.ok && (await r.text()).includes('src="/t.js"');
+  } catch {}
+  SITES.set(site, { ok, exp: Date.now() + 600e3 });
+  return ok;
+}
 
 const fmtT = s => (s >= 60 ? `${Math.floor(s / 60)} хв ${s % 60} с` : `${s} с`);
 const mmss = s => `${Math.floor(s / 60)}:${String(s % 60).padStart(2, "0")}`;
@@ -26,17 +41,29 @@ export async function onRequestPost({ request, env }) {
   if (!env.DB) return json(200, { ok: false, error: "no_kv" });
   if (await isAdmin(request, env)) return json(200, { ok: true, skipped: "admin" });
 
+  // антифлуд: не більше 40 запитів за хвилину з однієї адреси, тіло до 32 КБ
+  const ip = await ipKey(request);
+  if (!memLimit("t:" + ip, 40, 60e3)) return json(429, { ok: false });
+  const raw = await readBody(request, 32000);
+  if (raw == null) return json(413, { ok: false });
   let d;
-  try { d = JSON.parse(await request.text()); } catch { return json(400, { ok: false }); }
+  try { d = JSON.parse(raw); } catch { return json(400, { ok: false }); }
+  if (!d || typeof d !== "object") return json(400, { ok: false });
   if (!/^[a-f0-9]{16}$/.test(d.v || "")) return json(400, { ok: false, error: "id" });
-  const site = clip(d.site, 40).replace(/[^a-z0-9-]/gi, "");
-  if (!site) return json(400, { ok: false, error: "site" });
+  const site = clip(d.site, 40).replace(/[^a-z0-9-]/gi, "").toLowerCase();
+  if (!site || !(await realSite(env, request, site))) return json(400, { ok: false, error: "site" });
   const now = Date.now();
   const ts = Number(d.ts);
   if (!(Math.abs(now - ts) < 6 * 3600e3)) return json(400, { ok: false, error: "ts" });
 
   const key = `v:${inv(ts)}:${d.v}`;
   const prev = await env.DB.get(key, "json");
+  if (!prev) {
+    // нових переглядів з однієї адреси — до 15 на годину
+    if (!(await kvLimit(env, "nv:" + ip, 15, 3600))) return json(429, { ok: false });
+  } else if ((prev.u || 0) >= 300) {
+    return json(200, { ok: true }); // занадто багато оновлень одного візиту — ігноруємо
+  }
   const cf = request.cf || {};
   const v = {
     site,
@@ -57,10 +84,12 @@ export async function onRequestPost({ request, env }) {
     exit: clip(d.exit, 50),
     tg: prev?.tg || null,
     ended: !!d.end || !!prev?.ended,
+    u: (prev?.u || 0) + 1,
   };
 
-  // Telegram: перше сповіщення «дивляться зараз», при виході — редагуємо в підсумок
-  if (!v.tg && v.dur >= 3) {
+  // Telegram: перше сповіщення «дивляться зараз», при виході — редагуємо в підсумок.
+  // Не більше 60 нових сповіщень на добу — щоб твій Telegram не можна було заспамити.
+  if (!v.tg && v.dur >= 3 && (await kvLimit(env, "tg", 60, 86400))) {
     const r = await tg(env, "sendMessage", { text: summary(v, !d.end) });
     v.tg = r?.result?.message_id || null;
   } else if (v.tg && d.end && v.dur >= 3) {

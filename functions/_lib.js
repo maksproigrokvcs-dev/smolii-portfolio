@@ -7,8 +7,49 @@
 export const json = (status, body, headers = {}) =>
   new Response(JSON.stringify(body), {
     status,
-    headers: { "content-type": "application/json; charset=utf-8", "cache-control": "no-store", ...headers },
+    headers: {
+      "content-type": "application/json; charset=utf-8", "cache-control": "no-store",
+      "x-content-type-options": "nosniff", "x-robots-tag": "noindex", ...headers,
+    },
   });
+
+// ---------- захист від спаму / перебору ----------
+// IP не зберігаємо як є — тільки короткий хеш.
+export async function ipKey(request) {
+  const ip = request.headers.get("cf-connecting-ip") || request.headers.get("x-forwarded-for") || "0";
+  const h = await crypto.subtle.digest("SHA-256", new TextEncoder().encode("smolii:" + ip));
+  return [...new Uint8Array(h)].slice(0, 8).map(b => b.toString(16).padStart(2, "0")).join("");
+}
+
+// Швидкий лічильник у пам’яті (в межах одного сервера Cloudflare) — проти флуду з однієї адреси.
+const MEM = new Map();
+export function memLimit(key, limit, windowMs) {
+  const now = Date.now();
+  if (MEM.size > 5000) for (const [k, v] of MEM) if (v.reset < now) MEM.delete(k);
+  const e = MEM.get(key);
+  if (!e || e.reset < now) { MEM.set(key, { n: 1, reset: now + windowMs }); return true; }
+  e.n++;
+  return e.n <= limit;
+}
+
+// Лічильник у KV (працює між усіма серверами) — для входу, заявок, нових переглядів.
+export async function kvLimit(env, key, limit, windowSec) {
+  if (!env.DB) return true;
+  const k = `rl:${key}:${Math.floor(Date.now() / 1000 / windowSec)}`;
+  const n = parseInt((await env.DB.get(k)) || "0", 10);
+  if (n >= limit) return false;
+  await env.DB.put(k, String(n + 1), { expirationTtl: Math.max(60, windowSec * 2) });
+  return true;
+}
+
+// Читання тіла з обмеженням розміру (захист від величезних запитів).
+export async function readBody(request, maxBytes) {
+  const len = parseInt(request.headers.get("content-length") || "0", 10);
+  if (len > maxBytes) return null;
+  const t = await request.text();
+  return t.length > maxBytes ? null : t;
+}
+export const tooMany = () => json(429, { ok: false, error: "too_many" }, { "retry-after": "600" });
 
 export const esc = (v, max = 600) =>
   String(v ?? "").slice(0, max).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").trim();

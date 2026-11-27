@@ -350,7 +350,7 @@ async function boot(){
 $("#lf").onsubmit = async e => {
   e.preventDefault(); $("#le").textContent=""; $("#lb").disabled=true;
   try { await api("/api/admin/login",{method:"POST",body:{password:$("#pw").value}}); $("#pw").value=""; boot(); }
-  catch(err){ $("#le").textContent = err.message==="wrong" ? "Невірний пароль" : err.message==="no_password_set" ? "Пароль ще не задано в Cloudflare" : "Помилка входу"; }
+  catch(err){ $("#le").textContent = err.message==="wrong" ? "Невірний пароль" : err.message==="no_password_set" ? "Пароль ще не задано в Cloudflare" : err.message==="too_many" ? "Забагато спроб. Спробуй через 15 хвилин" : "Помилка входу"; }
   finally{ $("#lb").disabled=false; }
 };
 $("#logout").onclick = async () => { await api("/api/admin/login",{method:"DELETE"}).catch(()=>{}); showLogin(); };

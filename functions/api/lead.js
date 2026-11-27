@@ -5,22 +5,25 @@
 //   TELEGRAM_CHAT_ID   — ваш chat_id (куди слати заявки)
 // (Та сама логіка, що й у netlify/functions/lead.mjs — щоб сайт працював на обох хостингах.)
 
-const esc = (v, max = 600) =>
-  String(v ?? "").slice(0, max).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").trim();
-
-const json = (status, body) =>
-  new Response(JSON.stringify(body), { status, headers: { "content-type": "application/json" } });
+import { json, esc, ipKey, memLimit, kvLimit, readBody, tooMany } from "../_lib.js";
 
 export async function onRequestPost({ request, env }) {
   const token = env.TELEGRAM_BOT_TOKEN;
   const chatId = env.TELEGRAM_CHAT_ID;
   if ((!token || !chatId) && !env.DB) return json(500, { ok: false, error: "not_configured" });
 
+  // антиспам: не більше 3 заявок за хвилину і 6 за годину з однієї адреси
+  const ip = await ipKey(request);
+  if (!memLimit("lead:" + ip, 3, 60e3)) return tooMany();
+  const raw = await readBody(request, 20000);
+  if (raw == null) return json(413, { ok: false, error: "too_big" });
   let d;
-  try { d = await request.json(); } catch { return json(400, { ok: false, error: "bad_json" }); }
+  try { d = JSON.parse(raw); } catch { return json(400, { ok: false, error: "bad_json" }); }
+  if (!d || typeof d !== "object") return json(400, { ok: false, error: "bad_json" });
 
   // пастка для ботів-спамерів: справжні люди це поле не бачать
   if (d.website) return json(200, { ok: true });
+  if (!(await kvLimit(env, "lead:" + ip, 6, 3600))) return tooMany();
 
   const contact = esc(d.contact, 120);
   if (!contact) return json(400, { ok: false, error: "no_contact" });
