@@ -149,6 +149,35 @@ h3{font-size:13px;font-family:var(--mono);color:var(--muted);text-transform:uppe
 .toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,20px);background:var(--text);color:var(--bg);font-weight:600;padding:12px 20px;border-radius:99px;opacity:0;transition:.25s;pointer-events:none;z-index:40;font-size:14px}
 .toast.on{opacity:1;transform:translate(-50%,0)}
 [hidden]{display:none!important}
+h2.blk{font-size:20px;font-weight:800;margin:42px 0 12px;letter-spacing:-.01em}
+h2.blk .muted{font-size:14px;font-weight:500}
+.small{font-size:13px;margin-top:12px}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+@media (max-width:640px){.g2,.g3{grid-template-columns:1fr}}
+.sw{display:inline-flex;align-items:center;gap:12px;cursor:pointer;font-weight:600}
+.sw input{position:absolute;opacity:0}
+.sw i{width:44px;height:26px;border-radius:99px;background:var(--line);position:relative;transition:.2s;flex:none}
+.sw i::after{content:"";position:absolute;left:3px;top:3px;width:20px;height:20px;border-radius:50%;background:var(--muted);transition:.2s}
+.sw input:checked+i{background:var(--acc)}
+.sw input:checked+i::after{left:21px;background:#0a0a0a}
+.promo-prev{margin-top:14px;background:var(--acc);color:#0a0a0a;font:600 13px var(--mono);text-align:center;padding:9px 14px;border-radius:10px}
+.promo-prev:empty{display:none}
+.promo-prev.off{opacity:.35}
+.rlist{display:grid;gap:8px;margin-bottom:12px}
+.ri{display:grid;grid-template-columns:auto 1fr auto;gap:12px;align-items:center;background:var(--card2);border:1px solid var(--line);border-radius:14px;padding:12px 14px}
+.ri.off{opacity:.45}
+.ri .mv{display:grid;gap:2px}
+.ri .mv button{width:30px;height:24px;border-radius:7px;border:1px solid var(--line);font-size:12px;color:var(--muted)}
+.ri .mv button:hover{color:var(--text);border-color:#3a3a42}
+.ri b{display:block}
+.ri small{color:var(--muted);font-size:13px}
+.rv{background:var(--card2);border:1px solid var(--line);border-radius:14px;padding:14px;display:grid;gap:10px}
+.rv.off{opacity:.55}
+.rv-top{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.rv-top .mv{display:flex;gap:4px;margin-left:auto}
+.rv-top .mv button{width:34px;height:30px;border-radius:8px;border:1px solid var(--line);color:var(--muted)}
+.rv textarea{min-height:84px;resize:vertical}
 </style>
 </head>
 <body>
@@ -171,7 +200,7 @@ h3{font-size:13px;font-family:var(--mono);color:var(--muted);text-transform:uppe
   <header class="top"><div class="wrap">
     <div class="logo"><i></i>SMOLII <small>admin</small></div>
     <nav class="tabs" id="tabs">
-      <button data-t="status" class="on">Статус</button>
+      <button data-t="status" class="on">Сайт</button>
       <button data-t="visits">Перегляди</button>
       <button data-t="leads">Заявки</button>
     </nav>
@@ -212,6 +241,51 @@ h3{font-size:13px;font-family:var(--mono);color:var(--muted);text-transform:uppe
           <a class="muted" href="/" target="_blank" rel="noopener">Відкрити сайт ↗</a>
         </div>
       </form>
+
+      <!-- АКЦІЯ -->
+      <h2 class="blk">Акція <span class="muted">— смужка над меню</span></h2>
+      <div class="card">
+        <label class="sw"><input type="checkbox" id="pmOn"><i></i><span>Показувати акцію на сайті</span></label>
+        <div class="g2" style="margin-top:14px">
+          <div><label class="f">Текст українською</label><input type="text" id="pmUk" maxlength="120" placeholder="−20% на лендинг до кінця грудня"></div>
+          <div><label class="f">English (необов’язково)</label><input type="text" id="pmEn" maxlength="120" placeholder="−20% on landing pages until Dec 31"></div>
+          <div><label class="f">Вимкнути автоматично після (необов’язково)</label><input type="date" id="pmUntil"></div>
+        </div>
+        <div class="promo-prev" id="pmPrev"></div>
+        <div class="save-row"><button class="btn" data-save="promo">Зберегти акцію</button></div>
+      </div>
+
+      <!-- ЦІНИ -->
+      <h2 class="blk">Ціни <span class="muted">— картки тарифів, калькулятор і FAQ</span></h2>
+      <div class="card">
+        <div class="g3">
+          <div><label class="f">Лендинг, від $</label><input type="number" id="pr0" min="10"></div>
+          <div><label class="f">Бізнес-сайт, від $</label><input type="number" id="pr1" min="10"></div>
+          <div><label class="f">Інтернет-магазин, від $</label><input type="number" id="pr2" min="10"></div>
+          <div><label class="f">Онлайн-оплата, +$</label><input type="number" id="ex0" min="0"></div>
+          <div><label class="f">Власний бот, +$</label><input type="number" id="ex1" min="0"></div>
+          <div><label class="f">Терміновість, +%</label><input type="number" id="urg" min="0" max="300"></div>
+        </div>
+        <p class="muted small">Назви доп. опцій — як на сайті в калькуляторі «Порахуйте свій сайт».</p>
+        <div class="save-row"><button class="btn" data-save="prices">Зберегти ціни</button></div>
+      </div>
+
+      <!-- РОБОТИ -->
+      <h2 class="blk">Роботи <span class="muted">— порядок і видимість</span></h2>
+      <div class="card">
+        <div class="rlist" id="wList"></div>
+        <p class="muted small">Нову роботу (зі скріншотами) додаю я в коді — тут керуєш тим, що вже є.</p>
+        <div class="save-row"><button class="btn" data-save="works">Зберегти роботи</button></div>
+      </div>
+
+      <!-- ВІДГУКИ -->
+      <h2 class="blk">Відгуки <span class="muted">— блок з’явиться на сайті, коли буде хоч один</span></h2>
+      <div class="card">
+        <div class="rlist" id="rvList"></div>
+        <button class="btn ghost" id="rvAdd" type="button">+ Додати відгук</button>
+        <p class="muted small">Тільки справжні відгуки клієнтів — з їхнього дозволу.</p>
+        <div class="save-row"><button class="btn" data-save="reviews">Зберегти відгуки</button></div>
+      </div>
     </section>
 
     <!-- VISITS -->
@@ -305,7 +379,76 @@ async function loadStatus(){
   sf.mode.value = s.mode; sf.slots.value = s.slots||2; sf.month.value = s.at ? s.month : nextMonth;
   sf.until.value = s.until||""; sf.uk.value = s.uk||""; sf.en.value = s.en||"";
   preview();
+  loadSite();
 }
+
+/* ---------- акція, ціни, роботи, відгуки ---------- */
+let site = null, works = [];
+async function loadWorks(){ // список робіт беремо прямо з головної сторінки
+  try {
+    const h = await (await fetch("/?w="+Date.now())).text();
+    const uk = h.slice(h.indexOf("cases:["), h.indexOf("en:{"));
+    return [...uk.matchAll(/\{key:"([\w-]+)",url:"([^"]+)",tag:"([^"]*)",name:"([^"]+)"/g)].map(m=>({key:m[1],url:m[2],tag:m[3],name:m[4]}));
+  } catch(e){ return []; }
+}
+async function loadSite(){
+  [site, works] = await Promise.all([api("/api/admin/site"), loadWorks()]);
+  $("#pmOn").checked = site.promo.on; $("#pmUk").value = site.promo.uk; $("#pmEn").value = site.promo.en; $("#pmUntil").value = site.promo.until;
+  promoPrev();
+  ["pr0","pr1","pr2"].forEach((id,i)=>$("#"+id).value = site.prices.plans[i]);
+  $("#ex0").value = site.prices.extras[0]; $("#ex1").value = site.prices.extras[1]; $("#urg").value = site.prices.urgent;
+  renderWorkList(); renderReviews();
+}
+function promoPrev(){ const p=$("#pmPrev"); p.textContent=$("#pmUk").value.trim(); p.classList.toggle("off", !$("#pmOn").checked); }
+["#pmOn","#pmUk"].forEach(s=>$(s).addEventListener("input", promoPrev));
+
+function workOrder(){ const o=site.works.order.filter(k=>works.some(w=>w.key===k));
+  works.forEach(w=>{ if(!o.includes(w.key)) o.push(w.key); }); return o; }
+function renderWorkList(){
+  if (!works.length) { $("#wList").innerHTML = `<p class="muted">Не вдалось прочитати роботи з головної.</p>`; return; }
+  const o = workOrder();
+  $("#wList").innerHTML = o.map((k,i)=>{ const w=works.find(x=>x.key===k), off=site.works.hidden.includes(k);
+    return `<div class="ri ${off?"off":""}" data-k="${esc(k)}">
+      <span class="mv"><button type="button" data-mv="-1" ${i?"":"disabled"} aria-label="Вище">▲</button><button type="button" data-mv="1" ${i<o.length-1?"":"disabled"} aria-label="Нижче">▼</button></span>
+      <span><b>${esc(w.name)}</b><small>${esc(w.tag)} · ${esc(w.url)}</small></span>
+      <label class="sw" title="Показувати на сайті"><input type="checkbox" data-vis ${off?"":"checked"}><i></i></label></div>`; }).join("");
+}
+$("#wList").addEventListener("click", e => { const b=e.target.closest("[data-mv]"); if(!b) return;
+  const o=workOrder(), k=b.closest(".ri").dataset.k, i=o.indexOf(k), j=i+ +b.dataset.mv; [o[i],o[j]]=[o[j],o[i]]; site.works.order=o; renderWorkList(); });
+$("#wList").addEventListener("change", e => { if(!e.target.matches("[data-vis]")) return; const k=e.target.closest(".ri").dataset.k;
+  site.works.hidden = e.target.checked ? site.works.hidden.filter(x=>x!==k) : [...site.works.hidden, k]; renderWorkList(); });
+
+function renderReviews(){
+  $("#rvList").innerHTML = site.reviews.length ? site.reviews.map((r,i)=>`
+    <div class="rv ${r.on===false?"off":""}" data-i="${i}">
+      <div class="rv-top"><label class="sw"><input type="checkbox" data-r="on" ${r.on===false?"":"checked"}><i></i><span>${r.on===false?"Сховано":"На сайті"}</span></label>
+        <span class="mv"><button type="button" data-rm="-1" aria-label="Вище">▲</button><button type="button" data-rm="1" aria-label="Нижче">▼</button><button type="button" data-rdel aria-label="Видалити">🗑</button></span></div>
+      <div class="g2"><div><label class="f">Ім’я</label><input type="text" data-r="name" maxlength="60" value="${esc(r.name)}" placeholder="Олена"></div>
+        <div><label class="f">Хто це</label><input type="text" data-r="role" maxlength="90" value="${esc(r.role)}" placeholder="власниця кав’ярні «Ранок»"></div></div>
+      <div><label class="f">Текст відгуку</label><textarea data-r="text" maxlength="700" placeholder="Що сказав клієнт…">${esc(r.text)}</textarea></div>
+      <div class="g2"><div><label class="f">English (необов’язково)</label><textarea data-r="en" maxlength="700" style="min-height:42px">${esc(r.en)}</textarea></div>
+        <div><label class="f">Посилання на сайт клієнта (необов’язково)</label><input type="text" data-r="link" maxlength="200" value="${esc(r.link)}" placeholder="https://…"></div></div>
+    </div>`).join("") : `<div class="empty" style="padding:22px">Відгуків ще немає — блок на сайті прихований.</div>`;
+}
+$("#rvAdd").onclick = () => { site.reviews.push({name:"",role:"",text:"",en:"",link:"",on:true}); renderReviews(); $("#rvList .rv:last-child input")?.focus(); };
+$("#rvList").addEventListener("input", e => { const f=e.target.dataset.r; if(!f) return; const i=+e.target.closest(".rv").dataset.i;
+  site.reviews[i][f] = f==="on" ? e.target.checked : e.target.value; if (f==="on") renderReviews(); });
+$("#rvList").addEventListener("click", e => { const rv=e.target.closest(".rv"); if(!rv) return; const i=+rv.dataset.i, R=site.reviews;
+  const m=e.target.closest("[data-rm]"); if (m){ const j=i+ +m.dataset.rm; if(j<0||j>=R.length) return; [R[i],R[j]]=[R[j],R[i]]; renderReviews(); }
+  if (e.target.closest("[data-rdel]") && confirm("Видалити цей відгук?")) { R.splice(i,1); renderReviews(); } });
+
+$("[data-p=status]").addEventListener("click", async e => { const b=e.target.closest("[data-save]"); if(!b||!site) return;
+  const part=b.dataset.save;
+  if (part==="promo") site.promo = { on:$("#pmOn").checked, uk:$("#pmUk").value.trim(), en:$("#pmEn").value.trim(), until:$("#pmUntil").value };
+  if (part==="promo" && site.promo.on && !site.promo.uk) return toast("Впиши текст акції");
+  if (part==="prices") site.prices = { plans:["pr0","pr1","pr2"].map(id=>+$("#"+id).value), extras:[+$("#ex0").value, +$("#ex1").value], urgent:+$("#urg").value };
+  if (part==="works") site.works.order = workOrder();
+  if (part==="reviews" && site.reviews.some(r=>!r.name.trim()||!r.text.trim())) return toast("У кожного відгуку має бути ім’я і текст");
+  b.disabled=true;
+  try { site = (await api("/api/admin/site",{method:"POST",body:site})).site; loadSiteFields(part); toast("Збережено ✓ — на сайті за ~30 с"); }
+  catch(err){ toast("Не вдалось зберегти"); } finally { b.disabled=false; }
+});
+function loadSiteFields(part){ if (part==="reviews") renderReviews(); if (part==="works") renderWorkList(); }
 sf.onsubmit = async e => {
   e.preventDefault(); const s=formStatus();
   if (s.mode==="busy" && !s.until) return toast("Вибери дату");

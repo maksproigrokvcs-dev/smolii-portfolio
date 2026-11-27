@@ -73,6 +73,49 @@ export async function readStatus(env) {
   }
 }
 
+// ---------- налаштування сайту: ціни, акція, роботи, відгуки ----------
+export const DEFAULT_SITE = {
+  prices: { plans: [300, 500, 400], extras: [50, 400], urgent: 30 }, // лендинг, бізнес-сайт, магазин
+  promo: { on: false, uk: "", en: "", until: "" },
+  works: { order: [], hidden: [] },
+  reviews: [],
+};
+
+export async function readSite(env) {
+  try {
+    const s = env.DB && (await env.DB.get("site", "json"));
+    return { ...DEFAULT_SITE, ...(s || {}) };
+  } catch {
+    return { ...DEFAULT_SITE };
+  }
+}
+
+const int = (v, min, max, def) => { const n = parseInt(v, 10); return Number.isFinite(n) ? Math.max(min, Math.min(max, n)) : def; };
+const key = v => String(v ?? "").replace(/[^a-z0-9_-]/gi, "").slice(0, 40);
+const date = v => (/^\d{4}-\d{2}-\d{2}$/.test(v || "") ? v : "");
+const link = v => { const s = clip(v, 200); return /^https:\/\/[^\s<>"]+$/i.test(s) ? s : ""; };
+
+export function cleanSite(d = {}) {
+  const P = DEFAULT_SITE.prices, p = d.prices || {};
+  return {
+    prices: {
+      plans: P.plans.map((def, i) => int(p.plans?.[i], 10, 50000, def)),
+      extras: P.extras.map((def, i) => int(p.extras?.[i], 0, 50000, def)),
+      urgent: int(p.urgent, 0, 300, P.urgent),
+    },
+    promo: { on: !!d.promo?.on, uk: clip(d.promo?.uk, 120), en: clip(d.promo?.en, 120), until: date(d.promo?.until) },
+    works: {
+      order: (Array.isArray(d.works?.order) ? d.works.order : []).map(key).filter(Boolean).slice(0, 30),
+      hidden: (Array.isArray(d.works?.hidden) ? d.works.hidden : []).map(key).filter(Boolean).slice(0, 30),
+    },
+    reviews: (Array.isArray(d.reviews) ? d.reviews : []).slice(0, 20).map(r => ({
+      name: clip(r?.name, 60), role: clip(r?.role, 90), text: clip(r?.text, 700), en: clip(r?.en, 700), link: link(r?.link),
+      on: r?.on !== false,
+    })).filter(r => r.name && r.text),
+    at: Date.now(),
+  };
+}
+
 // ---------- Telegram ----------
 export async function tg(env, method, body) {
   if (!env.TELEGRAM_BOT_TOKEN || !env.TELEGRAM_CHAT_ID) return null;

@@ -70,7 +70,6 @@ nav{display:flex;align-items:center;justify-content:space-between;height:84px}
 .hero{display:grid;grid-template-columns:1.05fr 1fr;gap:56px;align-items:center;min-height:calc(100vh - 84px - 70px);padding:24px 0 40px}
 .badge{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:13px;color:var(--muted);border:1px solid var(--line);border-radius:100px;padding:8px 14px;background:rgba(255,255,255,.02)}
 .badge i{width:8px;height:8px;border-radius:50%;background:var(--acc);box-shadow:0 0 0 0 rgba(200,255,61,.6);animation:pulse 2s infinite}
-.badge.busy i{background:#ffb23d;animation-name:pulseB}
 @keyframes pulseB{0%{box-shadow:0 0 0 0 rgba(255,178,61,.6)}70%{box-shadow:0 0 0 10px rgba(255,178,61,0)}100%{box-shadow:0 0 0 0 rgba(255,178,61,0)}}
 @keyframes pulse{70%{box-shadow:0 0 0 10px rgba(200,255,61,0)}100%{box-shadow:0 0 0 0 rgba(200,255,61,0)}}
 h1{font-family:var(--display);font-weight:800;font-size:clamp(40px,5.4vw,78px);line-height:1.02;letter-spacing:-.035em;margin:26px 0 24px}
@@ -1877,11 +1876,28 @@ applyLang();
   });
 })();
 </script>
+<style>
+.badge.busy i{background:#ffb23d;animation-name:pulseB}
+.promo-bar{position:relative;z-index:3;display:block;background:var(--acc);color:#0a0a0a;font:600 13px/1.35 var(--mono);text-align:center;padding:10px 16px;text-decoration:none}
+.promo-bar:hover{text-decoration:underline}
+.rvw-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin-top:8px}
+.rvw{border:1px solid var(--line);border-radius:22px;padding:26px;background:rgba(255,255,255,.02);display:flex;flex-direction:column;gap:18px}
+.rvw blockquote{margin:0;font-size:17px;line-height:1.55;color:var(--text)}
+.rvw blockquote::before{content:"“";display:block;font:800 46px/0.6 var(--display);color:var(--acc);margin:6px 0 10px}
+.rvw .who{margin-top:auto;display:flex;flex-direction:column;gap:2px}
+.rvw .who b{font-size:15px}
+.rvw .who span,.rvw .who a{font-size:13px;color:var(--muted)}
+.rvw .who a{color:var(--acc);text-decoration:none;margin-top:4px;font-family:var(--mono)}
+</style>
 <script>
-/* плашка «беру проєкти» — керується з /admin */
+/* Налаштування з /admin: плашка, акція, ціни, роботи, відгуки */
 (async () => {
+  let s;
+  try { s = await (await fetch('/api/status')).json(); } catch (e) { return; }
+  const $q = q => document.querySelector(q);
+
+  /* ---- плашка ---- */
   try {
-    const s = await (await fetch('/api/status')).json();
     const MN=['січень','лютий','березень','квітень','травень','червень','липень','серпень','вересень','жовтень','листопад','грудень'];
     const MG=['січня','лютого','березня','квітня','травня','червня','липня','серпня','вересня','жовтня','листопада','грудня'];
     const ME=['January','February','March','April','May','June','July','August','September','October','November','December'];
@@ -1894,9 +1910,69 @@ applyLang();
     };
     const uk = txt(true), en = txt(false);
     if (uk) { T.uk.badge = uk; T.en.badge = en; }
-    const el = document.querySelector('[data-i=badge]');
+    const el = $q('[data-i=badge]');
     if (el) { el.textContent = T[lang].badge; el.parentElement.classList.toggle('busy', !!busy); }
   } catch (e) {}
+
+  const site = s.site; if (!site) return;
+
+  /* ---- ціни: тарифи, калькулятор і суми в текстах (FAQ) ---- */
+  try {
+    const p = site.prices, map = {};
+    PRICE.plans.forEach((v, i) => { map[v] = p.plans[i]; });
+    const fix = o => { for (const k in o) {
+      if (typeof o[k] === 'string') o[k] = o[k].replace(/<b>(від|from) (\d+)\$<\/b>/g, (m, w, n) => map[n] != null ? '<b>'+w+' '+map[n]+'$</b>' : m);
+      else if (o[k] && typeof o[k] === 'object') fix(o[k]); } };
+    fix(T.uk); fix(T.en);
+    PRICE.plans.splice(0, 3, ...p.plans); PRICE.extras.splice(0, 2, ...p.extras); PRICE.urgent = p.urgent;
+  } catch (e) {}
+
+  /* ---- роботи: порядок і видимість ---- */
+  try {
+    const W = site.works || {}, hidden = W.hidden || [], order = W.order || [];
+    ['uk','en'].forEach(l => {
+      const arr = T[l].cases.filter(c => !hidden.includes(c.key));
+      arr.sort((a, b) => { const ia = order.indexOf(a.key), ib = order.indexOf(b.key); return (ia<0?99:ia) - (ib<0?99:ib); });
+      T[l].cases.splice(0, T[l].cases.length, ...arr);
+    });
+  } catch (e) {}
+
+  /* ---- акція ---- */
+  const renderPromo = () => {
+    const P = site.promo; let bar = $q('.promo-bar');
+    if (!P || !P.on || !P.uk) { if (bar) bar.remove(); return; }
+    if (!bar) { bar = document.createElement('a'); bar.className = 'promo-bar'; bar.href = '#contact';
+      const nav = $q('nav'); (nav ? nav.parentElement : document.body.firstElementChild).before(bar); }
+    bar.textContent = lang === 'uk' ? P.uk : (P.en || P.uk);
+  };
+
+  /* ---- відгуки ---- */
+  const renderReviews = () => {
+    const R = site.reviews || []; let sec = $q('#reviews');
+    if (!R.length) { if (sec) sec.remove(); return; }
+    const uk = lang === 'uk';
+    if (!sec) { sec = document.createElement('section'); sec.className = 'sec'; sec.id = 'reviews';
+      sec.innerHTML = '<div class="wrap"><div class="eyebrow"><b>★</b> / <span data-rv="ey"></span></div><h2 class="h2" data-rv="h"></h2><div class="rvw-grid"></div></div>';
+      ($q('#faq') || $q('#contact')).before(sec); }
+    sec.querySelector('[data-rv=ey]').textContent = uk ? 'відгуки' : 'reviews';
+    sec.querySelector('[data-rv=h]').textContent = uk ? 'Що кажуть клієнти' : 'What clients say';
+    const g = sec.querySelector('.rvw-grid'); g.textContent = '';
+    R.forEach(r => {
+      const c = document.createElement('figure'); c.className = 'rvw'; c.style.margin = '0';
+      const q = document.createElement('blockquote'); q.textContent = (!uk && r.en) ? r.en : r.text;
+      const w = document.createElement('figcaption'); w.className = 'who';
+      const b = document.createElement('b'); b.textContent = r.name; w.append(b);
+      if (r.role) { const sp = document.createElement('span'); sp.textContent = r.role; w.append(sp); }
+      if (r.link) { const a = document.createElement('a'); a.href = r.link; a.target = '_blank'; a.rel = 'noopener nofollow';
+        try { a.textContent = new URL(r.link).hostname + ' ↗'; } catch (e) { a.textContent = '↗'; } w.append(a); }
+      c.append(q, w); g.append(c);
+    });
+  };
+
+  try { renderPricing(); renderWorks(); renderFaq(); } catch (e) {}
+  renderPromo(); renderReviews();
+  // перемикання мови — перемальовуємо і наші блоки
+  try { const orig = applyLang; applyLang = function () { orig.apply(this, arguments); renderPromo(); renderReviews(); }; } catch (e) {}
 })();
 </script>
 </body>
