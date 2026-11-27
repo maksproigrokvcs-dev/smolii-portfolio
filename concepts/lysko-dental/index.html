@@ -695,6 +695,9 @@ section[id]{scroll-margin-top:72px}
 .lb .x{top:18px;right:18px}.lb .p{left:18px;top:50%;margin-top:-26px}.lb .n{right:18px;top:50%;margin-top:-26px}
 .lb .c{position:absolute;bottom:18px;left:0;right:0;text-align:center;color:#E6F1EE;font-size:14px}
 @media(max-width:600px){.lb .p,.lb .n{top:auto;bottom:52px;margin:0}.lb img{max-height:76vh}}
+.sr{opacity:0;transform:translateY(18px);transition:opacity .6s var(--ease),transform .6s var(--ease);transition-delay:var(--sd,0ms)}
+.sr.sr-in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.sr{opacity:1;transform:none;transition:none}}
 </style>
 </head>
 <body>
@@ -1915,6 +1918,26 @@ section[id]{scroll-margin-top:72px}
     if (e.key === "Escape") close(); else if (e.key === "ArrowRight") go(1); else if (e.key === "ArrowLeft") go(-1); });
   let x0 = null; lb.addEventListener("touchstart", e => { x0 = e.touches[0].clientX; }, { passive: true });
   lb.addEventListener("touchend", e => { if (x0 === null) return; const dx = e.changedTouches[0].clientX - x0; if (Math.abs(dx) > 50) go(dx < 0 ? 1 : -1); x0 = null; });
+})();
+</script>
+<script>
+(() => {
+  if (!("IntersectionObserver" in window) || matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  const sel = "main .sec .sec-head, .cn, .ba-grid, .pc > *, .vt-steps > li, .vt-side, .fq2 > *, .bk > *, .ws-gal > li, .ws-doc-ph, .ws-doc-tx, .ws-cl > figure, .ws-q, .ws-more, .sfoot .cols > *";
+  const els = [...document.querySelectorAll(sel)].filter(el => !el.closest(".hero"));
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("sr-in"); io.unobserve(e.target); } }), { rootMargin: "0px 0px -8% 0px", threshold: .08 });
+  els.forEach(el => {
+    const sib = [...el.parentElement.children].filter(c => els.includes(c));
+    el.style.setProperty("--sd", (Math.min(sib.indexOf(el), 5) * 70) + "ms");
+    el.classList.add("sr"); io.observe(el);
+  });
+  // backup: plain scroll check, so nothing ever stays hidden
+  let last = 0;
+  const check = () => { const lim = innerHeight * 0.96;
+    for (const el of els) if (!el.classList.contains("sr-in") && el.getBoundingClientRect().top < lim) el.classList.add("sr-in"); };
+  const on = () => { const t = Date.now(); if (t - last > 80) { last = t; check(); } else setTimeout(check, 90); };
+  addEventListener("scroll", on, { passive: true }); addEventListener("resize", on); check();
+  addEventListener("hashchange", () => setTimeout(check, 50));
 })();
 </script>
 </body>
